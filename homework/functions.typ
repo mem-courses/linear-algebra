@@ -3,7 +3,7 @@
 #let prob(text) = block(
   fill: luma(240),
   width: 100%,
-  inset: 8pt,
+  inset: 12pt,
   radius: 4pt,
   text
 )
