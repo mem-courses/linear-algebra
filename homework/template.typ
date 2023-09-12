@@ -5,12 +5,13 @@
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
   set page(
-    paper: "iso-b5",
+    paper: "a4",
     margin: (left: 15mm, right: 15mm, top: 20mm, bottom: 20mm),
     numbering: "1",
     number-align: center,
   )
-  set text(font: ("New Computer Modern", "Simsun"), lang: "zh")
+
+  set text(font: ("New Computer Modern", "Simsun"), lang: "zh", size: 13pt)
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
@@ -29,7 +30,7 @@
   // Author information.
   pad(
     top: 0.8em,
-    bottom: 0.8em,
+    bottom: 2.8em,
     x: 2em,
     grid(
       columns: (1fr,) * calc.min(3, authors.len()),
