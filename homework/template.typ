@@ -11,7 +11,7 @@
     number-align: center,
   )
 
-  set text(font: ("New Computer Modern", "Simsun"), lang: "zh", size: 13pt)
+  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 13pt)
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
@@ -48,3 +48,16 @@
 
   body
 }
+
+#import "@preview/xarrow:0.1.1": xarrow
+
+#let prob(text) = block(
+  fill: luma(245),
+  width: 100%,
+  inset: 12pt,
+  radius: 4pt,
+  stroke: luma(50) + 0.5pt,
+  text
+)
+
+#let cas(..args) = math.cases(..args)
