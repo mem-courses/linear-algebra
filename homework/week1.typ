@@ -94,7 +94,60 @@ $
   )
 $
 
-TBD
+当 $lambda=0$ 时，有 $display(cases(
+  x_2 + x_3 + x_4 = 1,
+  -x_2 - x_3 - x_4 = -1,
+  x_3 + x_4 = 0
+))$ 故原线性方程组有通解
+$
+  display(cases(
+    x_1 = t_1,
+    x_2 = 1,
+    x_3 = t_2,
+    x_4 = -t_2,
+  )) quad quad t_1,t_2 in RR
+$
+
+当 $lambda=1$ 时，有 $display(cases(
+  x_1 + x_2 + x_3 + x_4 = 1,
+))$，故原线性方程组有通解
+$
+  display(cases(
+    x_1 = t_1,
+    x_2 = t_2,
+    x_3 = t_3,
+    x_4 = 1 - t_1 - t_2 - t_3,
+  )) quad quad t_1,t_2,t_3 in RR
+$
+
+当 $lambda=-1$ 时，有 $display(cases(
+  -x_1 + x_2 + x_3 + x_4 = 1,
+  x_3 + x_4 = 0,
+))$，故原线性方程组有通解
+$
+  display(cases(
+    x_1 = t_1 - 1,
+    x_2 = t_1,
+    x_3 = t_2,
+    x_4 = -t_2,
+  )) quad quad t_1, t_2 in RR
+$
+
+当 $lambda = -2$ 时，有 $display(cases(
+  -2x_1 + x_2 + x_3 + x_4 = 0,
+  x_2 - x_3 - x_4 = 1,
+  0 = 6,
+))$，故此时原线性方程组无解。
+
+否则，由于 $r<m$，原线性方程组有通解
+$
+  cases(
+    x_1 = display(-(lambda+1) / (lambda+2)),
+    x_2 = display(1 / (lambda+2)),
+    x_3 = t,
+    x_4 = display((lambda+1)^2 / (lambda+2)) - t
+  ) quad quad t in RR
+$
 
 = P15 习题一 10(4)
 
@@ -210,7 +263,21 @@ $
 (2) 方程个数小于未知量个数的线性方程组必有无穷多个解．
 ]
 
+(1) 成立。通过重排标号可使得应用 Gauss 后线性方程组形如
+$
+  cases(
+    x_1 + a_(1,2)x_2 + a_(1,3)x_3 + dots.c + a_(1,m)x_m &= b_1,
+    x_2 + a_(2,3)x_3 + a_(2,4)x_4 + dots.c + a_(2,m)x_m &= b_2,
+    &dots.c,
+    x_r + a_()
+  )
+$
 
+其中 $r<m$。那么必存在 $r<i<=n$，令符合条件的 $x_i$ 取非零常数并代入。得到新的线性方程组有 $r=n$。由定理可知此时必有唯一解。
+
+且由于 $exists r<i<=n, x_i != 0$，这组解是非零解。即原线性方程组必有非零解。
+
+(2) 成立。同 (1) 理转化后可知随意调整 $r<i<=n$ 的 $x_i$ 后一定有唯一解。由于 $x_n in RR$，实数域有无穷多元素，故原线性方程组有无穷多解。
 
 
 = P16 补充题一 1
@@ -277,3 +344,17 @@ $
   其中 $n>1$
 ]
  
+对原线性方程组应用初等变换得
+$
+  xarrow(display(R_(i mod n + 1) - R_i  "," i in [1,n] sect ZZ)) cases(
+    x_1 - x_2 = 0,
+    x_2 - x_3 = 0,
+    dots.c,
+    x_(n-1) - x_n = 0,
+    x_n - x_1 = 0,
+  )
+$
+
+故 $x_1 = x_2 = dots.c = x_n$，则有 $(n-1) x_1 = 0$。
+
+由于 $n>1$，只能有 $x_1 = 0$，故原线性方程组的解为 $x_1 = x_2 = dots.c = x_n = 0$。
