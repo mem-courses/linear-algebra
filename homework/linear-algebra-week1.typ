@@ -1,24 +1,56 @@
-#import "template.typ": *
+#import "../template.typ": *
+#import "../functions.typ": *
 
 #show: project.with(
   title: "线性代数 Homework #1",
   authors: (
   (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
   ),
-  date: "September 14, 2023",
+  date: "September 16, 2023",
 )
 
-= P13 习题一 1(3)
+= P14 习题一 1(3)
 
-见习题本．
+#prob[
+  使用 Gauss 消元法解线性方程组：
+  #let tmp = mem_equations(
+    (5, -1, 1, -2, 3),
+    (8, -1, 1, -1, 1),
+    (7, 2, -2, 3, 0),
+    (5, -3, 3, -6, 6),
+  )
+  $ tmp $
+]
+
+对原线性方程组实施初等变换：
+
+#let tmp1 = mem_equations(
+  (5, -1, 1, -2, 3),
+  (8, -1, 1, -1, 1),
+  (7, 2, -2, 3, 0),
+  (5, -3, 3, -6, 6),
+)
+#let tmp2 = mem_equations(
+  (5, -1, 1, -2, 3),
+  (3, 0, 0, 1, -2),
+  (17, 0, 0, -1, 6),
+  (-10, 0, 0, 0, -3),
+)
+$ tmp1 dxarrow(R_2 - R_1 \ R_3 + 2R_1 \ R_4 - 3R_1) tmp2 $
+
+可得 $x_1 = 0.3$。
+
+由 $R_2$ 知 $x_4 = -2 - 3x_1 = -2.9$；由 $R_3$ 知 $x_4 = 17x_1 - 6 = -0.9$。
+
+矛盾！故原线性方程组无解。
 
 = P14 习题一 2
 #prob[
   证明：任意一个形如
   $
     cases(
-      a_11 x_1 + a_12 x_2 + &dots.c + a_1n x_n &= 0,
-      a_21 x_1 + a_22 x_2 + &dots.c + a_2n x_n &= 0,
+      a_11 x_1 + a_12 x_2 + &dots.c + a_(1n) x_n &= 0,
+      a_21 x_1 + a_22 x_2 + &dots.c + a_(2n) x_n &= 0,
       &dots.c,
       a_(m 1) x_1 + a_(m 2) x_2 + &dots.c + a_(m n) x_n &= 0,
     )
@@ -32,7 +64,58 @@
 
 
 = P14 习题一 3(1)
-见习题本．
+
+#prob[
+  使用 Gauss 消元法解齐次线性方程组：
+  #let tmp = mem_equations(
+    (2, 2, -4, 3, 0),
+    (2, 4, -11, 10, 0),
+    (4, 2, -1, -8, 0),
+    (1, 1, -3, 3, 0),
+  )
+  $ tmp $
+]
+
+对原线性方程组实施初等变换：
+
+#let t0 = mem_equations(
+  (1, 1, -3, 3, 0),
+  (2, 4, -11, 10, 0),
+  (4, 2, -1, -8, 0),
+  (2, 2, -4, 3, 0),
+)
+#let t1 = mem_equations(
+  (2, 2, -4, 3, 0),
+  (2, 4, -11, 10, 0),
+  (4, 2, -1, -8, 0),
+  (1, 1, -3, 3, 0),
+)
+#let t2 = mem_equations(
+  (1, 1, -3, 3, 0),
+  (0, 2, -5, 4, 0),
+  (0, -2, 11, -20, 0),
+  (0, 0, 2, -3, 0),
+)
+#let t3 = mem_equations(
+  (1, 1, -3, 3, 0),
+  (0, 2, -5, 4, 0),
+  (0, 0, 6, -16, 0),
+  (0, 0, 6, -9, 0),
+)
+#let t4 = mem_equations(
+  (1, 1, -3, 3, 0),
+  (0, 2, -5, 4, 0),
+  (0, 0, 6, -16, 0),
+  (0, 0, 0, 7, 0),
+)
+$
+t0 dxarrow(R_14) t1 \
+dxarrow(R_2 - 2R_1 \ R_3 - 4R_1 \ R_4 - 2R_1) t2
+dxarrow(R_3 + R_2 \ 3 R_4) t3 \
+dxarrow(R_4 - R_3) t4
+$
+
+可解得 $display(cases(x_1 = 0, x_2 = 0, x_3 = 0, x_4 = 0))$。
 
 = P14 习题一 6
 #prob[
@@ -44,10 +127,10 @@
 对 $bold(A)$ 应用初等变换得
 $
   bold(A)
-  xarrow(R_2+R_1) mat(bold(R_1); bold(R_1) + bold(R_2); bold(C))
-  xarrow(-1 times R_1) mat(-bold(R_1); bold(R_1) + bold(R_2); bold(C))
-  xarrow(R_1 + R_2) mat(bold(R_2); bold(R_1) + bold(R_2); bold(C))
-  xarrow(R_2 - R_1) mat(bold(R_2); bold(R_1); bold(C))
+  dxarrow(R_2+R_1) mat(bold(R_1); bold(R_1) + bold(R_2); bold(C))
+  dxarrow(-1 times R_1) mat(-bold(R_1); bold(R_1) + bold(R_2); bold(C))
+  dxarrow(R_1 + R_2) mat(bold(R_2); bold(R_1) + bold(R_2); bold(C))
+  dxarrow(R_2 - R_1) mat(bold(R_2); bold(R_1); bold(C))
   = bold(B)
 $
 
@@ -75,19 +158,19 @@ $
     lambda, 1, 1, 1, 1;
     1, lambda, 1, 1, lambda;
     1, 1, lambda, lambda, lambda^2;
-  )xarrow(lambda R_2 \ lambda R_3) mat(
+  )dxarrow(lambda R_2 \ lambda R_3) mat(
     𝜆, 1, 1, 1, 1;
     𝜆, 𝜆^2, 𝜆, 𝜆, 𝜆^2;
     𝜆, 𝜆, 𝜆^2, 𝜆^2, 𝜆^3;
-  ) xarrow(R_2 - R_1 \ R_3 - R_1) mat(
+  ) dxarrow(R_2 - R_1 \ R_3 - R_1) mat(
     𝜆, 1, 1, 1, 1;
     0, 𝜆^2-1, 𝜆-1, 𝜆-1, 𝜆^2-1;
     0, 𝜆-1, 𝜆^2-1, 𝜆^2-1, 𝜆^3-1;
-  ) \ xarrow((𝜆+1) R_3) mat(
+  ) \ dxarrow((𝜆+1) R_3) mat(
     𝜆, 1, 1, 1, 1;
     0, 𝜆^2-1, 𝜆-1, 𝜆-1, 𝜆^2-1;
     0, 𝜆^2-1, 𝜆^3+𝜆^2-𝜆-1, 𝜆^3+𝜆^2-𝜆-1, 𝜆^4+𝜆^3-𝜆-1;
-  ) \ xarrow(R_3 - R_2) mat(
+  ) \ dxarrow(R_3 - R_2) mat(
     𝜆, 1, 1, 1, 1;
     0, 𝜆^2-1, 𝜆-1, 𝜆-1, 𝜆^2-1;
     0, 0, 𝜆^3+𝜆^2-2𝜆, 𝜆^3+𝜆^2-2𝜆, 𝜆^4+𝜆^3-𝜆^2-𝜆;
@@ -176,12 +259,12 @@ $
     1, 2, a, 0;
     1, 4, a^2, 0;
     1, 2, 1, a-1;
-  ) xarrow(R_2-R_1 \ R_3-R_1 \ R_4-R_1) mat(
+  ) dxarrow(R_2-R_1 \ R_3-R_1 \ R_4-R_1) mat(
     1, 1, 1, 0;
     0, 1, a-1, 0;
     0, 3, a^2-1, 0;
     0, 1, 0, a-1;
-  ) xarrow(R_3-3R_2 \ R_4-R_1) \ mat(
+  ) dxarrow(R_3-3R_2 \ R_4-R_1) \ mat(
     1, 1, 1, 0;
     0, 1, a-1, 0;
     0, 0, a^2-3a+2, 0;
@@ -211,7 +294,6 @@ $
   &cases(x_1 = -t, x_2 = 0, x_3 = t) quad quad t in RR quad quad &(a=1)\
   &cases(x_1 = 0, x_2 = 1, x_3 = -1) quad quad &(a=2)
 $
-
 
 = P15 习题一 12
 #prob[
@@ -346,7 +428,7 @@ $
  
 对原线性方程组应用初等变换得
 $
-  xarrow(display(R_(i mod n + 1) - R_i  "," i in [1,n] sect ZZ)) cases(
+  dxarrow(display(R_(i mod n + 1) - R_i  "," i in [1,n] sect ZZ)) cases(
     x_1 - x_2 = 0,
     x_2 - x_3 = 0,
     dots.c,

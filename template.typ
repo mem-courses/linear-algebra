@@ -11,7 +11,7 @@
     number-align: center,
   )
 
-  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 13pt)
+  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 12.5pt)
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
@@ -61,3 +61,4 @@
 )
 
 #let cas(..args) = math.cases(..args)
+#let dxarrow(..args) = xarrow(math.display(..args))
