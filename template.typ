@@ -51,14 +51,20 @@
 
 #import "@preview/xarrow:0.1.1": xarrow
 
-#let prob(text) = block(
-  fill: luma(245),
+#let cas(..args) = math.cases(..args)
+#let dxarrow(..args) = xarrow(math.display(..args))
+
+// ===== blockquote =====
+
+#let prob(bgcolor: luma(245), border: luma(50), text) = block(
+  fill: bgcolor,
   width: 100%,
   inset: 12pt,
   radius: 4pt,
-  stroke: luma(50) + 0.5pt,
+  stroke: border + 0.5pt,
   text
 )
 
-#let cas(..args) = math.cases(..args)
-#let dxarrow(..args) = xarrow(math.display(..args))
+#let note(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
+#let info(..x) = { prob(bgcolor: rgb(210, 247, 253), border: rgb(88, 178, 220), ..x) }
+#let warn(..x) = { prob(bgcolor: rgb(254, 234, 207), border: rgb(255, 196, 8), ..x) }
