@@ -11,14 +11,14 @@
     number-align: center,
   )
 
-  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 12.5pt)
+  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 12pt)
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
-  show par: set block(above: 1.2em, below: 1.2em)
+  show par: set block(above: 1.25em, below: 1.25em)
 
   set heading(numbering: "1.1)")
-  set par(leading: 0.75em)
+  set par(leading: 0.8em)
 
   // Title row.
   align(center)[
@@ -59,7 +59,7 @@
 #let prob(bgcolor: luma(245), border: luma(50), text) = block(
   fill: bgcolor,
   width: 100%,
-  inset: 12pt,
+  inset: 0.9em,
   radius: 4pt,
   stroke: border + 0.5pt,
   text

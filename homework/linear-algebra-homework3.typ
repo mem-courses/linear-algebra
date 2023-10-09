@@ -9,11 +9,76 @@
   date: "October 9, 2023",
 )
 
+= 附加题1
+
+#prob[
+	#set math.mat(delim: "(")
+	$
+	bold(A)&=(a_(i j))_(n times n)\
+	bold(B)&=mat(
+		a_11,a_12b^(-1),a_13b^(-2),dots.c,a_(1n)b^(1-n);
+		a_21b,a_22,a_23b^(-1),dots.c,a_(2n)b^(2-n);
+		dots.v,dots.v,dots.v,,dots.v;
+		a_(n 1)b^(n-1),a_(n 2)b^(n-2),a_(n 3)b^(n-3),dots.c,a_(n n);
+	) quad (b!=0)\
+	$
+	已知 $|bold(A)|=t$，求 $|bold(B)|$．
+]
+
+= 附加题2
+
+#set math.mat(delim: "|")
+#prob[
+	计算：$
+		D_n = mat(
+			1,1,1,dots.c,1,1,1;
+			0,0,0,dots.c,0,2,1;
+			0,0,0,dots.c,3,0,1;
+			dots.v,dots.v,dots.v,,dots.v,dots.v,dots.v;
+			0,n-1,0,dots.c,0,0,1;
+			n,0,0,dots.c,0,0,1;
+		)
+	$
+]
+
+= 附加题3
+
+#prob[
+	计算：$
+		D_n = mat(
+			a_1+b_1,a_2,dots.c,a_n;
+			a_1,a_2+b_2,dots.c,a_n;
+			dots.v,dots.v,,dots.v;
+			a_1,a_2,dots.c,a_n+b_n;
+		)
+	$
+]
+
+= 附加题4
+
+#prob[
+	计算：$
+		D_n = mat(
+			1,2,3,dots.c,n-1,n;
+			2,3,4,dots.c,n,1;
+			3,4,5,dots.c,1,2;
+			dots.v,dots.v,dots.v,,dots.v,dots.v;
+			n-1,n,1,dots.c,n-3,n-2;
+			n,1,2,dots.c,n-2,n-1;
+		)
+	$
+]
+
+= 附加题5
+
+#prob[
+	将 $n$ 阶矩阵 $bold(D)$ 的每个元素减去其同行其余元素之和，得到 $bold(D_1)$，若 $|bold(D)|=t$，求 $|bold(D_1)|$．
+]
+
 = P36 习题二 12(3)
 
 #prob[
 	计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		2,0,dots.c,0,2;
 		-1,2,dots.c,0,2;
@@ -34,7 +99,6 @@ $
 
 #prob[
 	计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		x,y,0,dots.c,0,0;
 		0,x,y,dots.c,0,0;
@@ -45,7 +109,6 @@ $
 	)_n $
 ]
 
-#set math.mat(delim: "|")
 $
 D
 &= a_(11) A_(11) + a_(12) A_12\
@@ -69,7 +132,6 @@ $
 
 #prob[
 	计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		x,-1,0,dots.c,0,0;
 		0,x,-1,dots.c,0,0;
@@ -80,11 +142,31 @@ $
 	) $
 ]
 
+$
+|bold(D)|
+&= mat(
+	x,-1,0,dots.c,0,0;
+	0,x,-1,dots.c,0,0;
+	0,0,x,dots.c,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v;
+	0,0,0,dots.c,x,-1;
+	0,0,0,dots.c,0,x;
+) + mat(
+	x,-1,0,dots.c,0,0;
+	0,x,-1,dots.c,0,0;
+	0,0,x,dots.c,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v;
+	0,0,0,dots.c,x,-1;
+	a_n,a_(n-1),a_(n-2),dots.c,a_2,a_1;
+)\
+&= x^n + sum_(i=1)^n a_i x^(n-i) (-1)^(i-1) (-1)^(n-i+1+n)\
+&= x^n + sum_(i=1)^n a_i x^(n-i)
+$
+
 = P37 习题二 12(11)
 
 #prob[
 	计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		1,1,1,dots.c,1;
 		2,2^2,2^3,dots.c,2^n;
@@ -94,7 +176,6 @@ $
 	) $
 ]
 
-#set math.mat(delim: "|")
 令 $display(bold(A')=mat(
 	1,0,0,0,dots.c,0;
 	1,1,1,1,dots.c,1;
@@ -102,12 +183,12 @@ $
 	1,3,3^3,3^3,dots.c,3^n;
 	1,dots.v,dots.v,dots.v,,dots.v;
 	1,n,n^2,n^3,dots.c,n^n;
-))$，有 $|bold(A')|=(-1)^(1+1) a'_(11)bold(A')_11=|bold(A)|$．
+))$，有 $|bold(D')|=(-1)^(1+1) a'_(11)bold(A')_11=|bold(D)|$．
 
 根据 Vandermonde 行列式，可以得到：
 
 $
-|bold(A)|
+|bold(D)|
 = product_(0<=i<j<=n) (j-i)
 = product_(i=1)^n i^(n-i+1)
 $
@@ -115,7 +196,6 @@ $
 = P37 习题二 13
 
 #prob[
-	#set math.mat(delim: "|")
 	设 $display(bold(D)_n = mat(
 		1,2,3,dots.c,n-1,n;
 		1,1,0,dots.c,0,0;
@@ -130,11 +210,31 @@ $
 |bold(D)_n|=product_(i=2)^n -(i-1) = (-1)^(n-1) dot (n-1)!
 $
 
+$
+t_1 A_(11) + t_2A_12 + dots.c + t_n A_(1 n)
+=& mat(
+	t_1,t_2,t_3,dots.c,t_(n-1),t_n;
+	1,1,0,dots.c,0,0;
+	1,0,1,dots.c,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v;
+	1,0,0,dots.c,1,0;
+	1,0,0,dots.c,0,1;
+)\
+=& mat(
+	t_1-sum_(i=2)^n t_i,t_2,t_3,dots.c,t_(n-1),t_n;
+	0,1,0,dots.c,0,0;
+	0,0,1,dots.c,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v;
+	0,0,0,dots.c,1,0;
+	0,0,0,dots.c,0,1;
+)\
+=& t_1-sum_(i=2)^n t_i
+$
+
 = P37 习题二 14
 
 #prob[
 	计算行列式
-	#set math.mat(delim: "|")
 	$ mat(
 		1,1,dots.c,1,1;
 		x_1,x_2,dots.c,x_(n-1),x_n;
@@ -144,11 +244,12 @@ $
 	) $
 ]
 
+TBD
+
 = P38 习题二 16(4)
 
 #prob[
 	利用 Laplace 定理计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		1,b,c,0,0,0;
 		0,0,3,0,0,0;
@@ -158,6 +259,32 @@ $
 		0,2,g,0,0,0;
 	) $
 ]
+
+$
+mat(
+	1,b,c,0,0,0;
+	0,0,3,0,0,0;
+	a_11,a_12,a_13,0,2,d;
+	a_21,a_22,a_23,0,0,1;
+	a_31,a_32,a_33,3,e,f;
+	0,2,g,0,0,0;
+) =& (-1)^3 mat(
+	1,b,c,0,0,0;
+	0,0,3,0,0,0;
+	0,2,g,0,0,0;
+	a_11,a_12,a_13,0,2,d;
+	a_21,a_22,a_23,0,0,1;
+	a_31,a_32,a_33,3,e,f;
+)\ =& (-1)^3 mat(
+	1,b,c;
+	0,0,3;
+	0,2,g;
+) mat(
+	0,2,d;
+	0,0,1;
+	3,e,f;
+)\ =& -36
+$
 
 = P39 习题二 24
 
@@ -171,24 +298,74 @@ $
 	有唯一解，并求出该解．
 ]
 
+求线性方程组的系数矩阵的行列式：
+
+$
+|bold(D)|
+=& mat(
+	1,1,1;
+	a,b,c;
+	b c,a c,a b;
+) = mat(
+	1,1,1;
+	0,b-a,c-a;
+	0,-c(b-a),-b(c-a);
+)\ =& mat(
+	1,1,1;
+	0,b-a,c-a;
+	0,0,(c-b)(c-a);
+)\ =& (b-a)(c-a)(c-b)
+$
+
+根据 Cramer 法则，当且仅当 $a,b,c$ 互异时，原线性方程组有唯一解．
+
+对原线性方程组的系数矩阵的增广矩阵应用初等行变换得
+
+#set math.mat(delim: "(")
+$
+bold(A) &= mat(
+	1,1,1,a+b+c;
+	a,b,c,a^2+b^2+c^2;
+	b c,a c,a b,3a b c;
+)\ &xarrow(R_2-a R_1\ R_3-b c R_1) mat(
+	1,1,1,a+b+c;
+	0,b-a,c-a,b^2+c^2-a b-a c;
+	0,c(a-b),b(a-c),2a b c-b^2 c-b c^2;
+)\ &xarrow(R_3+c R_2) mat(
+	1,1,1,a+b+c;
+	0,b-a,c-a,(b-a)b+(c-a)c;
+	0,0,(c-a)(c-b),(c-a)(c-b)c
+)
+$
+#set math.mat(delim: "|")
+
+解得 $display(cases(
+	x_1 = a,
+	x_2 = b,
+	x_3 = c,
+))$ 是原线性方程组的唯一解．
+
 = P39 习题二 26
 
 #prob[
-	已知 $n$ 阶行列式 $D=|a_(i j)|_n!=0$，证明：线性方程组
+	已知 $n$ 阶行列式 $bold(D)=|a_(i j)|_n!=0$，证明：线性方程组
 	$ cases(
 		a_11 x_1 + a_12 x_2 + &&dots.c + a_(1,n-1) x_(n-1) = a_(1 n),
 		a_21 x_1 + a_22 x_2 + &&dots.c + a_(2,n-1) x_(n-1) = a_(2 n),
 		&&dots.c,
-		a_31 x_1 + a_32 x_2 + &&dots.c + a_(3,n-1) x_(n-1) = a_(3 n),
+		a_(n 1) x_1 + a_(n 2) x_2 + &&dots.c + a_(n,n-1) x_(n-1) = a_(n n),
 	) $
 	无解．
 ]
+
+取前 $n-1$ 个线性方程组，由于 $|a_(i j)|_n!=0$，那么 $bold(D')=|a_(i j)|_(n-1)!=0$。根据 Cramer 法则，只考虑前 $n-1$ 个线性方程组时，有唯一解。
+
+TBD：题抄错了？
 
 = P40 补充题二 3(1)
 
 #prob[
 	试计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		x,a,a,dots.c,a,a;
 		b,x,a,dots.c,a,a;
@@ -199,11 +376,12 @@ $
 	)_n $
 ]
 
+TBD
+
 = P40 补充题二 3(5)
 
 #prob[
 	试计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		a_0+a_1,a_1,0,dots.c,0,0;
 		a_1,a_1+a_2,a_2,dots.c,0,0;
@@ -218,7 +396,6 @@ $
 
 #prob[
 	试计算行列式的值：
-	#set math.mat(delim: "|")
 	$ mat(
 		2^n-2,2^(n-1)-2,2^(n-2)-2,dots.c,2^2-2;
 		3^n-3,3^(n-1)-3,3^(n-2)-3,dots.c,3^2-3;
@@ -228,11 +405,34 @@ $
 	) $
 ]
 
+$
+|bold(D)| &= product_(k=2)^n k(k-1) mat(
+	sum_(i=0)^(n-2) 2^i,sum_(i=0)^(n-3) 2^i,dots.c,2^2+2+1,2+1,1;
+	sum_(i=0)^(n-2) 3^i,sum_(i=0)^(n-3) 3^i,dots.c,3^2+3+1,3+1,1;
+	dots.v,dots.v,,dots.v,dots.v;
+	sum_(i=0)^(n-2) n^i,sum_(i=0)^(n-3) n^i,dots.c,n^2+n+1,n+1,1;
+)\ &= product_(k=2)^n k(k-1) mat(
+	sum_(i=0)^(n-2) 2^i,sum_(i=0)^(n-3) 2^i,dots.c,2^2+2+1,2+1,1;
+	sum_(i=0)^(n-2) 3^i,sum_(i=0)^(n-3) 3^i,dots.c,3^2+3+1,3+1,1;
+	dots.v,dots.v,,dots.v,dots.v;
+	sum_(i=0)^(n-2) n^i,sum_(i=0)^(n-3) n^i,dots.c,n^2+n+1,n+1,1;
+)\ &= product_(k=2)^n k(k-1) mat(
+	2^(n-2),2^(n-3),dots.c,2^2,2,1;
+	3^(n-2),3^(n-3),dots.c,3^2,3,1;
+	dots.v,dots.v,,dots.v,dots.v;
+	n^(n-2),n^(n-3),dots.c,n^2,n,1;
+)\
+&= n! dot (n-1)! product_(1<=i<j<=(n-1)) ((j+1)-(i+1)) \
+&= n! dot (n-1)! product_(i=1)^(n-2) i^(n-1-i)
+$
+
 = P41 补充题二 4
 
 #prob[
 	设 $n space (n>1)$ 阶行列式 $D=|a_(i j)|_n=4$，且 $D$ 中各列元素之和均为 $3$，并记元素 $a_(i j)$ 的代数余子式为 $A_(i j)$，试求 $display(sum_(i=1)^n sum_(j=1)^n A_(i j))$．
 ]
+
+
 
 = P41 补充题二 5
 
