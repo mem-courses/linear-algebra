@@ -25,6 +25,17 @@
 	已知 $|bold(A)|=t$，求 $|bold(B)|$．
 ]
 
+#set math.mat(delim: "|")
+$
+|bold(B)|
+=& (product_(k=1)^n b^(-k)) mat(
+	a_11 b^n, a_12 b^(n-1), a_13 b^(n-2), dots.c, a_(1 n) b;
+	a_21 b^n, a_22 b^(n-1), a_23 b^(n-2), dots.c, a_(2 n) b;
+	dots.v,dots.v,dots.v,,dots.v;
+	a_(n 1) b^n, a_(n 2) b^(n-1), a_(n 3) b^(n-2), dots.c, a_(n n) b;
+)
+$
+
 = 附加题2
 
 #set math.mat(delim: "|")
