@@ -456,7 +456,7 @@ D_n =& (a_(n-1) + a_n) (-1)^(2n) A_(n,n) + a_(n-1) (-1)^(2n-1) A_(n-1,n)\
 =& (a_(n-1) + a_n) D_(n-1) - a_(n-1)^2 D_(n-2)
 $
 
-下归纳证明：$display(D_n=(sum_(i=1)^n 1/a_i)(product_(i=1)^n a_i))$．
+下归纳证明：$display(D_n=sum_(i=1)^n 1/a_i product_(i=1)^n a_i)$．
 
 - 当 $n=1$ 时，$D_1 = a_0+a_1$，合法；
 
@@ -465,10 +465,10 @@ $
 - 下证 $n=k-1$ 和 $n=k-2$ 时均成立，则 $n=k$ 也成立：
 
   $
-	D_k =& (a_(k-1)+a_k) (sum_(i=1)^(k-1) 1/a_i)(product_(i=1)^(k-1) a_i) - a_(k-1)^2 (sum_(i=1)^(k-2) 1/a_i)(product_(i=1)^(k-2) a_i)\
-	=& (1+a_(k-1)/a_k) (sum_(i=1)^(k-1) 1/a_i)(product_(i=1)^k a_i) - a_(k-1)/a_k (sum_(i=1)^(k-2) 1/a_i)(product_(i=1)^k a_i)\
-	=& (sum_(i=1)^(k-1) 1/a_i)(product_(i=1)^k a_i) - a_(k-1)/a_k dot 1/a_(k-1)(product_(i=1)^k a_i)\
-	=& (sum_(i=1)^k 1/a_i)(product_(i=1)^k a_i)\
+	D_k =& (a_(k-1)+a_k) sum_(i=1)^(k-1) 1/a_i product_(i=1)^(k-1) a_i - a_(k-1)^2 sum_(i=1)^(k-2) 1/a_i product_(i=1)^(k-2) a_i\
+	=& (1+a_(k-1)/a_k) sum_(i=1)^(k-1) 1/a_i product_(i=1)^k a_i - a_(k-1)/a_k sum_(i=1)^(k-2) 1/a_i product_(i=1)^k a_i\
+	=& sum_(i=1)^(k-1) 1/a_i product_(i=1)^k a_i - a_(k-1)/a_k dot 1/a_(k-1)product_(i=1)^k a_i\
+	=& sum_(i=1)^k 1/a_i product_(i=1)^k a_i\
 	$
 
 得证．
@@ -503,8 +503,8 @@ $
 	dots.v,dots.v,,dots.v,dots.v;
 	n^(n-2),n^(n-3),dots.c,n^2,n,1;
 )\
-&= n! dot (n-1)! product_(1<=i<j<=(n-1)) ((j+1)-(i+1)) \
-&= n! dot (n-1)! product_(i=1)^(n-2) i^(n-1-i)
+&= n! (n-1)! product_(1<=i<j<=(n-1)) ((j+1)-(i+1)) \
+&= n! (n-1)! product_(i=1)^(n-2) i^(n-1-i)
 $
 
 = P41 补充题二 4
@@ -518,7 +518,7 @@ TBD
 = P41 补充题二 5
 
 #prob[
-	已知 $a!=plus.minus b$，试证明线性方程组
+	已知 $a!=pm b$，试证明线性方程组
 	$ cases(
 		a x_1 + b x_(2n) &= 1,
 		a x_2 + b x_(2n-1) &= 1,
@@ -531,6 +531,29 @@ TBD
 	) $
 	有唯一解，并求该解．
 ]
+
+考虑线性方程组的系数矩阵的行列式：
+
+$
+D_n =& mat(
+	a,0,0,dots.c,0,0,dots.c,0,0,b;
+	0,a,0,dots.c,0,0,dots.c,0,b,0;
+	0,0,a,dots.c,0,0,dots.c,b,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v,,dots.v,dots.v,dots.v;
+	0,0,0,dots.c,a,b,dots.c,0,0,0;
+	0,0,0,dots.c,b,a,dots.c,0,0,0;
+	dots.v,dots.v,dots.v,,dots.v,dots.v,,dots.v,dots.v,dots.v;
+	0,0,b,dots.c,0,0,dots.c,a,0,0;
+	0,b,0,dots.c,0,0,dots.c,0,a,0;
+	b,0,0,dots.c,0,0,dots.c,0,0,a;
+)_(2n)\
+=& a (-1)^(1+1) A_(1,1) + b (-1)^(1+2n) A_(1,2n)\
+=& a (-1)^(1+1) dot a (-1)^((2n-1)+(2n-1)) dot D_(n-1) + b (-1)^(1+2n) dot b (-1)^(1+(2n-1)) dot D_(n-1)\
+=& (a^2 - b^2) D_(n-1)\
+=& (a^2 - b^2)^n
+$
+
+由于 $a!=pm b$，故 $D_n!=0$。根据 Cramer 法则，原线性方程组有唯一解。
 
 TBD
 
@@ -548,4 +571,14 @@ TBD
 
 相交于一点的充分必要条件是三条直线方程构成的线性方程组有唯一解．
 
-TBD
+求线性方程组的系数矩阵的行列式：
+
+$
+D_3 =& a mat(c,a;a,b) - b mat(b,a;c,b) + c mat(b,c;c,a)\
+=& a(b c - a^2) - b (b^2 - a c) + c(a b - c^2)\
+=& 3 a b c -a^3 - b^3 - c^3\
+=& (a+b+c)(a^2+b^2+c^2-a b-a c-b c)\
+=& 1/2(a+b+c)((a-b)^2+(a-c)^2+(b-c)^2)\
+$
+
+根据 Cramer 法则，线性方程组有唯一解的充分必要条件是 $D_3=0$ 。由于 $a,b,c$ 互异，故当且仅当 $a+b+c=0$ 时成立，得证。

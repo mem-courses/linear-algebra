@@ -68,3 +68,6 @@
 #let note(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
 #let info(..x) = { prob(bgcolor: rgb(210, 247, 253), border: rgb(88, 178, 220), ..x) }
 #let warn(..x) = { prob(bgcolor: rgb(254, 234, 207), border: rgb(255, 196, 8), ..x) }
+
+#let pm = math.plus.minus
+#let mp = math.minus.plus
