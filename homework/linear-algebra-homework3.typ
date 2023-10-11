@@ -56,6 +56,24 @@ $
 	$
 ]
 
+$
+D_n = mat(
+	1/n,1/(n-1),1/(n-2),dots.c,1/3,1/2,1;
+	0,0,0,dots.c,0,1,1;
+	0,0,0,dots.c,1,0,1;
+	dots.v,dots.v,dots.v,,dots.v,dots.v,dots.v;
+	0,1,0,dots.c,0,0,1;
+	1,0,0,dots.c,0,0,1;
+) = mat(
+	1/n,1/(n-1),1/(n-2),dots.c,1/3,1/2,1-sum_(i=2)^n 1/i;
+	0,0,0,dots.c,0,1,1;
+	0,0,0,dots.c,1,0,1;
+	dots.v,dots.v,dots.v,,dots.v,dots.v,dots.v;
+	0,1,0,dots.c,0,0,1;
+	1,0,0,dots.c,0,0,1;
+) = (-1)^(n(n-1)/2) (1-sum_(i=2)^n 1/i)
+$
+
 = 附加题3
 
 #prob[
@@ -83,6 +101,52 @@ $
 		)
 	$
 ]
+
+$
+D_n =& mat(
+	1,2,3,dots.c,n-1,n;
+	2,3,4,dots.c,n,1;
+	3,4,5,dots.c,1,2;
+	dots.v,dots.v,dots.v,,dots.v,dots.v;
+	n-1,n,1,dots.c,n-3,n-2;
+	n,1,2,dots.c,n-2,n-1;
+) = mat(
+	space 1,2,3,dots.c,n-1,n;
+	space 1,1,1,dots.c,1,-(n-1);
+	space 1,1,1,dots.c,-(n-2),1;
+	space dots.v,dots.v,dots.v,,dots.v,dots.v;
+	space 1,1,-2,dots.c,1,1;
+	space 1,-1,1,dots.c,1,1;
+)\ =& mat(
+	space 1,1,2,dots.c,n-2,n-1;
+	space 1,0,0,dots.c,0,-n;
+	space 1,0,0,dots.c,-(n-1),0;
+	space dots.v,dots.v,dots.v,,dots.v,dots.v;
+	space 1,0,-3,dots.c,0,0;
+	space 1,-2,0,dots.c,0,0;
+) = (-1)^(n-1) mat(
+	space 1,0,0,dots.c,0,-n;
+	space 1,0,0,dots.c,-(n-1),0;
+	space dots.v,dots.v,dots.v,,dots.v,dots.v;
+	space 1,0,-3,dots.c,0,0;
+	space 1,-2,0,dots.c,0,0;
+	space 1,1,2,dots.c,n-2,n-1;
+)\ =& (-1)^(n-1) mat(
+	space 1,0,0,dots.c,0,1;
+	space 1,0,0,dots.c,1,0;
+	space dots.v,dots.v,dots.v,,dots.v,dots.v;
+	space 1,0,1,dots.c,0,0;
+	space 1,1,0,dots.c,0,0;
+	space 1,-1/2,-2/3,dots.c,-(n-2)/(n-1),-(n-1)/n;
+) = (-1)^(n-1) mat(
+	space 0,0,0,dots.c,0,1;
+	space 0,0,0,dots.c,1,0;
+	space dots.v,dots.v,dots.v,,dots.v,dots.v;
+	space 0,0,1,dots.c,0,0;
+	space 0,1,0,dots.c,0,0;
+	space 1+sum_(i=1)^(n-1) i/(i+1),-1/2,-2/3,dots.c,-(n-2)/(n-1),-(n-1)/n;
+)\ =& (-1)^(n(n+1)/2+1) (1+sum_(i=1)^(n-1) i/(i+1))
+$
 
 = 附加题5
 
@@ -380,7 +444,21 @@ $
 
 取前 $n-1$ 个线性方程组，由于 $|a_(i j)|_n!=0$，那么 $D_(n-1)=|a_(i j)|_(n-1)!=0$．根据 Cramer 法则，只考虑前 $n-1$ 个线性方程组时，有唯一解．
 
-TBD
+先假设线性方程组有解，我们有 $forall k in [1,n)$，$display(x_k=((-1)^(n-k-1) M_(n,k))/(D_(n-1)) = -A_(n,k)/D_(n-1) = -A_(n,k)/A_(n,n))$。
+
+将其代入原线性方程组的最后一个方程得：
+
+$
+-(a_(n,1) A_(n,1))/A_(n,n)-(a_(n,2) A_(n,2))/A_(n,n)-dots.c-(a_(n,n-1) A_(n,n-1))/A_(n,n)=a_(n,n)
+$
+
+即：
+
+$
+a_(n,1)A_(n,1)+a_(n,2)A_(n,2)+dots.c+a_(n,n)A_(n,n)=D_n=0
+$
+
+与题设矛盾，前 $n-1$ 个线性方程的解不符合第 $n$ 个方程，即原线性方程组无解。
 
 = P40 补充题二 3(1)
 
@@ -513,7 +591,22 @@ $
 	设 $n space (n>1)$ 阶行列式 $D=|a_(i j)|_n=4$，且 $D$ 中各列元素之和均为 $3$，并记元素 $a_(i j)$ 的代数余子式为 $A_(i j)$，试求 $display(sum_(i=1)^n sum_(j=1)^n A_(i j))$．
 ]
 
-TBD
+一方面，
+$
+sum_(i=1)^n sum_(j=1)^n a_(i,j) sum_(k=1)^n A_(k,j)
+= sum_(k=1)^n sum_(j=1)^n A_(k,j) sum_(i=1)^n a_(i,j)
+= 3 sum_(k=1)^n sum_(j=1)^n A_(k,j)
+$
+
+另一方面，
+
+$
+sum_(i=1)^n sum_(j=1)^n a_(i,j) sum_(k=1)^n A_(k,j)
+= sum_(i=1)^n sum_(k=1)^n [i=k] sum_(j=1)^n a_(i,j) A_(k,j)
+= sum_(i=1)^n sum_(j=1)^n a_(i,j) A_(i,j) = D = 4
+$
+
+故：$display(sum_(i=1)^n sum_(j=1)^n A_(i j) = 4/3)$。
 
 = P41 补充题二 5
 
@@ -555,7 +648,7 @@ $
 
 由于 $a!=pm b$，故 $D_n!=0$。根据 Cramer 法则，原线性方程组有唯一解。
 
-TBD
+猜想该解为 $x_1=x_2=dots.c=x_(2n)=display(1/(a+b))$，容易验证合法。由于原线性方程组的解只有一个，故这就是其唯一解。
 
 = P41 补充题二 9
 
