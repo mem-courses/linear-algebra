@@ -56,10 +56,10 @@
 
 // ===== blockquote =====
 
-#let prob(bgcolor: luma(245), border: luma(50), text) = block(
+#let prob(bgcolor: luma(248), border: luma(88), text) = block(
   fill: bgcolor,
   width: 100%,
-  inset: 0.9em,
+  inset: 0.8em,
   radius: 4pt,
   stroke: border + 0.5pt,
   text
