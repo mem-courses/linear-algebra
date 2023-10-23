@@ -69,5 +69,9 @@
 #let info(..x) = { prob(bgcolor: rgb(210, 247, 253), border: rgb(88, 178, 220), ..x) }
 #let warn(..x) = { prob(bgcolor: rgb(254, 234, 207), border: rgb(255, 196, 8), ..x) }
 
+#let dp = math.display
+#let sp = math.space
 #let pm = math.plus.minus
 #let mp = math.minus.plus
+
+#import "./functions.typ": *
