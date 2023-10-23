@@ -75,10 +75,40 @@
 #prob[
   如果 $bold(A)^T = -bold(A)$，那么称 $bold(A)$ 为 *反对称矩阵*。证明：
 
-  (1) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i,j<=n$，均有 $a_(i j) = - a_(j i)$ 成立；\
-  (2) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i<=n$，均有 $a_(i i) = 0$ 成立；\
-  (3)  
+  (1) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i,j<=n$，均有 $a_(i j) = - a_(j i)$ 成立；
 ]
+#prob[(2) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i<=n$，均有 $a_(i i) = 0$ 成立；]
+#prob[(3) 矩阵 $bold(A) pm bold(B)$ 都是反对称矩阵；]
+#prob[(4) $forall k in PP$，矩阵 $k bold(A)$ 都是反对称矩阵；]
+#prob[(5) 矩阵 $bold(A B)$ 是对称矩阵当且仅当 $bold(A B) = bold(B A)$；]
+#prob[(6) 矩阵 $bold(A B) - bold(B A)$ 是反对称矩阵。]
 
 = P69 习题三 25
+
+#prob[
+  对任意一个方阵 $bold(A)$，证明：
+
+  (1) 矩阵 $bold(A) + bold(A)^T$ 是对称矩阵；
+]
+#prob[(2) 矩阵 $bold(A) - bold(A)^T$ 是反对称矩阵；]
+#prob[(3) 矩阵 $bold(A)$ 是一个对称矩阵与一个反对称矩阵的和。]
+
 = P69 习题三 26
+
+#prob[
+  判断下列命题是否成立：
+
+  (1) 若矩阵乘积 $bold(A B) in PP^(m times n)$，则矩阵 $bold(A)$ 有 $m$ 行；
+]
+
+#prob[(2) 设 $bold(A),sp bold(B)$ 是两个 $n$ 阶矩阵，则 $|bold(A B)| = |bold(B A)|$；]
+#prob[(3) 设 $bold(A) in PP^(m times n),sp bold(B) in PP^(n times m)$，则 $|bold(A B)| = |bold(B A)|$；]
+#prob[(4) 对任意的三阶矩阵 $bold(A)$ 和任意一个数 $lambda$，都有 $(lambda bold(E_3)) bold(A) = bold(A) (lambda bold(E_3))$；]
+#prob[(5) 如果矩阵 $bold(A),sp bold(B),sp bold(C)$ 满足 $bold(A B) = bold(A C)$ 且 $bold(A) != bold(O)$，那么 $bold(B) = bold(C)$；]
+#prob[(6) 如果对两个不同的数 $a,b$，矩阵 $bold(A)$ 满足 $a bold(A) = b bold(A)$，那么 $bold(A) = bold(O)$；]
+#prob[(7) 设 $bold(A)$ 是一个方阵，$m,n$ 是两个正整数，则 $bold(A)^m bold(A)^n = bold(A)^n bold(A)^m$；]
+#prob[(8) 对角矩阵都是对称矩阵；]
+#prob[(9) 零矩阵都是对称矩阵；]
+#prob[(10) 若矩阵乘积 $bold(A B)$ 是方阵，则矩阵 $bold(A),bold(B)$ 也都是方阵。]
+
+错误；设 $n,m in NN_+$ 且 $m!=n$，满足 $bold(A) in PP^(n times m)$ 且 $bold(B) in PP^(m times n)$，则 $bold(A B) in PP^(n times n)$ 为方阵而 $bold(A)$ 和 $bold(B)$ 均不是方阵。
