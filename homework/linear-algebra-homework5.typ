@@ -11,10 +11,10 @@
 = P66 习题三 3
 
 #prob[
-  设矩阵 $display(bold(A) = mat(lambda,1,1;0,lambda-1,0;1,1,lambda)\,sp bold(b) = mat(a;1;1))$．已知线性方程组 $bold(A X) = bold(B)$ 存在两个不同的解．
+  设矩阵 $display(bold(A) = mat(lambda,1,1;0,lambda-1,0;1,1,lambda)\,sp bold(b) = mat(a;1;1))$．已知线性方程组 $bold(A X) = bold(b)$ 存在两个不同的解．
 
   (1) 求 $lambda$、$a$．\
-  (2) 求线性方程组 $bold(A X) = bold(B)$ 的通解．
+  (2) 求线性方程组 $bold(A X) = bold(b)$ 的通解．
 ]
 
 = P67 习题三 6
@@ -35,7 +35,9 @@
 
 = P67 习题三 9
 
-#prob[设 $bold(A) in PP^(n times n)$，证明：如果对 $PP^(n times 1)$ 中的所有矩阵 $bold(A)$ 都有 $bold(A X) = bold(O)$，那么 $bold(A) = bold(O)$．]
+#prob[设 $bold(A) in PP^(n times n)$，证明：如果对 $PP^(n times 1)$ 中的所有矩阵 $bold(X)$ 都有 $bold(A X) = bold(O)$，那么 $bold(A) = bold(O)$．]
+
+假设 $bold(A) != bold(O)$，那么一定存在 $a_(i,j) != 0$，我们只需要令 $x_(j,1) = 1$ 且 $forall t != j,sp x_(t,1)=0$．那么 $(bold(A X))_(i,1) = a_(i,j) != 0$，此时 $bold(A X) != bold(O)$．与题设矛盾，故应有 $bold(A) = bold(O)$ 恒成立．
 
 = P67 习题三 10
 
@@ -45,9 +47,27 @@
 
 #prob[求所有与矩阵 $bold(A) = display(mat(0,1,0,dots.c,0,0;0,0,1,dots.c,0,0;0,0,0,dots.c,0,0;dots.v,dots.v,dots.v,,dots.v,dots.v;0,0,0,dots.c,0,1;0,0,0,dots.c,0,0))_(n times n)$ 可交换的矩阵．]
 
+设可交换的矩阵为 $bold(X)$，即解 $bold(A X) = bold(X A)$．显然 $bold(X) in PP^(n times n)$．
+
+$
+(bold(A X))_(i,j) = sum_(k=1)^n a_(i,k) x_(k,j) = cases(x_(i+1,j)\,quad& i<n, 0\,quad& i=n)\
+(bold(X A))_(i,j) = sum_(k=1)^n x_(i,k) a_(k,j) = cases(x_(i,j-1)\,quad& j>1, 0\,quad& j=1)\
+$
+
+故 $forall 1<=i<n, 1<j<=n$，有 $x_(i+1,j) = x_(i,j-1)$ 恒成立时可交换．即满足每一条沿着主对角线方向的数字全相同的 $n$ 阶方阵 $bold(X)$ 都是与 $bold(A)$ 可交换的矩阵．
+
 = P67 习题三 12(2)
 
 #prob[设 $bold(B)$ 是一个对角线上元素互不相同的对角矩阵，求所有与矩阵 $bold(B)$ 可交换的矩阵．]
+
+设可交换的矩阵为 $bold(X)$，即解 $bold(B X) = bold(X B)$．
+
+$
+(bold(B X))_(i,j) = sum_(k=1)^n b_(i,k) x_(k,i) = b_(i,i) x_(i,j)\
+(bold(X B))_(i,j) = sum_(k=1)^n x_(i,k) b_(k,j) = x_(i,j) b_(j,j)\
+$
+
+应有 $forall 1<=i,j<=n$，$(bold(B X))_(i,j) = (bold(X B))_(i,j) <==> b_(i,i) x_(i,j) = b_(j,j) x_(i,j)$．由于 $bold(B)$ 是一个对角线上元素互不相同的对角矩阵，所以当 $i!=j$ 时，必须有 $x_(i,j)=0$；当 $i=j$ 时，$x_(i,j)$ 无论取何值都满足．所以可以与 $bold(B)$ 交换的所有矩阵应是对角矩阵．
 
 = P68 习题三 14(4)
 
@@ -112,6 +132,14 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 
 #prob[如果 $bold(A)^T = bold(A)$，那么称 $bold(A)$ 为 *对称矩阵*．证明：若 $bold(A)$ 实对称且 $bold(A)^2 = bold(O)$，则 $bold(A) = bold(O)$．]
 
+$
+bold(A) = bold(O)
+<==> forall 1<=i,j<=n,sp sum_(k=1)^n a_(i,k) a_(k,j) = 0
+==> forall 1<=i<=n,sp sum_(k=1)^n a_(i,k)^2 = 0
+$
+
+由于 $forall x in RR,sp x^2>=0$，取到等号当且仅当 $x=0$．所以当且仅当 $forall 1<=i,k<=n, a_(i,k) = 0$ 时等式成立．即 $bold(A) = bold(O)$．
+
 = P69 习题三 24
 
 #prob[
@@ -119,11 +147,47 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 
   (1) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i,j<=n$，均有 $a_(i j) = - a_(j i)$ 成立；
 ]
+
+$ bold(A)^T = -bold(A) <==> forall 1<=i,j<=n,sp a_(j i) = -a_(i j) <==> forall 1<=i,j<=n,sp a_(i,j) = -a_(j,i) $
+
+所以命题得证．
+
 #prob[(2) 如果 $bold(A) = (a_(i j))_(n times n)$，那么 $forall 1<=i<=n$，均有 $a_(i i) = 0$ 成立；]
+
+根据 (1)，$forall 1<=i<=n$，$a_(i i)=-a_(i i)$，当且仅当 $a_(i,i) = 0$ 时成立，原命题得证．
+
 #prob[(3) 矩阵 $bold(A) pm bold(B)$ 都是反对称矩阵；]
+
+$(bold(A)+bold(B))_(i,j) = a_(i,j) + b_(i,j) = -a_(j,i) - b_(j,i) = -(bold(A)+bold(B))_(j,i) ==> (bold(A) + bold(B))^T = -(bold(A) + bold(B)) ==> bold(A) + bold(B)$ 是反对称矩阵．
+
+$(bold(A)-bold(B))_(i,j) = a_(i,j) - b_(i,j) = -a_(j,i) + b_(j,i) = -(bold(A)-bold(B))_(j,i) ==> (bold(A) - bold(B))^T = -(bold(A) - bold(B)) ==> bold(A) - bold(B)$ 是反对称矩阵．
+
 #prob[(4) $forall k in PP$，矩阵 $k bold(A)$ 都是反对称矩阵；]
+
+$ forall k in PP,sp (k bold(A))^T = k bold(A)^T = k (- bold(A)) = -(k bold(A)) $
+
+所以 $k bold(A)$ 也是反对称矩阵．
+
 #prob[(5) 矩阵 $bold(A B)$ 是对称矩阵当且仅当 $bold(A B) = bold(B A)$；]
+
+$
+bold(A B) = (bold(A B))^T
+&<==> forall 1<=i,j<=n,sp sum_(k=1)^n a_(i,k) b_(k,j) = sum_(k=1)^n a_(j,k) b_(k,i)\
+&<==> forall 1<=i,j<=n,sp sum_(k=1)^n a_(i,k) b_(k,j) = sum_(k=1)^n (-a_(k,j)) (-b_(i,k)) = sum_(k=1)^n b_(i,k) a_(k,j)\
+&<==> bold(A B) = bold(B A)
+$
+
 #prob[(6) 矩阵 $bold(A B) - bold(B A)$ 是反对称矩阵．]
+
+$
+(bold(A B) - bold(B A))_(i,j)
+&= sum_(k=1)^n (a_(i,k) b_(k,j) - b_(i,k) a_(k,j))\
+&= sum_(k=1)^n (a_(k,i) b_(j,k) - b_(k,i) a_(j,k))\
+&= sum_(k=1)^n -(a_(j,k) b_(k,i) - b_(j,k) a_(k,i))\
+&= -(bold(A B) - bold(B A))_(j,i)
+$
+
+所以有 $(bold(A B) - bold(B A))^T = -(bold(A B) - bold(B A))$，即 $bold(A B) - bold(B A)$ 是反对称矩阵．
 
 = P69 习题三 25
 
@@ -132,8 +196,16 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 
   (1) 矩阵 $bold(A) + bold(A)^T$ 是对称矩阵；
 ]
+
+设 $bold(B) = bold(A) + bold(A)^T$，要使 $b_(i,j) = b_(j,i) <==> a_(i,j) + a_(j,i) = a_(j,i) + a_(i,j)$，显然成立．
+
 #prob[(2) 矩阵 $bold(A) - bold(A)^T$ 是反对称矩阵；]
+
+设 $bold(B) = bold(A) - bold(A)^T$，要使 $b_(i,j) = -b_(j,i) <==> a_(i,j) - a_(j,i) = -(a_(j,i) - a_(i,j))$，显然成立．
+
 #prob[(3) 矩阵 $bold(A)$ 是一个对称矩阵与一个反对称矩阵的和．]
+
+取 $bold(X) = display(frac(bold(A) + bold(A)^T, 2))$，$bold(Y) = display(frac(bold(A) - bold(A)^T, 2))$．根据前两问所证明，$bold(X)$ 是对称矩阵，$bold(Y)$ 是反对称矩阵．且有 $bold(A) = bold(X) + bold(Y)$．故原命题得证．
 
 = P69 习题三 26
 
@@ -159,6 +231,8 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 
 #prob[(5) 如果矩阵 $bold(A),sp bold(B),sp bold(C)$ 满足 $bold(A B) = bold(A C)$ 且 $bold(A) != bold(O)$，那么 $bold(B) = bold(C)$；]
 
+错误；取 $bold(A) = display(mat(1,0;0,0)), bold(B) = display(mat(1;2)), bold(C) = display(mat(1;3))$．那么 $bold(A B) = display(mat(1;0)) = bold(A C)$，但 $bold(B) != bold(C)$．实际上，当 $bold(A)$ 为可逆矩阵时此命题成立．
+
 #prob[(6) 如果对两个不同的数 $a,b$，矩阵 $bold(A)$ 满足 $a bold(A) = b bold(A)$，那么 $bold(A) = bold(O)$；]
 
 正确；反证法，设 $bold(A)$ 不是零矩阵，则一定存在 $a_(i j) != 0$．根据 $a bold(A) = b bold(A)$，应有 $a dot a_(i j) = b dot a_(i j)$，显然矛盾．故 $bold(A) = bold(O)$．
@@ -168,6 +242,13 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 正确；因为矩阵乘法满足结合律．
 
 #prob[(8) 对角矩阵都是对称矩阵；]
+
+正确；对角矩阵一定是方阵．那么对于 $1<=i,j<=n$：
+
+- 当 $i=j$ 时，$a_(i,j) = a_(j,i)$ 是同一个数，显然成立；
+- 当 $i!=j$ 时，$a_(i,j) = a_(j,i) = 0$，也成立．
+
+所以原命题得证．
 
 #prob[(9) 零矩阵都是对称矩阵；]
 
