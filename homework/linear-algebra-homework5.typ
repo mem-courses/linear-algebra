@@ -101,14 +101,36 @@
   (1) 若矩阵乘积 $bold(A B) in PP^(m times n)$，则矩阵 $bold(A)$ 有 $m$ 行；
 ]
 
+正确；说明 $exists k in NN_+$，有 $bold(A) in PP^(m times k)$ 且 $bold(B) in PP^(k times n)$，故矩阵 $bold(A)$ 有 $m$ 行。
+
 #prob[(2) 设 $bold(A),sp bold(B)$ 是两个 $n$ 阶矩阵，则 $|bold(A B)| = |bold(B A)|$；]
+
+正确；$|bold(A B)| = |bold(A)| dot |bold(B)| = |bold(B)| dot |bold(A)| = |bold(B A)|$，得证。
+
 #prob[(3) 设 $bold(A) in PP^(m times n),sp bold(B) in PP^(n times m)$，则 $|bold(A B)| = |bold(B A)|$；]
+
+错误；设 $bold(A) = display(mat(1,2)),sp bold(B) = display(mat(3;4))$，那么有 $bold(A B) = display(mat(11)),sp bold(B A) = display(mat(3, 6; 4, 8))$，显然 $|bold(A B)| = 11 != 0 = |bold(B A)|$。
+
 #prob[(4) 对任意的三阶矩阵 $bold(A)$ 和任意一个数 $lambda$，都有 $(lambda bold(E_3)) bold(A) = bold(A) (lambda bold(E_3))$；]
+
+正确；$(lambda bold(E_3)) bold(A) = lambda (bold(E_3 A)) = lambda bold(A) = lambda bold(A E_3) = bold(A) (lambda bold(E_3))$。
+
 #prob[(5) 如果矩阵 $bold(A),sp bold(B),sp bold(C)$ 满足 $bold(A B) = bold(A C)$ 且 $bold(A) != bold(O)$，那么 $bold(B) = bold(C)$；]
+
 #prob[(6) 如果对两个不同的数 $a,b$，矩阵 $bold(A)$ 满足 $a bold(A) = b bold(A)$，那么 $bold(A) = bold(O)$；]
+
+正确；反证法，设 $bold(A)$ 不是零矩阵，则一定存在 $a_(i j) != 0$。根据 $a bold(A) = b bold(A)$，应有 $a dot a_(i j) = b dot a_(i j)$，显然矛盾。故 $bold(A) = bold(O)$。
+
 #prob[(7) 设 $bold(A)$ 是一个方阵，$m,n$ 是两个正整数，则 $bold(A)^m bold(A)^n = bold(A)^n bold(A)^m$；]
+
+正确；因为矩阵乘法满足结合律。
+
 #prob[(8) 对角矩阵都是对称矩阵；]
+
 #prob[(9) 零矩阵都是对称矩阵；]
+
+正确；设 $n,m in NN_+$ 且 $m!=n$，则对于 $O in PP^(m times n)$，有 $O^T in PP^(n times m)$，两者显然不相等。
+
 #prob[(10) 若矩阵乘积 $bold(A B)$ 是方阵，则矩阵 $bold(A),bold(B)$ 也都是方阵。]
 
 错误；设 $n,m in NN_+$ 且 $m!=n$，满足 $bold(A) in PP^(n times m)$ 且 $bold(B) in PP^(m times n)$，则 $bold(A B) in PP^(n times n)$ 为方阵而 $bold(A)$ 和 $bold(B)$ 均不是方阵。
