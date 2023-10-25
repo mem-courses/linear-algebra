@@ -17,21 +17,101 @@
   (2) 求线性方程组 $bold(A X) = bold(b)$ 的通解．
 ]
 
+#set math.mat(delim: "|")
+$
+|bold(A)|
+= 1/lambda mat(lambda,1,1;0,lambda-1,0;lambda,lambda,lambda^2)
+= 1/lambda mat(lambda,1,1;0,lambda-1,0;0,lambda-1,lambda^2-1)
+= 1/lambda mat(lambda,1,1;0,lambda-1,0;0,0,lambda^2-1)
+= (lambda+1)(lambda-1)^2
+$
+#set math.mat(delim: "(")
+
+由于线性方程组存在两个不同的解，故根据 Cramer 法则，$bold(A)$ 不能为可逆矩阵，即 $|bold(A)| = 0$．故 $lambda in {1,-1}$．
+
+考虑线性方程组 $bold(A X) = bold(b)$ 的系数矩阵的增广矩阵：
+
+$
+mat(bold(A), bold(b))
+-> mat(lambda,1,1,a;0,lambda-1,0,1;lambda,lambda,lambda^2,lambda)
+-> mat(lambda,1,1,a;0,lambda-1,0,1;0,0,lambda^2-1,lambda-a-1)
+$
+
+代入得 $lambda=1$ 时无解；$lambda=-1$ 时解得 $a=-2$．同时可得 $bold(A X) = bold(b)$ 的通解为：
+
+$ cases(
+  display(x_1 = t + 3/2),
+  display(x_2 = -1/2),
+  display(x_3 = t),
+) quad quad (t in RR) $
+
 = P67 习题三 6
 
 #prob[
-  设矩阵 $ bold(A) = mat(1,-1,-1;2,a,1;-1,-1,a),quad bold(B) = mat(2,2;1,a;-a-1,-2) $ 问当 $a$ 为何值时，方程 $bold(A X) = bold(B)$ 无解，有唯一解，有无穷多个解？在有解时，求解此方程．
+  设矩阵 $ bold(A) = mat(1,-1,-1;2,a,1;-1,1,a),quad bold(B) = mat(2,2;1,a;-a-1,-2) $ 问当 $a$ 为何值时，方程 $bold(A X) = bold(B)$ 无解，有唯一解，有无穷多个解？在有解时，求解此方程．
 ]
+
+考虑对增广矩阵 $display(mat(bold(A),bold(B)))$ 应用初等行变换：
+
+$ mat(bold(A), bold(B)) -> mat(
+  1,-1,-1,2,2;
+  2,a,1,1,a;
+  -1,1,a,-a-1,-2;
+) -> mat(
+  1,-1,-1,2,2;
+  0,a+2,3,-3,a-4;
+  0,0,a-1,1-a,0;
+) $
+
+根据 Cramer 法则，$|bold(A)| != 0$ 时方程组有唯一解，此时 $a!=1$ 且 $a!=-2$，可解得：
+
+$ bold(X) = mat(1,display((3a)/(a+2));0,display((a-4)/(a+2));-1,0) $
+
+接着讨论无解或无穷多解的情况．
+
+当 $a=1$ 时，有无穷多解，通解为 $display(bold(X) = mat(1,1;-t-1,-1;t,0)) quad (t in RR)$．
+
+当 $a=-2$ 时，无解．
 
 = P67 习题三 7
 
 #prob[
   设 $n$ 元线性方程组 $bold(A X) = bold(b)$，其中 $ bold(A) = mat(2a,1;a^2,2a,1;,a^2,2a,1;,,dots.down,dots.down,dots.down;,,,a^2,2a,1;,,,,a^2,2a),quad bold(X) = mat(x_1;x_2;dots.v;x_n),quad bold(b) = mat(1;0;dots.v;0) $
 
-  (1) 证明行列式 $|bold(A)| = (n+1)a^n$；\
-  (2) 问当 $a$ 为何值时，该方程组有唯一解，并求 $x_1$；\
-  (3) 问当 $a$ 为何值时，该方程组有无穷多个解，并求通解．
+  (1) 证明行列式 $|bold(A)| = (n+1)a^n$；
 ]
+
+当 $n=1$ 和 $n=2$ 时，可代入验证 $|bold(A_n)| = (n+1) a^n$ 成立．
+
+当 $n>=3$ 时，有
+
+$
+|bold(A_n)| &= 2a (-1)^(n+n) |bold(A_(n-1))| + (-1)^(n+n-1) (-1)^(n-1+n-1) a^2 |bold(A_(n-2))|\
+&= 2a |bold(A_(n-1))| - a^2 |bold(A_(n-2))|
+$
+
+代入得
+
+$
+"左式" &= (n+1) a^n\
+"右式" &= 2a (n+1-1) a^(n-1) - a^2 (n+1-2) a^(n-2)\
+&= a^n (2n - (n-1)) = (n+1) a^n\
+==> "左式" &= "右式"
+$
+
+故原命题得证．
+
+#prob[(2) 问当 $a$ 为何值时，该方程组有唯一解，并求 $x_1$；]
+
+有 $bold(A X) = bold(b)$，则根据 Cramer 法则，当且仅当 $bold(A)$ 可逆 $<==> |bold(A)| != 0 <==> a!=0$ 时，该线性方程组有唯一解．此时 $bold(X) = bold(A^(-1) b)$．此时，
+
+$ x_1 = |bold(A_1)|/(|bold(A)|) = ((-1)^(1+1) (n-1+1) a^(n-1))/((n+1) a^n) = n/a(n+1) $
+
+#prob[(3) 问当 $a$ 为何值时，该方程组有无穷多个解，并求通解．]
+
+由第 (2) 问得，只可能 $a=0$．代入可知确有无穷多个解，且通解为：
+
+$ cases(x_1&=t,x_2&=1,x_3&=0,x_4&=0,&dots.c,x_n&=0) quad quad (t in RR) $
 
 = P67 习题三 9
 
@@ -42,6 +122,10 @@
 = P67 习题三 10
 
 #prob[设 $bold(e)_(i j) in PP^(m times n)$ 表示第 $i$ 行和第 $j$ 列交叉位置元素为 $1$，其余元素均为零的矩阵．若 $bold(A) in PP^(n times m),sp bold(B) in PP^(m times n)$，请计算 $bold(A e)_(i j)$ 以及 $bold(e)_(i j)bold(B)$．]
+
+令 $bold(C) = bold(A e_(i,j))$，那么 $c_(x,y) = sum_(k=1)^n a_(x,k) [k=i][y=j] = a_(x,i)[y=j]$．即 $bold(C)$ 是第 $j$ 列等于 $bold(A)$ 的第 $i$ 列，且其余位置全部为 $0$ 的矩阵．
+
+令 $bold(D) = bold(e_(i,j) B)$，那么 $d_(x,y) = sum_(k=1)^n b_(k,y) [x=i][k=j] = b_(j,y)[x=i]$．即 $bold(D)$ 是第 $j$ 行等于 $bold(B)$ 的第 $i$ 行，且其余位置全部为 $0$ 的矩阵．
 
 = P67 习题三 12(1)
 
@@ -127,6 +211,20 @@ $ tr(bold(A B)) = tr(bold(B A)) + tr(bold(E)) = tr(bold(B A)) + n > tr(bold(B A)
 = P68 习题三 20
 
 #prob[设线性方程组 $bold(A X) = bold(b)$ 的系数矩阵 $bold(A)$ 的秩等于矩阵 $bold(B) = display(mat(bold(A),bold(b);bold(b)^T,0))$ 的秩，证明该线性方程组有解．]
+
+$r(bold(A)) = r(bold(B)) = r display(mat(bold(A),bold(b);bold(b)^T,0)) = r(display(mat(bold(A),bold(b);bold(b)^T,0))^T) = r display(mat(bold(A)^T,bold(b);bold(b)^T,0))$．
+
+说明行向量 $display(mat(bold(b)^T,0))$ 可以被前 $n$ 个行向量 $display(mat(bold(a_i), b_i))$ 线性表示．即存在一组 $bold(x) = display(mat(x_1,x_2,dots.c,x_n))$ 满足：
+
+$ cases(
+  a_(11)x_1 + a_(12) x_2 + dots.c + a_(1 n)x_n &&= b_1,
+  a_(21)x_1 + a_(22) x_2 + dots.c + a_(2 n)x_n &&= b_2,
+  &&dots.c,
+  a_(n 1)x_1 + a_(n 2) x_2 + dots.c + a_(n n)x_n &&= b_n,
+  b_1 x_1 + b_2 x_2 + dots.c b_n x_n &&= 0,
+) $
+
+只看前 $n$ 个线性方程构成的线性方程组，就是 $bold(A X) = bold(b)$ 所对应的线性方程组．故原命题得证．
 
 = P68 习题三 21
 
