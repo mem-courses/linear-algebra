@@ -54,24 +54,5 @@
 #let cas(..args) = math.cases(..args)
 #let dxarrow(..args) = xarrow(math.display(..args))
 
-// ===== blockquote =====
-
-#let prob(bgcolor: luma(248), border: luma(88), text) = block(
-  fill: bgcolor,
-  width: 100%,
-  inset: 0.8em,
-  radius: 4pt,
-  stroke: border + 0.5pt,
-  text
-)
-
-#let note(..x) = { prob(bgcolor: luma(252), border: luma(135), ..x) }
-#let info(..x) = { prob(bgcolor: rgb(210, 247, 253), border: rgb(88, 178, 220), ..x) }
-#let warn(..x) = { prob(bgcolor: rgb(254, 234, 207), border: rgb(255, 196, 8), ..x) }
-
-#let dp = math.display
-#let sp = math.space
-#let pm = math.plus.minus
-#let mp = math.minus.plus
-
 #import "./functions.typ": *
+#import "./global.typ": *
