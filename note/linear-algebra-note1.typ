@@ -243,11 +243,9 @@ $ mat(
   " ",,a_(2,n-1),;
   " ",dots.up,,;
   a_(n 1),,,;
-) = a_11 a_(22) dots.c a_(n n) $
+) = (-1)^(n(n-1)/2) a_11 a_(22) dots.c a_(n n) $
 
 #warn[注意与主对角线的求法略有不同，不要忘记乘以 $(-1)^(n(n-1)/2)$ 的系数。]
-
-=== “箭形”行列式
 
 === Vandermonde 行列式
 
@@ -261,6 +259,39 @@ D(a_1,a_2,dots.c,a_n) = mat(
 ) = product_(1<=i<j<=n) (a_j - a_i)
 $
 
+#note[有时可以通过对整行（列）作乘法将矩阵调整到 Vandermonde 矩阵的形式。]
+
+=== “箭形”行列式
+
+$
+D_n = mat(
+  x_1,1,1,dots.c,1;
+  1,x_2,0,dots.c,0;
+  1,0,x_3,dots.c,0;
+  dots.v,dots.v,dots.v,,dots.v;
+  1,0,0,dots.c,x_n;
+) = mat(
+  x_1,1/x_2,1/x_3,dots.c,1/x_n;
+  1,1,0,dots.c,0;
+  1,0,1,dots.c,0;
+  dots.v,dots.v,dots.v,,dots.v;
+  1,0,0,dots.c,1;
+) = mat(
+  x_1-sum_(i=2)^n x_i,1/x_2,1/x_3,dots.c,1/x_n;
+  0,1,0,dots.c,0;
+  0,0,1,dots.c,0;
+  dots.v,dots.v,dots.v,,dots.v;
+  0,0,0,dots.c,1;
+) = x_1-sum_(i=2)^n x_i
+$
+
+=== “两三角形”行列式
+
+对角线上方元素均为 $a$，下方元素均为 $b$。
+
+（待补充）
+
+
 === 特殊的分块矩阵
 
 $
@@ -269,6 +300,37 @@ D_(s+t) = mat(bold(O),bold(A_(s times s));bold(B_(t times t)),bold(C_(t times s)
 $
 
 可以由 Laplace 定理得到。
+
+== 求行列式的一些技巧
+
+=== 递推法
+
+$ "eg. " D_n = mat(
+  a,b,0,0,dots.c,0,0;
+  c,a,b,0,dots.c,0,0;
+  0,c,a,b,dots.c,0,0;
+  0,0,c,a,dots.c,0,0;
+  dots.v,dots.v,dots.v,dots.v,,dots.v,dots.v;
+  0,0,0,0,dots.c,a,b;
+  0,0,0,0,dots.c,c,a;
+) $
+
+按照第一列 Laplace 展开可以得到 $D_n = a D_(n -1) - b c D_(n-2)$。根据#bb[特征方程法]可以求得递推式，或可考虑#bb[归纳证明]。
+
+=== 累加法
+
+$ "eg. " D_n = mat(
+  1,2,3,dots.c,n-2,n-1,n;
+  1,-1,0,dots.c,0,0,0;
+  0,2,-2,dots.c,0,0,0;
+  dots.v,dots.v,dots.v,,dots.v,dots.v,dots.v;
+  0,0,0,dots.c,2-n,n-2,0;
+  0,0,0,dots.c,0,1-n,n-1;
+) $
+
+可以将每一列都累加到第一列，这样第一列仅有第一个元素为 $display(n(n+1)/2)$，其余项皆为 $0$。重复此过程，每次可以使问题降低一个维度，最后得到 $display(D_n = (-1)^(n-1) (n+1)!/2)$。
+
+对于整行（列）元素和相同的矩阵也可以类比此方法。 
 
 = 秩
 
