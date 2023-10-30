@@ -130,7 +130,7 @@ $
 
 #warn[有可能两矩阵的形状不同。（即 $m$ 和 $n$ 不同）]
 
-#warn[若考虑 $OOO$ 矩阵，则 (1)(2) 均为 $bold(X)$，但一般不考虑其相抵标准型。]
+#warn[助教：若考虑 $OOO$ 矩阵，则 (1)(2) 均为 $bold(X)$，但一般不考虑其相抵标准型。]
 
 = P41 补充题二 6 #ac
 
@@ -151,7 +151,7 @@ $
   a_0 + a_1 x_(n+1) + a_2 x_(n+1)^2 + dots.c + a_n x_(n+1)^n &= 0,
   ) $
 
-  根据 Crammer 法则，求其系数矩阵（实际上为 Vandermonde 矩阵）的行列式：
+  根据 Cramer 法则，求其系数矩阵（实际上为 Vandermonde 矩阵）的行列式：
 
   #set math.mat(delim: "|")
   $ |bold(D)| = mat(
