@@ -39,3 +39,9 @@
 #let st = "s.t. "
 #let pm = math.plus.minus
 #let mp = math.minus.plus
+
+
+#let EEE = math.bold("E")
+#let AAA = math.bold("A")
+#let OOO = math.bold("O")
+#let III = math.bold("I")
