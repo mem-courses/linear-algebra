@@ -8,7 +8,7 @@
   date: "October 29, 2023",
 )
 
-= 第二周附加题 T1
+= 第二周附加题 T1 #ac
 
 #prob[
 	#set math.mat(delim: "(")
@@ -39,7 +39,7 @@ $
 )\ =& |bold(A)| = t
 $
 
-= 第二周附加题 T2
+= 第二周附加题 T2 #ac
 
 #set math.mat(delim: "|")
 #prob[
@@ -163,21 +163,63 @@ $
 		c,a,x,dots.c,a;
 		dots.v,dots.v,dots.v,,dots.v;
 		c,a,a,dots.c,x;
-	) $
+	) quad (x!=a and b != 0 and c != 0) $
 ]
 
-= 第三周附加题 T2
+= 第三周附加题 T2 #ac
 
 #prob[
-	求：$D_n = mat(
+	求：$ D_n = mat(
 		x_1, a_1 b_2, dots.c, a_1 b_n;
 		a_2 b_1, x_2, dots.c, a_2 b_n;
 		dots.v,dots.v,,dots.v;
 		a_n b_1, a_n b_2, dots.c, x_n;
-	)$
+	) $ 
 ]
 
-= 第三周附加题 T3
+$
+D_n = mat(
+	x_1, a_1 b_2, dots.c, a_1 b_n;
+	a_2 b_1, x_2, dots.c, a_2 b_n;
+	dots.v,dots.v,,dots.v;
+	a_n b_1, a_n b_2, dots.c, x_n;
+) = (product_(i=1)^n a_i b_i) mat(
+	display(x_1/(a_1 b_1)), 1, dots.c, 1;
+	1, display(x_2/(a_2 b_2)), dots.c, 1;
+	dots.v, dots.v, , dots.v;
+	1, 1, dots.c, display(x_n/(a_n b_n));
+)
+$
+
+令 $t_i = display(frac(x_i, a_i b_i))$，新矩阵的行列式为 $D'_n$ 那么
+
+$
+D'_n &= mat(
+	t_1, 1, dots.c, 1;
+	1, t_2, dots.c, 1;
+	dots.v, dots.v, , dots.v;
+	1, 1, dots.c, t_n;
+) = mat(
+	t_1,1,1,dots.c,1;
+	1-t_1,t_2-1,0,dots.c,0;
+	1-t_1,0,t_3-1,dots.c,0;
+	dots.v,dots.v,dots.v,,dots.v;
+	1-t_1,0,0,dots.c,t_n-1;
+)\
+&= -(product_(i=1)^n (t_i-1)) mat(
+	display(t_1/(1-t_1)), display(1/(t_2-1)), display(1/(t_3-1)), dots.c, display(1/(t_n-1));
+	1, 1, 0, dots.c, 0;
+	1, 0, 1, dots.c, 0;
+	dots.v, dots.v, dots.v, , dots.v;
+	1, 0, 0, dots.c, 1;
+)\
+&= -(product_(i=1)^n (t_i-1))(t_1/(1-t_1) - sum_(i=2)^n 1/(t_i )- 1)\
+&= (product_(i=1)^n (t_i-1))(1 + sum_(i=1)^n 1/(t_i-1))\
+=> D_n &= (product_(i=1)^n a_i b_i) (product_(i=1)^n (x_i-a_i b_i)/(a_i b_i)) (1 + sum_(i=1)^n (a_i b_i) / (x_i - a_i b_i))\
+&= product_(i=1)^n (x_i-a_i b_i) (1 + sum_(i=1)^n (a_i b_i) / (x_i - a_i b_i))\
+$
+
+= 第三周附加题 T3 #ac
 
 #prob[
 	求：$ D_n = mat(
@@ -188,6 +230,13 @@ $
 		x_1^(n-1), x_2^(n-1), dots.c, x_n^(n-1);
 	) $
 ]
+
+$
+D_n
+&= sum_(i=1)^n a_i product_(j=1\ i!=j)^n x_j product_(1<=p<q<=n\ i!=p and i!=q) (x_q - x_p) \
+&= (product_(i=1)^n x_i) (product_(1<=j<k<=n) (x_k-x_j)) (sum_(i=1)^n a_i/x_i) / (product_(j=1)^(i-1) (x_i-x_j) product_(k=i+1)^n (x_k-x_i))\
+&= (product_(i=1)^n x_i) (product_(1<=j<k<=n) (x_k-x_j)) sum_(i=1)^n (a_i (-1)^(n-i))/(x_i product_(j!=i) (x_i-x_j))\
+$
 
 = 第三周附加题 T4
 
