@@ -117,19 +117,21 @@ $
 
 #prob[
   设 $AAA$ 是一个 $n sp (n>2)$ 阶方阵，证明：$(AAA^*)^* = |AAA|^(n-2) AAA$。
-
-  #warn[疑惑：这不用保证 $AAA$ 可逆的？]
 ]
 
-当 $bold(A)$ 可逆时，$bold(A^*)$ 也可逆。故只需证：
+- 当 $bold(A)$ 可逆时，$bold(A^*)$ 也可逆。故只需证：
 
-$
-(AAA^*)^* AAA^* = |AAA|^(n-2) AAA AAA^*
-<=> |AAA^*| EEE = |AAA|^(n-2) |AAA| EEE
-<=> |AAA^*| = |AAA|^(n-1)
-$
+  $
+  (AAA^*)^* AAA^* = |AAA|^(n-2) AAA AAA^*
+  <=> |AAA^*| EEE = |AAA|^(n-2) |AAA| EEE
+  <=> |AAA^*| = |AAA|^(n-1)
+  $
 
-显然成立，故原命题得证。
+  显然成立。
+
+- 当 $bold(A)$ 不可逆时，有 $|AAA|=0$，故 $"左式" = "右式" = 0$ 也成立。
+
+综上，原命题得证。
 
 = P70 习题三 37
 
@@ -145,9 +147,6 @@ $
 |1/3 AAA^* - 4 AAA^(-1)| &= 3 - 4/3 = 8/3\
 $
 
-$
-AAA AAA^* = |AAA| EEE <=> AAA^* (AAA/|AAA|) = EEE <=> (AAA^*)^(-1) = 1/3 AAA
-$
 
 = P70 习题三 38
 
@@ -155,22 +154,7 @@ $
   设 $AAA,bold(B),AAA + bold(B)$ 均为 $n$ 阶可逆矩阵，证明 $AAA^(-1) + bold(B)^(-1)$ 可逆，并求 $(AAA^(-1) + bold(B)^(-1))^(-1)$。
 ]
 
-不妨设 $AAA^(-1) + bold(B)^(-1)$ 可逆，那么有
-
-$
-& (AAA^(-1) + bold(B)^(-1)) (AAA^(-1) + bold(B)^(-1))^(-1) = EEE\
-=> & (AAA bold(B))(AAA^(-1) + bold(B)^(-1))(AAA^(-1) + bold(B)^(-1))^(-1) = AAA bold(B) EEE\
-=> & (AAA + bold(B)) (AAA^(-1) + bold(B)^(-1))^(-1) = AAA bold(B)\
-=> & (AAA + bold(B))^(-1) (AAA + bold(B)) (AAA^(-1) + bold(B)^(-1))^(-1) = (AAA + bold(B))^(-1) bold(A B)\
-=> & (AAA^(-1) + bold(B)^(-1))^(-1) = (AAA + bold(B))^(-1) AAA bold(B)
-$
-
-下面验证：
-
-$
-& (AAA+bold(B))^(-1) AAA bold(B) (AAA^(-1) + bold(B)^(-1))\
-=& (AAA+bold(B))^(-1) (AAA bold(B) AAA^(-1) + AAA bold(B B)^(-1)) un\
-=& (AAA+bold(B))^(-1) (AAA + bold(B)) = EEE
+已知 $
 $
 
 故 $AAA^(-1) + bold(B)^(-1)$ 的逆存在，且 $(AAA^(-1) + bold(B)^(-1))^(-1) = (AAA + bold(B))^(-1) AAA bold(B)$。
@@ -230,9 +214,13 @@ $
   (1) 若矩阵 $AAA,bold(B)$ 均为二阶矩阵，设他们的列分块矩阵分别为 $AAA = display(mat(bold(alpha_1),bold(alpha_2)))$，$bold(B) = display(mat(bold(beta_1),bold(beta_2)))$，则 $bold(A B) = display(mat(bold(alpha_1 beta_1), bold(alpha_2 beta_2)))$。
 ]
 
+不成立。$bold(alpha_1),bold(alpha_2),bold(beta_1),bold(beta_2) in PP^(2 times 1)$，故 $bold(alpha_1) bold(beta_1)$ 不合法。
+
 #prob[
   (2) 设矩阵 $AAA$ 的列分块矩阵为 $AAA = display(mat(bold(alpha_1), bold(alpha_2), bold(alpha_3)))$，列矩阵 $bold(X) = display(mat(x_1; x_2;  x_3))$，则 $bold(A X) = x_1 bold(alpha_1) + x_2 bold(alpha_2) + x_3 bold(alpha_3)$。
 ]
+
+成立。满足 $bold(A)$ 上列的分块方法与 $bold(X)$ 上行的分块方法相同，且数乘满足交换律。
 
 #prob[
   (3) 设 $AAA$ 是可逆矩阵，则分块矩阵 $display(mat(bold(O), 2; AAA, bold(O)))$ 也可逆，且
@@ -243,9 +231,13 @@ $
   (4) 分块矩阵 $display(mat(AAA,bold(O);bold(O),bold(B)))$ 是一个准（分块）对角矩阵。
 ]
 
+不成立。不能保证 $bold(A)$ 和 $bold(B)$ 为方阵。
+
 #prob[
   (5) 若矩阵 $AAA,bold(B)$ 均为方阵，则分块矩阵 $display(mat(bold(O),AAA; bold(B),bold(O)))$ 是一个准对角矩阵。
 ]
+
+不成立。非零矩阵 $bold(A),bold(B)$ 不在主对角线上。
 
 = P74 补充题三 3
 
