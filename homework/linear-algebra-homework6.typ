@@ -154,8 +154,7 @@ $
   设 $AAA,bold(B),AAA + bold(B)$ 均为 $n$ 阶可逆矩阵，证明 $AAA^(-1) + bold(B)^(-1)$ 可逆，并求 $(AAA^(-1) + bold(B)^(-1))^(-1)$。
 ]
 
-已知 $
-$
+已知 TBD
 
 故 $AAA^(-1) + bold(B)^(-1)$ 的逆存在，且 $(AAA^(-1) + bold(B)^(-1))^(-1) = (AAA + bold(B))^(-1) AAA bold(B)$。
 
