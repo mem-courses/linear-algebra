@@ -102,10 +102,33 @@
 
 对于 $n$ 阶方阵 $AA$，若存在 $n$ 阶方阵 $BB$ 使得 $AA BB = BB AA = EE$，则称 $AA$ *可逆*，且 $BB$ 是 $AA$ 的 *逆矩阵*。用 $AA^(-1)$ 表示 $AA$ 的逆矩阵。
 
+== 伴随矩阵
+
+$n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如下矩阵：$ AA^* = mat(A_(11),A_(21),dots.c,A_(n 1);A_(12),A_(22),dots.c,A_(n 2);dots.v,dots.v,,dots.v;A_(1 n),A_(2 n),dots.c,A_(n n)) $称为 $AA$ 的伴随矩阵。（注意：原先第 $i$ 行各元素的代数余子式在伴随矩阵的第 $j$ 列）
+
+#def[引理]$AA dot AA^* = AA^* dot AA = |AA| dot EE$
+
+#prof[
+  可以通过 $sum_(i=1)^n a_(j i) A_(k i) = |AA| [j=k]$ 来证明。
+]
+
 == 性质
 
-1. 如果 $AA$ 可逆，则 $AA^(-1)$ 必唯一。
+1. $AA$ 可逆 $<=>$ $|AA| != 0$ $<=>$ $AA$ 满秩 $<=>$ 以 $AA$ 为系数矩阵的线性方程组有唯一解。
+
+2. 如果 $AA$ 可逆，则 $AA^(-1)$ 必唯一。
 
 #prof[
   设存在 $n$ 阶方阵 $BB,CC$，满足 $AA BB = BB AA = AA CC = CC AA = EE$，
 ]
+
+3. 当 $AA$ 可逆时，$AA^(-1) = display(AA^* / |AA|)$。
+
+#prof[
+  *必要性*：设 $AA$ 可逆，两边取行列式得到$ |AA||BB| = |BB||AA| = |EE| = 1 => |AA|!=0 $
+  *充分性*：设 $|AA|!=0$，由引理 $AA dot AA^* = AA^* dot AA = |AA| dot EE$ 两边同除 $|AA|$ 得到$ AA dot (AA^*)/(|AA|) = (AA^*)/(|AA|) dot AA = EE $
+  
+  比较定义可知，$AA$ 可逆，那么 $AA^(-1) = display(frac(AA^*,|AA|))$。
+]
+
+4. 
