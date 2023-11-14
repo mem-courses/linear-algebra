@@ -45,3 +45,9 @@
 #let AAA = math.bold("A")
 #let OOO = math.bold("O")
 #let III = math.bold("I")
+
+
+
+#let def(x) = { text("【" + x + "】", weight: "bold") }
+#let deft(x) = { text("【" + x + "】", weight: "bold", fill: rgb("#FFFFFF")) }
+#let bb(x) = { text(x, weight: "bold") }
