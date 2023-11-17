@@ -232,12 +232,54 @@ $AA = op("diag")(AA_1,AA_2,dots.c,AA_n)$。其中 $AA$ 是方阵，$AA_(i) (i=1,
 
 矩阵的初等行（列）变换中的 $R_(s t),sp c R_s,sp R_s + c R_t$ 三种运算分别对应第一、二、三型初等矩阵。
 
+TBD
+
 #def[性质]初等矩阵是可逆的，且初等矩阵的逆是初等矩阵。
 
-#def[定理1]对 $AA_(m times n)$ 施行一次初等行（列）变换得到的新矩阵，等于用该初等行变换对应的 $m$（$n$）阶初等矩阵左乘（右乘）$AA_(m times n)$；
+#def[定理]对 $AA_(m times n)$ 施行一次初等行（列）变换得到的新矩阵，等于用该初等行变换对应的 $m$（$n$）阶初等矩阵左乘（右乘）$AA_(m times n)$；
 
-#def[推论1.1] $r(AA_(m times n))=r <=>$ 存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$，使得 $display(bold(P A Q) = mat(EE_r,OO;OO,OO))$。
+#def[推论1]$r(AA_(m times n))=r <=>$ 存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$，使得 $display(bold(P A Q) = mat(EE_r,OO;OO,OO))$。
 
-#def[推论1.2] 设 $AA,BB in PP^(m times n)$，那么 $AA$ 和 $BB$ 相抵 $<=>$ 一定存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$ 使得 $bold(P A Q) = bold(B)$。
+#def[推论2]设 $AA,BB in PP^(m times n)$，那么 $AA$ 和 $BB$ 相抵 $<=>$ 一定存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$ 使得 $bold(P A Q) = bold(B)$。
 
-#def[推论1.3] 设 $AA in PP^(n times n)$ 可逆，那么 $AA$ 一定可以被表示为一系列初等矩阵的乘积。
+#def[推论3]设 $AA in PP^(n times n)$ 可逆，那么 $AA$ 一定可以被表示为一系列初等矩阵的乘积。
+
+#def[推论4]设 $AA$ 可逆，仅对 $AA$ 做初等行（列）变换，就可以把 $AA$ 化成 $EE$。故仅应用初等行变换可使 $display(mat(AA,EE)) -> display(mat(EE,AA^(-1)))$；同理，仅应用初等列变换可使 $display(mat(AA;EE)) -> display(mat(EE;AA^(-1)))$。
+
+#def[推论5]设 $AA$ 为可逆阵，则矩阵方程TBD（P56）
+
+= 矩阵的运算对矩阵的秩的影响
+
+#def[性质1]$r(AA_(m times n))<=min{m,n}$。
+
+#def[性质2]当 $bold(P),bold(Q)$ 可逆时，$r(AA) = r(bold(P A)) = r(bold(A Q)) = r(bold(P A Q))$。
+
+#def[性质3]$r(AA BB) <= min{r(AA),r(BB)}$。
+
+#prof[
+  #def[证明]（充分利用相抵标准型）先证 $r(AA_(m times s) BB_(s times n)) <= r(AA)$。设 $r(AA) = r$，则有可逆矩阵 $bold(P)_(m times m), bold(Q)_(s times s)$，使得 $AA = bold(P) display(mat(EE_r, OO;OO, OO))bold(Q)$。
+
+  所以 $r(AA BB) = r(bold(P) display(mat(EE_r, OO;OO, OO)) bold(Q) BB) = r(display(mat(EE_r, OO;OO, OO)) bold((Q B))_(s times n))$，
+
+  设 $bold(Q B) = display(mat(CC_(r times n);bold(H)_((s-r)times n)))$，那么 $display(mat(EE_r, OO;OO, OO)) display(mat(CC_(r times n);bold(H)_((s-r)times n))) = display(mat(CC_(r times n)))$。
+
+  所以 $r(AA BB) <= r = r(AA)$，同时 $r(AA BB) = r(AA BB)^TT = r(BB^TT AA^TT) <= r(BB^TT) = r(BB)$。故命题得证。
+]
+
+#def[性质4]设 $bold(G) = display(mat(AA_(M times n),OO;OO,BB_(s times t)))$（或 $bold(G) = display(mat(OO,AA_(m times n);BB_(s times t),OO))$）则 $r(bold(G)) = r(AA) + r(BB)$。
+
+#prof[
+  #def[证明]由已知，存在可逆矩阵 $bold(P)_i,bold(Q)_i sp (i,j=1,2)$ 使 $AA=bold(P)_1 display(mat(EE_r,OO;OO,OO)) bold(Q)_1,sp BB=bold(P)_2 display(mat(EE_s,OO;OO,OO)) bold(Q)_2$。
+
+  则有：$bold(P G Q) = display(mat(bold(P)_1,OO;OO,bold(P)_2)) display(mat(AA,OO;OO,BB)) display(mat(bold(Q)_1,OO;OO,bold(Q)_2)) = display(mat(bold(P)_1 AA bold(Q)_1,OO; OO,bold(P)_2 BB bold(Q)_2)) = display(mat(EE_r,OO,OO,OO;OO,OO,OO,OO;OO,OO,EE_s,OO;OO,OO,OO,OO))$。
+
+  所以 $r(bold(G)) = r(AA) + r(BB)$。
+]
+
+#def[性质5]设 $AA,BB in PP^(m times n)$，则 $r(AA+BB) <= r(AA) + r(BB)$。
+
+#def[性质6]（Sylvester不等式）设 $AA,BB in PP^(n times n)$，则 $r(AA BB) >= r(AA) + r(BB) - n$。
+
+#def[推论1]设 $AA_(m times n) BB_(n times t) = OO_(m times t)$，那么 $r(AA) + r(BB) <= n$。
+
+#def[性质7]（Frobenius不等式）设 $AA,BB,CC in PP^(n times n)$，那么 $r(AA BB CC) >= r(AA BB) + r(BB CC) - r(BB)$。
