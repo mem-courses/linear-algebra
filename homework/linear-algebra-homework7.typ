@@ -72,6 +72,14 @@ $
   (D) $r(bold(A sp B)) = r(AA^TT sp BB^TT)$
 ]
 
+(A) 正确
+
+(B) 正确
+
+(C) 错误
+
+
+
 = P73 习题三 56
 #prob[(1) 设 $AA$ 是一个 $n$ 阶方阵，证明：$r(AA)=1$ 当且仅当存在非零列向量 $bold(alpha),bold(beta)$ 使得 $AA = bold(alpha beta)^TT$。]
 
