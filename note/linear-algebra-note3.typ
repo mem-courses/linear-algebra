@@ -298,6 +298,41 @@ $
 
 特别地，设 $seqn(xi,n)$ 是 $V$ 的一组基，则 $V = L(seqn(xi,n))$。
 
+== 线性方程组解的结构
+
+对线性方程组 $bold(A)_(m times n) bold(X) = beta (!= theta)$ 和 $bold(A)_(m times n) bold(X) = theta$，当 $r(bold(A)) = r display(mat(bold(A),:,beta)) = r <n$ 时，这两个线性方程组有无穷多解。
+
+记 $W={bold(A) bold(X) = beta | bold(X) in PP^n}$，$W_0={bold(A) bold(X) =theta | bold(X) in PP^n}$，则 $W,W_0$ 都是 $PP^n$ 的子集。但 $W_0$ 是 $PP^n$ 的子空间，$W$ 不是 $PP^n$ 的子空间。
+
+- $W_0$ 的结构：由基础解系（极大线性无关组）张成
+- $W$ 的结构：由对应齐次线性方程组的解空间平移而成
+
+=== 齐次线性方程组解的结构
+
+$bold(A X) = theta$ 的解空间 $W_0$ 的任意一个极大线性无关组 $seqn(xi,n-r)$ 称为 $W_0$ 的一个 *基础解系*。有 $W_0 = L(seqn(xi,n-r))$。
+
+TBD
+
+#prof[
+  #def[证明]：$seqn(xi,n-r)$ 为 $W_0$ 的一个基础解系。
+
+  1. $seqn(xi,n-r) in W_0$（即 $bold(A) xi_i = theta, sp i=1,2,dots.c,n-r$）；
+  2. $seqn(xi,n-r)$ 线性无关；
+  3. $forall bold(X) in W$，$bold(X)$ 可被 $seqn(xi,n-r)$ 表示。
+
+  其中：记：$bold(B) = vecn(xi,n-r) = display(mat(bold(C)_(r times (n-r)); bold(E)_((n-r)times(n-r))))$。
+
+  由 $r(bold(B))<=n-r$ 且 $r(bold(B)) >= r(bold(E)_((n-r)times(n-r))) =n-r$ 得 $r(bold(B))=n-r$，即 $seqn(xi,n-r)$ 线性无关。
+]
+
+=== 解的结构定理
+
+$bold(A X) = beta$ 的任意解，$bold(X) = xi_0 + (t_1 xi_1 + t_2 xi_2 + dots.c + t_(n-r) xi_(n-r))$。其中 $xi_0$ 是 $bold(A X) = beta$ 的某个特解，$seqn(xi,n-r)$ 是 $bold(A X) = theta$ 的基础解系。
+
+=== 例题
+
+01:29:42
+
 = 第八章
 
 == 正交向量组
