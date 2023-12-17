@@ -126,7 +126,7 @@ D_n
 = product_(i=1)^n i^(n-i+1)
 $
 
-#note[也可以提出每一行的公因子，共 $n!$。剩下的恰为 Vandermonde 矩阵。]
+#note[也可以提出每一行的公因子，共 $n!$．剩下的恰为 Vandermonde 矩阵．]
 
 = P37 习题二 13 #ac
 
@@ -194,14 +194,14 @@ $
 		x_1^(n-2),x_2^(n-2),dots.c,x_(n-1)^(n-2),x_n^(n-2),y^(n-2);
 		x_1^(n-1),x_2^(n-1),dots.c,x_(n-1)^(n-1),x_n^(n-1),y^(n-1);
 		x_1^n,x_2^n,dots.c,x_(n-1)^n,x_n^n,y^n;
-	) = product_(i=1)^n (y-x_i) product_(1<=j<k<=n) (x_k-x_j))$。
+	) = product_(i=1)^n (y-x_i) product_(1<=j<k<=n) (x_k-x_j))$．
 
-	题设行列式 $D_n$ 是 $A_(n+1)$ 中对应项的余子式。故：
+	题设行列式 $D_n$ 是 $A_(n+1)$ 中对应项的余子式．故：
 	$
 	(-1)^(n+n+1) D_n =
 	-sum_(i=1)^n x_i product_(1<=j<k<=n) (x_k-x_j)
 	$
-	所以 $display(D_n = sum_(i=1)^n product_(1<=j<k<=n) (x_k-x_j))$。
+	所以 $display(D_n = sum_(i=1)^n product_(1<=j<k<=n) (x_k-x_j))$．
 ]
 
 = P38 习题二 16(4) #ac
@@ -303,7 +303,7 @@ $
 	x_3 = c,
 ))$ 是原线性方程组的唯一解．
 
-#note[由于解唯一，可以直接把 $x_1=a,sp x_2=b,sp x_3=c$ 代入验证，而不必要将系数矩阵化为阶梯形。]
+#note[由于解唯一，可以直接把 $x_1=a,sp x_2=b,sp x_3=c$ 代入验证，而不必要将系数矩阵化为阶梯形．]
 
 = P39 习题二 26 #wa
 
@@ -337,7 +337,7 @@ $
 与题设矛盾，前 $n-1$ 个线性方程的解不符合第 $n$ 个方程，即原线性方程组无解．
 
 #warn[
-	注意到 $r(bold(A)) <= n-1$；而根据 Vandermonde 行列式，$|bold(A)| = D_n != 0$，故 $r(overline(bold(A))) = n$。所以有 $r(bold(A)) != r(bold(overline(A)))$，故无解。
+	注意到 $r(bold(A)) <= n-1$；而根据 Vandermonde 行列式，$|bold(A)| = D_n != 0$，故 $r(overline(bold(A))) = n$．所以有 $r(bold(A)) != r(bold(overline(A)))$，故无解．
 ]
 
 = P40 补充题二 3(1) #pc
@@ -396,7 +396,7 @@ $ cases(
 两式相减得：$ D_n &= (b(x-a)^n - a(x-b)^n)/(b-a) $
 
 #warn[
-	要分 $a=b$ 和 $a!=b$ 两种情况讨论。
+	要分 $a=b$ 和 $a!=b$ 两种情况讨论．
 ]
 
 = P40 补充题二 3(5) #ac
@@ -470,7 +470,7 @@ $
 $
 
 #warn[
-	倒数第三行的方阵并不是 Vandermonde 矩阵，需要将其左右翻转。故行列式还需要乘以系数 $(-1)^(n(n-1)/2)$。
+	倒数第三行的方阵并不是 Vandermonde 矩阵，需要将其左右翻转．故行列式还需要乘以系数 $(-1)^(n(n-1)/2)$．
 ]
 
 = P41 补充题二 4 #ac
@@ -496,7 +496,7 @@ $
 
 故：$display(sum_(i=1)^n sum_(j=1)^n A_(i j) = (4n)/3)$．
 
-#warn[也可以把每一列都累加到第一行去，此时第一行全为 $3$。利用 Laplace 展开可以得到 $display(D = 3 sum_(j=1)^n A_(1 j) = 4)$。对 $i=1,2,dots,n$ 分别做这个过程，也可以得到答案。]
+#warn[也可以把每一列都累加到第一行去，此时第一行全为 $3$．利用 Laplace 展开可以得到 $display(D = 3 sum_(j=1)^n A_(1 j) = 4)$．对 $i=1,2,dots,n$ 分别做这个过程，也可以得到答案．]
 
 = P41 补充题二 5 #ac
 

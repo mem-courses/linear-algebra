@@ -175,49 +175,49 @@ $，
   其中 $r(bold(M)_(s times r)) <= min(s,r) = s<r$，所以
 ]
 
-#def[定理2]设数域 $PP$ 上的线性空间 $V$ 中有两个向量组 (I) $alpha_1,alpha_2,dots.c,alpha_r$ 和 (II) $beta_1,beta_2,dots.c,beta_s$．如果向量组 (I) 可被向量组 (II) 线性表示且向量组 (I) 线性无关，那么 $r<=s$。
+#def[定理2]设数域 $PP$ 上的线性空间 $V$ 中有两个向量组 (I) $alpha_1,alpha_2,dots.c,alpha_r$ 和 (II) $beta_1,beta_2,dots.c,beta_s$．如果向量组 (I) 可被向量组 (II) 线性表示且向量组 (I) 线性无关，那么 $r<=s$．
 
-#prof[即上一个命题的逆否命题。]
+#prof[即上一个命题的逆否命题．]
 
 === 向量组的等价
 
-在数域 $PP$ 中，如果两个向量组能互相线性表示，则称这两个向量组等价。
+在数域 $PP$ 中，如果两个向量组能互相线性表示，则称这两个向量组等价．
 
-#def[定理1]两个等价的，线性无关的且含有有限向量个数的两个向量组，所含向量个数相等。
+#def[定理1]两个等价的，线性无关的且含有有限向量个数的两个向量组，所含向量个数相等．
 
 === 向量组的极大线性无关组
 
-对于给定向量组的一个部分组，如果其线性无关且添加任意一个原向量组的向量都会变得线性相关。那么这个不分组是原向量组的一个极大线性无关组。
+对于给定向量组的一个部分组，如果其线性无关且添加任意一个原向量组的向量都会变得线性相关．那么这个不分组是原向量组的一个极大线性无关组．
 
-#def[性质1]任意一个有限向量个数的向量组，一定含有一个极大线性向量组。且向量组与它的极大线性向量组等价。
+#def[性质1]任意一个有限向量个数的向量组，一定含有一个极大线性向量组．且向量组与它的极大线性向量组等价．
 
-#def[性质2]一个向量组的任意两个极大线性向量组必等价且所含向量个数相等。
+#def[性质2]一个向量组的任意两个极大线性向量组必等价且所含向量个数相等．
 
 === 向量组的秩
 
-一个向量组的极大线性无关组的向量个数称为这个向量组的秩。
+一个向量组的极大线性无关组的向量个数称为这个向量组的秩．
 
-#def[性质1]秩为 $r$ 的向量组中。任意 $r+1$ 个向量必线性相关；任意 $r$ 个线性无关的向量都是原向量组的一个极大线性无关组。
+#def[性质1]秩为 $r$ 的向量组中．任意 $r+1$ 个向量必线性相关；任意 $r$ 个线性无关的向量都是原向量组的一个极大线性无关组．
 
-#def[性质2]任意一个有限秩的向量组的线性无关的部分组，一定可以扩充成原向量组的一个极大线性无关组。
+#def[性质2]任意一个有限秩的向量组的线性无关的部分组，一定可以扩充成原向量组的一个极大线性无关组．
 
 = 基
 
 == 基和维数
 
-设 $V$ 是数域 $PP$ 上的（非零）线性空间，当我们把 $V$ 中的全体向量看成一个向量组时，如果该向量组存在一个有限个向量所组成的极大线性无关组，则称 $V$ 是有限维的。当 $V$ 是有限维时，称其极大线性无关组的向量个数为它的 *维数*，记为 $dim V$。
+设 $V$ 是数域 $PP$ 上的（非零）线性空间，当我们把 $V$ 中的全体向量看成一个向量组时，如果该向量组存在一个有限个向量所组成的极大线性无关组，则称 $V$ 是有限维的．当 $V$ 是有限维时，称其极大线性无关组的向量个数为它的 *维数*，记为 $dim V$．
 
-若 $dim V = n$ 且 $xi_1,xi_2,dots.c,xi_n$ 为 $V$ 的一个极大线性无关组，则称 $xi_1,xi_2,dots.c,xi_n$ 的任意一个排列为 $V$ 的一组 *基*。
+若 $dim V = n$ 且 $xi_1,xi_2,dots.c,xi_n$ 为 $V$ 的一个极大线性无关组，则称 $xi_1,xi_2,dots.c,xi_n$ 的任意一个排列为 $V$ 的一组 *基*．
 
 === 常用基
 
-线性空间 $V$ 中形式最简单的一组基，称为 $V$ 的 *常用基*。
+线性空间 $V$ 中形式最简单的一组基，称为 $V$ 的 *常用基*．
 
-$PP^n$ 的常用基：$e_1=display(mat(1,0,dots.c,0))^TT$，$e_2=display(mat(0,1,dots.c,0))^TT$，$dots.c$，$e_n=display(mat(0,0,dots.c,1))^TT$。
+$PP^n$ 的常用基：$e_1=display(mat(1,0,dots.c,0))^TT$，$e_2=display(mat(0,1,dots.c,0))^TT$，$dots.c$，$e_n=display(mat(0,0,dots.c,1))^TT$．
 
-$PP^(m times n)$ 的常用基：$e_(i j) sp(i=1,2,dots.c,m,sp j=1,2,dots.c,n)$（其中 $e_(i j)$ 是第 $i$ 行第 $j$ 列元素为 $1$，其他元素为 $0$ 的矩阵）$=> dim PP^(m times n) = m times n$。
+$PP^(m times n)$ 的常用基：$e_(i j) sp(i=1,2,dots.c,m,sp j=1,2,dots.c,n)$（其中 $e_(i j)$ 是第 $i$ 行第 $j$ 列元素为 $1$，其他元素为 $0$ 的矩阵）$=> dim PP^(m times n) = m times n$．
 
-$PP[x]_n$ 的常用基为 $1,x,x^2,dots.c,x^(n-1) => dim PP[x]_n = n$。
+$PP[x]_n$ 的常用基为 $1,x,x^2,dots.c,x^(n-1) => dim PP[x]_n = n$．
 
 == 坐标
 
@@ -228,34 +228,34 @@ alpha = x_1 xi_1 + x_2 xi_2 + dots.c + x_n xi_n
 = mat(xi_1,xi_2,dots.c,xi_n) bold(X)
 $
 
-其中 $bold(X) in PP^n$ 称为 $alpha$ 在基 $xi_1,xi_2,dots.c,xi_n$ 下的坐标。
+其中 $bold(X) in PP^n$ 称为 $alpha$ 在基 $xi_1,xi_2,dots.c,xi_n$ 下的坐标．
 
-#def[定理1]设 $V$ 是数域 $PP$ 上的 $n$ 维线性空间，$xi_1,xi_2,dots.c,xi_n$ 为 $V$ 的一组基，则对于 $V$ 中的任意一个向量组 $alpha_1,alpha_2,dots.c,alpha_s$，设其在基下的坐标分别为 $bold(X)_1,bold(X)_2,dots.c,bold(X)_s$。那么 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关 $<=>$ $bold(X)_1,bold(X)_2,dots.c,bold(X)_s$ 线性无关 $<=>$ $r(bold(A)_(n times s)) = s$。其中 $bold(A)_(n times s) = display(mat(bold(X)_1,bold(X)_2,dots.c,bold(X)_s))$。
+#def[定理1]设 $V$ 是数域 $PP$ 上的 $n$ 维线性空间，$xi_1,xi_2,dots.c,xi_n$ 为 $V$ 的一组基，则对于 $V$ 中的任意一个向量组 $alpha_1,alpha_2,dots.c,alpha_s$，设其在基下的坐标分别为 $bold(X)_1,bold(X)_2,dots.c,bold(X)_s$．那么 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关 $<=>$ $bold(X)_1,bold(X)_2,dots.c,bold(X)_s$ 线性无关 $<=>$ $r(bold(A)_(n times s)) = s$．其中 $bold(A)_(n times s) = display(mat(bold(X)_1,bold(X)_2,dots.c,bold(X)_s))$．
 
 #note[
-  由于 $bold(X)_ i in PP^n$，通过这一定理，我们可以把矩阵的秩与任意线性空间的线性无关性的判定联系起来。
+  由于 $bold(X)_ i in PP^n$，通过这一定理，我们可以把矩阵的秩与任意线性空间的线性无关性的判定联系起来．
 ]
 
-#def[推论1.1]设 $dim V = n$，$V$ 中的任意 $n+1$ 个向量必线性相关。
+#def[推论1.1]设 $dim V = n$，$V$ 中的任意 $n+1$ 个向量必线性相关．
 
-#def[推论1.2]设 $dim V=n$，$seqn(alpha,n)$ 线性无关 $<=> |bold(A)_(n times n)| != 0$。（其中 $bold(A)_n = vecn(bold(X),n)$。
+#def[推论1.2]设 $dim V=n$，$seqn(alpha,n)$ 线性无关 $<=> |bold(A)_(n times n)| != 0$．（其中 $bold(A)_n = vecn(bold(X),n)$．
 
-#def[推论1.3]设 $dim V = n$，则 $V$ 中任意 $n$ 个线性无关的向量都是 $V$ 的一组基。
+#def[推论1.3]设 $dim V = n$，则 $V$ 中任意 $n$ 个线性无关的向量都是 $V$ 的一组基．
 
 #def[定理2]设 $dim V=n$，$seqn(xi,n)$ 为 $V$ 的一组基，向量 $seqn(alpha,s) in V$ 在所给基下的坐标分别为 $seqn(bold(X),n)$，向量 $beta in V$ 在所给基下的坐标为 $bold(Y)$，则：
 
-#deft[定理2]1. $beta = vecn(alpha,s) bold(X)_0 <=> bold(A) bold(X)_0 = bold(Y)$。
+#deft[定理2]1. $beta = vecn(alpha,s) bold(X)_0 <=> bold(A) bold(X)_0 = bold(Y)$．
 
-#deft[定理2]2. $beta$ 可被向量组 $seqn(alpha,s)$ 线性表示 $<=> bold(A)bold(X) = bold(Y)$ 有解 $<=>$ $bold(Y)$ 可由 $seqn(bold(X),s)$ 线性表示。
+#deft[定理2]2. $beta$ 可被向量组 $seqn(alpha,s)$ 线性表示 $<=> bold(A)bold(X) = bold(Y)$ 有解 $<=>$ $bold(Y)$ 可由 $seqn(bold(X),s)$ 线性表示．
 
 #note[
   回顾：如何证明 $PP^n$ 下的向量组 $seqn(alpha,m) sp (m<=n)$ 的线性关系？
 
-  1. 从定义出发：$k_1 alpha_1 + k_2 alpha_2 + dots.c + k_n alpha_n = theta$。
+  1. 从定义出发：$k_1 alpha_1 + k_2 alpha_2 + dots.c + k_n alpha_n = theta$．
 
-  2. 令 $bold(A) = vecn(alpha,n)$，比较 $r(bold(A))$ 与 $m$。
+  2. 令 $bold(A) = vecn(alpha,n)$，比较 $r(bold(A))$ 与 $m$．
 
-  3. 利用某组基下的坐标所构成的矩阵 $bold(A)_(n times m)$ 进行判定。
+  3. 利用某组基下的坐标所构成的矩阵 $bold(A)_(n times m)$ 进行判定．
 ]
 
 == 过渡矩阵
@@ -270,14 +270,14 @@ vecn(eta,n) = vecn(xi,n) mat(
 ) = vecn(xi,n) bold(M)
 $
 
-则称矩阵 $bold(M)$ 为从基 (I) 到基 (II) 的过渡矩阵。
+则称矩阵 $bold(M)$ 为从基 (I) 到基 (II) 的过渡矩阵．
 
 #note[
-  1. 过渡矩阵是有方向的：$upright("(II)") = upright("(I)") bold(M)$，则 $bold(M)$ 是向量组 (I) 过渡到向量组 (II) 的过渡矩阵。
+  1. 过渡矩阵是有方向的：$upright("(II)") = upright("(I)") bold(M)$，则 $bold(M)$ 是向量组 (I) 过渡到向量组 (II) 的过渡矩阵．
 
-  2. $bold(M)$ 可逆。$bold(M)^(-1)$ 是从基 (II) 到基 (I) 的过渡矩阵
+  2. $bold(M)$ 可逆．$bold(M)^(-1)$ 是从基 (II) 到基 (I) 的过渡矩阵
 
-  3. $PP^n$ 下 *求过渡矩阵的方法*：记 $bold(A) = vecn(xi,n)$，$bold(B) = vecn(eta,n)$，则有 $bold(B) = bold(A M)$ $=>$ $bold(M) = bold(A)^(-1) bold(B)$。那么写成分块矩阵 $display(mat(bold(A),:,bold(B)))$ 的形式，通过初等行变换将左边消成单位矩阵，那么右边就是 $bold(M)$。
+  3. $PP^n$ 下 *求过渡矩阵的方法*：记 $bold(A) = vecn(xi,n)$，$bold(B) = vecn(eta,n)$，则有 $bold(B) = bold(A M)$ $=>$ $bold(M) = bold(A)^(-1) bold(B)$．那么写成分块矩阵 $display(mat(bold(A),:,bold(B)))$ 的形式，通过初等行变换将左边消成单位矩阵，那么右边就是 $bold(M)$．
 ]
 
 === 坐标变换公式
@@ -286,104 +286,49 @@ $
 $
 alpha = vecn(xi,n) bold(X) = vecn(eta,n) bold(Y) = vecn(xi,n) bold(M Y)
 $
-则 $bold(X) = bold(M Y)$ 或称 $bold(Y) = bold(M)^(-1) bold(X)$。
+则 $bold(X) = bold(M Y)$ 或称 $bold(Y) = bold(M)^(-1) bold(X)$．
 
 == 子空间
 
-数域 $PP$ 上一个线性空间 $V$ 的一个非空集合 $W$，如果关于 $V$ 的加法和数乘也构成 $PP$ 上的线性空间，那么称 $W$ 是 $V$ 的一个 *子空间*。显然 ${theta}$ 和 $V$ 是 $V$ 的两个字空间，称为 $V$ 的平凡子空间。
+数域 $PP$ 上一个线性空间 $V$ 的一个非空集合 $W$，如果关于 $V$ 的加法和数乘也构成 $PP$ 上的线性空间，那么称 $W$ 是 $V$ 的一个 *子空间*．显然 ${theta}$ 和 $V$ 是 $V$ 的两个字空间，称为 $V$ 的平凡子空间．
 
-#def[定理]线性空间 $V$ 的任意一个非空子集 $W$，如果满足加法封闭、乘法封闭，则称 $W$ 是 $V$ 的一个子空间。
+#def[定理]线性空间 $V$ 的任意一个非空子集 $W$，如果满足加法封闭、乘法封闭，则称 $W$ 是 $V$ 的一个子空间．
 
-设 $V$ 是数域 $PP$ 上的线性空间，$seqn(alpha,t) in V$，记 $L(seqn(alpha,t)) = {k_1 alpha_1 + k_2 alpha_2 + dots.c + k_t alpha_t | t_i in PP}$，可以证明 $L(seqn(alpha,t))$ 是 $V$ 的一个子空间，记 $L(seqn(alpha,t))$ 为由向量组 $seqn(alpha,t)$ *张成* 的子空间。
+设 $V$ 是数域 $PP$ 上的线性空间，$seqn(alpha,t) in V$，记 $L(seqn(alpha,t)) = {k_1 alpha_1 + k_2 alpha_2 + dots.c + k_t alpha_t | t_i in PP}$，可以证明 $L(seqn(alpha,t))$ 是 $V$ 的一个子空间，记 $L(seqn(alpha,t))$ 为由向量组 $seqn(alpha,t)$ *张成* 的子空间．
 
-特别地，设 $seqn(xi,n)$ 是 $V$ 的一组基，则 $V = L(seqn(xi,n))$。
+特别地，设 $seqn(xi,n)$ 是 $V$ 的一组基，则 $V = L(seqn(xi,n))$．
 
 == 线性方程组解的结构
 
-对线性方程组 $bold(A)_(m times n) bold(X) = beta (!= theta)$ 和 $bold(A)_(m times n) bold(X) = theta$，当 $r(bold(A)) = r display(mat(bold(A),:,beta)) = r <n$ 时，这两个线性方程组有无穷多解。
+对线性方程组 $bold(A)_(m times n) bold(X) = beta (!= theta)$ 和 $bold(A)_(m times n) bold(X) = theta$，当 $r(bold(A)) = r display(mat(bold(A),:,beta)) = r <n$ 时，这两个线性方程组有无穷多解．
 
-记 $W={bold(A) bold(X) = beta | bold(X) in PP^n}$，$W_0={bold(A) bold(X) =theta | bold(X) in PP^n}$，则 $W,W_0$ 都是 $PP^n$ 的子集。但 $W_0$ 是 $PP^n$ 的子空间，$W$ 不是 $PP^n$ 的子空间。
+记 $W={bold(A) bold(X) = beta | bold(X) in PP^n}$，$W_0={bold(A) bold(X) =theta | bold(X) in PP^n}$，则 $W,W_0$ 都是 $PP^n$ 的子集．但 $W_0$ 是 $PP^n$ 的子空间，$W$ 不是 $PP^n$ 的子空间．
 
 - $W_0$ 的结构：由基础解系（极大线性无关组）张成
 - $W$ 的结构：由对应齐次线性方程组的解空间平移而成
 
 === 齐次线性方程组解的结构
 
-$bold(A X) = theta$ 的解空间 $W_0$ 的任意一个极大线性无关组 $seqn(xi,n-r)$ 称为 $W_0$ 的一个 *基础解系*。有 $W_0 = L(seqn(xi,n-r))$。
+$bold(A X) = theta$ 的解空间 $W_0$ 的任意一个极大线性无关组 $seqn(xi,n-r)$ 称为 $W_0$ 的一个 *基础解系*．有 $W_0 = L(seqn(xi,n-r))$．
 
 TBD
 
 #prof[
-  #def[证明]：$seqn(xi,n-r)$ 为 $W_0$ 的一个基础解系。
+  #def[证明]：$seqn(xi,n-r)$ 为 $W_0$ 的一个基础解系．
 
   1. $seqn(xi,n-r) in W_0$（即 $bold(A) xi_i = theta, sp i=1,2,dots.c,n-r$）；
   2. $seqn(xi,n-r)$ 线性无关；
-  3. $forall bold(X) in W$，$bold(X)$ 可被 $seqn(xi,n-r)$ 表示。
+  3. $forall bold(X) in W$，$bold(X)$ 可被 $seqn(xi,n-r)$ 表示．
 
-  其中：记：$bold(B) = vecn(xi,n-r) = display(mat(bold(C)_(r times (n-r)); bold(E)_((n-r)times(n-r))))$。
+  其中：记：$bold(B) = vecn(xi,n-r) = display(mat(bold(C)_(r times (n-r)); bold(E)_((n-r)times(n-r))))$．
 
-  由 $r(bold(B))<=n-r$ 且 $r(bold(B)) >= r(bold(E)_((n-r)times(n-r))) =n-r$ 得 $r(bold(B))=n-r$，即 $seqn(xi,n-r)$ 线性无关。
+  由 $r(bold(B))<=n-r$ 且 $r(bold(B)) >= r(bold(E)_((n-r)times(n-r))) =n-r$ 得 $r(bold(B))=n-r$，即 $seqn(xi,n-r)$ 线性无关．
 ]
 
 === 解的结构定理
 
-$bold(A X) = beta$ 的任意解，$bold(X) = xi_0 + (t_1 xi_1 + t_2 xi_2 + dots.c + t_(n-r) xi_(n-r))$。其中 $xi_0$ 是 $bold(A X) = beta$ 的某个特解，$seqn(xi,n-r)$ 是 $bold(A X) = theta$ 的基础解系。
+$bold(A X) = beta$ 的任意解，$bold(X) = xi_0 + (t_1 xi_1 + t_2 xi_2 + dots.c + t_(n-r) xi_(n-r))$．其中 $xi_0$ 是 $bold(A X) = beta$ 的某个特解，$seqn(xi,n-r)$ 是 $bold(A X) = theta$ 的基础解系．
 
 === 例题
 
 01:29:42
-
-= 第八章
-
-== 正交向量组
-
-对于 $V$ 中的一个向量组，如果其中的向量两两正交，则称该向量组为 $V$ 的一个 *正交向量组*，如果正交向量组中的每个向量的长度均为 $1$，则又称这样的向量组为一个 *标准正交向量组*．
-
-#def[性质]正交向量组必线性无关；但反过来，一个线性无关的向量组不一定是正交向量组．
-
-#prof[
-  #def[证明]：设 $alpha_1,alpha_2,dots,alpha_m$ 为一个正交向量组，考察 $k_1 alpha+k_2 alpha_2 + dots.c + k_m alpha_m = theta quad (*)$．
-
-  下面先证明 $(*) "成立" <=> k_1 = 0$：
-
-  $
-  because 0 &= (alpha_1,theta) = (alpha_1,k_1 alpha_1 + k_2 alpha_2 + dots.c k_m alpha_m)\
-  &= (alpha_1, k_1 alpha_1) + (alpha_1, k_2 alpha_2) + dots.c + (alpha_1, k_m alpha_m) = 
-  $
-
-  反过来，对于 $alpha_1=display(mat(1,0))^TT, alpha_2=display(mat(1,1))^TT$，显然 $alpha_1$ 和 $alpha_2$ 线性无关，但 $(alpha_1,alpha_2)=1 != 0$，所以 $alpha_1$ 和 $alpha_2$ 显然不正交．
-]
-
-== 标准正交基
-
-若 $dim V = n$，则 $V$ 中 $n$ 个两两正交的向量所组成的向量组，称为 $V$ 的一组 *正交基*．
-
-若 $V$ 的一组正交基中每个向量的长度均为 $1$，则这组基又称为 $V$ 的 *标准正交基*．
-
-#def[性质1]欧式空间 $V$ 的一组基为标准正交基 $<=>$ 它的度量矩阵必是单位矩阵．
-
-#def[性质2]$R^(n), R^(m times n)$ 的常用基都是标准正交基．
-
-=== 标准正交基的作用
-
-设 $xi_1,xi_2,dots,xi_n$ 为 $n$ 维欧式空间 $V$ 的一组标准正交基，$forall alpha,beta in V$，设 $alpha = (xi_1,xi_2,dots,xi_n) X$，$beta = (xi_1,xi_2,dots,xi_n) Y$，其中 $X = (x_1,x_2,dots,x_n)^TT$，$Y = (y_1,y_2,dots,y_n)^TT in R^n$，则：
-
-(1) $(alpha,beta) = (X,Y) = X^T Y = Y^T X$；\
-(2) $||alpha|| = ||X|| = sqrt(x_1^2 + x_2^2 + dots.c + x_n^2)$；\
-(3) $alpha = (xi_1,xi_2,dots,x_n) X = x_1 xi_1 + x_2 xi_2 + dots.c + x_n xi_n => x_i = (alpha,xi_i), i=1 dots.c n$．
-
-== 正交矩阵（重要）
-
-设 $bold(U) in RR^(n times n)$，若 $bold(U) bold(U)^TT= bold(U)^TT bold(U) = bold(E)$，即 $bold(U)$ 可逆且逆矩阵为 $bold(U)^TT$，则称 $bold(U)$ 为 $n$ 阶正交矩阵．
-
-#def[定理]设 $bold(U) = (u_(i j))_(n times n) = display(mat(eta_1,eta_2, dots.c , eta_n))$ 为正交矩阵 $<=> bold(U)^TT = bold(U)^(-1)$ $<=>$ $eta_1,eta_2,dots.c,eta_n$ 为 $R^n$ 的标准正交基．
-
-#prof[
-  #def[证明]
-  $
-  bold(U) bold(U)^TT = eta
-  $
-]
-
-== Schmidt 正交化法
-
