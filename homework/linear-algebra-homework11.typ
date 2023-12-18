@@ -10,6 +10,7 @@
 
 #let AA = math.bold("A")
 #let BB = math.bold("B")
+#let EE = math.bold("E")
 #let TT = math.upright("T")
 #let alpha = math.bold(math.alpha)
 #let beta = math.bold(math.beta)
@@ -28,14 +29,26 @@
 
 = P110 补充题四 3
 #prob[
-	设 $AA,BB$ 是两个 $n$ 阶正交矩阵，且 $|AA BB| = -1$、试证明：
+	设 $AA,BB$ 是两个 $n$ 阶正交矩阵，且 $|AA BB| = -1$，试证明：
 	
 	(1) $|AA^TT BB| = |AA BB^TT| = |AA^TT BB^TT| = -1$．
 ]
 
+$
+|AA BB| = |AA| dot |BB| = |AA^TT| dot |BB| = |AA^TT BB| = -1
+$
+
+其余两项同理。
+
 #prob[
 	(2) $|AA + BB| = 0$．
 ]
+
+$
+|AA BB| dot |AA + BB|
+= |AA^TT (AA + BB) BB^TT|
+= |AA^TT AA BB^TT + AA^TT BB BB^TT|
+$
 
 = P183 习题八 2
 #prob[
