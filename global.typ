@@ -54,13 +54,13 @@
 #let bb(x) = { text(x, weight: "bold") }
 
 #let seqn(x,n) = (
-  math.attach(x, br: math.upright("1")) + math.upright(",") + math.attach(x, br: math.upright("2")) + math.upright(",") + math.dots.c + math.upright(",") + math.attach(x, br: math.upright(n))
+  math.attach(x, br: math.upright("1")) + math.upright(",") + math.attach(x, br: math.upright("2")) + math.upright(",") + math.dots.c + math.upright(",") + math.attach(x, br: math.italic(n))
 )
 #let vecn(x,n) = (
   math.display(math.mat(
     math.attach(x, br: math.upright("1")),
     math.attach(x, br: math.upright("2")),
     math.dots.c,
-    math.attach(x, br: math.upright(n))
+    math.attach(x, br: math.italic(n))
   ))
 )
