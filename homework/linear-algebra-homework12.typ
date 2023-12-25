@@ -13,17 +13,31 @@
 #let theta = math.bold(math.theta)
 #let AA = math.bold(math.italic("A"))
 #let BB = math.bold(math.italic("B"))
+#let EE = math.bold(math.italic("E"))
 #let TT = math.upright("T")
+#let diag = math.upright("diag")
+#let ssim = math.attach(sp + math.upright("~") + sp, tl: "", tr:"", t: math.upright("S"))
 
 = P126 习题五 3
 #prob[
 	若三元列向量 $alpha,beta$ 满足 $alpha^TT beta = 2$，求矩阵 $beta alpha^TT$ 的所有特征值．
 ]
 
+设 $AA = beta alpha^TT$，则 $AA beta = (beta alpha^TT) beta = 2 beta$，说明 $2$ 是 $AA$ 的一个特征值，$beta$ 是对应的特征向量。
+
+由于 $r(AA)=1$，故 $AA$ 只有 $2$ 这一个非零特征值。故 $0$ 是 $AA$ 的另一个特征值。
+
+综上，$beta alpha^TT$ 的所有特征值为 $0,2$。
+
 = P126 习题五 4
 #prob[
 	设 $AA$ 为二阶矩阵，$alpha_1,alpha_2$ 为线性无关的二元列向量，$AA alpha_1 = theta$，$AA alpha_2 = 2 alpha_1 + alpha_2$，求 $AA$ 的所有特征值．
 ]
+
+$
+AA mat(alpha_1,alpha_2) = mat(theta,2alpha_1+alpha_2) = mat(alpha_1,alpha_2) mat(0,2;0,1) => AA ssim mat(0,2;0,1)
+$
+故 $AA$ 的特征值为 $0,1$。
 
 = P126 习题五 6(2)
 #prob[
@@ -34,6 +48,16 @@
 		-1,0,-2;
 	) $
 ]
+
+通过初等行变换得
+$
+|lambda EE - AA|
+&= -3 + 5(lambda+2) - (lambda+3)(2-lambda^2)\
+&= lambda^3 + 3lambda^2 + 3lambda + 1\
+&= (lambda+1)^3
+$
+
+故 $-1$ 是三重特征值，对应的特征向量为：$$
 
 = P127 习题五 6(5)
 #prob[
