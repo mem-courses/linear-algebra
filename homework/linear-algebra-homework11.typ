@@ -41,13 +41,13 @@ $
 |AA BB| = |AA| dot |BB| = |AA^TT| dot |BB| = |AA^TT BB| = -1
 $
 
-其余两项同理。
+其余两项同理．
 
 #prob[
 	(2) $|AA + BB| = 0$．
 ]
 
-根据正交矩阵的性质，有 $AA^TT AA = AA^(-1)AA = EE$。
+根据正交矩阵的性质，有 $AA^TT AA = AA^(-1)AA = EE$．
 
 $
 |AA BB| dot |AA + BB|
@@ -57,7 +57,7 @@ $
 = |AA + BB|
 $
 
-由于 $|AA + BB| = -|AA + BB|$，故只可能 $|AA + BB| = 0$。
+由于 $|AA + BB| = -|AA + BB|$，故只可能 $|AA + BB| = 0$．
 
 = P183 习题八 2(1) #ac
 #prob[判断如下定义的映射是不是一个内积：$ (alpha,beta) = display(sqrt(sum_(i=1)^n a_i^2 b_i^2)) $]
@@ -75,7 +75,7 @@ $
 	 - 2 sqrt((sum_(i=1)^n a_i^2 y_i^2)(sum_(i=1)^n b_i^2 y_i^2) )\
 =& 2 (sum_(i=1)^n a_i b_i y_i^2 - sqrt((sum_(i=1)^n a_i^2 y_i^2)(sum_(i=1)^n b_i^2 y_i^2)))
 $
-不一定为 $0$，故该映射不是内积。
+不一定为 $0$，故该映射不是内积．
 
 = P183 习题八 2(2) #wa
 #prob[判断如下定义的映射是不是一个内积：$ (alpha,beta) = display((sum_(i=1)^n a_i) (sum_(j=1)^n b_j)) $]
@@ -86,10 +86,10 @@ $
 (k alpha, beta) = (sum_(i=1)^n k a_i) (sum_(j=1)^n b_j) = k (sum_(i=1)^n a_i) (sum_(j=1)^n b_j) = k (alpha, beta)\
 (alpha+beta, gamma) = (sum_(i=1)^n (a_i + b_i)) (sum_(j=1)^n y_j) = (sum_(i=1)^n a_i + sum_(i=1)^n b_i) (sum_(j=1)^n y_j) = (alpha,gamma) + (beta,gamma)\
 $
-故该映射是内积。
+故该映射是内积．
 
 #warn[
-	不满足 $(alpha,alpha) = 0$ 时 $alpha = theta$。所以该映射不是内积。
+	不满足 $(alpha,alpha) = 0$ 时 $alpha = theta$．所以该映射不是内积．
 ]
 
 = P183 习题八 2(3) #ac
@@ -101,7 +101,7 @@ $
 (k alpha, beta) = sum_(i=1)^n c_i (k a_i) b_i = k sum_(i=1)^n c_i a_i b_i = k (alpha,beta)\
 (alpha+beta,gamma) = sum_(i=1)^n c_i (a_i+b_i) y_i = sum_(i=1)^n c_i a_i y_i + sum_(i=1)^n c_i b_i y_i = (alpha,gamma) + (beta,gamma)
 $
-故该映射是内积。
+故该映射是内积．
 
 = P184 习题八 4 #ac
 #prob[
@@ -167,7 +167,7 @@ $
 &= (f(x),h(x)) + (g(x),h(x))\
 $
 
-综上所述，线性空间 $RR[x]_3$ 在如题设定义的映射下可以成为一个欧氏空间。
+综上所述，线性空间 $RR[x]_3$ 在如题设定义的映射下可以成为一个欧氏空间．
 
 #prob[(2) 在如 (1) 定义的内积空间中求一个多项式 $f(x)$ 使得 $f(x)$ 与 $1+x,1-x$ 均正交．]
 
@@ -181,7 +181,7 @@ $
 =>& a_0 + 1/3(-a_1 + a_2) = 0 => 3a_0 - a_1 + a_2 = 0\
 $
 
-取 $a_0 = -1,sp a_1 = 0,sp a_2 = 3$，可得 $f(x) = 3x^2 - 1$。
+取 $a_0 = -1,sp a_1 = 0,sp a_2 = 3$，可得 $f(x) = 3x^2 - 1$．
 
 = P184 习题八 7 #pc
 #prob[
@@ -196,12 +196,12 @@ $
 	(gamma,gamma) &= (gamma,k_1 alpha_1 + k_2 alpha_2 + dots.c + k_n alpha_n)\
 	&= k_1 (gamma,alpha_1) + k_2 (gamma,alpha_2) + dots.c + k_n (gamma,alpha_n) = 0
 	$
-	所以 $gamma = theta$。
+	所以 $gamma = theta$．
 ]
 
 #prob[(2) 如果 $gamma_1,gamma_2 in V$，且 $forall alpha in V$ 有 $(gamma_1,alpha) = (gamma_2,alpha)$，那么 $gamma_1=gamma_2$．]
 
-有 $forall alpha in V$，$(gamma_1 - gamma_2, alpha) = 0$，由 (1) 的结论得 $gamma_1 - gamma_2 = theta$ 即 $gamma_1 = gamma_2$。
+有 $forall alpha in V$，$(gamma_1 - gamma_2, alpha) = 0$，由 (1) 的结论得 $gamma_1 - gamma_2 = theta$ 即 $gamma_1 = gamma_2$．
 
 = P184 习题八 8 #ac
 #prob[在例 2 定义的内积空间 $C_([-1,1])$ 中，利用 Schmidt 正交化过程将向量组 $epsilon_1=1,sp epsilon_2=x, epsilon_3=x^2$ 改造成一个标准正交向量组．]
@@ -232,7 +232,7 @@ $
 (alpha_1,alpha_3) = 1/9 (2 - 4 + 2) = 0, quad
 (alpha_2,alpha_3) = 1/9 (2 + 2 - 4) = 0\
 $
-故 $alpha_1,alpha_2,alpha_3$ 也是一组标准正交基。
+故 $alpha_1,alpha_2,alpha_3$ 也是一组标准正交基．
 
 = P184 习题八 10(2) #ac
 #prob[
@@ -262,7 +262,7 @@ mat(
 	0,0,0;
 )
 $
-故 $dim(V_1) = 3$。通过 Schmidt 正交化法得一组正交基
+故 $dim(V_1) = 3$．通过 Schmidt 正交化法得一组正交基
 $
 beta_1 &= alpha_1 = xi_1 + xi_5\
 beta_2 &= alpha_2 - ((alpha_2,beta_1))/((beta_1,beta_1)) beta_1 = alpha_2 - 1/2 beta_1 = 1/2 xi_1 - xi_2 + xi_4 - 1/2 xi_5\
@@ -291,11 +291,11 @@ $
 	为 Gram 行列式，试证明：$seqn(alpha,m)$ 线性相关当且仅当 $G(seqn(alpha,m)) = 0$．
 ]
 
-$=>$：线性相关：$alpha_m = k_1 alpha_1 + k_2 alpha_2 + dots.c + k_(m-1) alpha_(m-1)$，可通过初等行变换将最后一行消成 $0$。
+$=>$：线性相关：$alpha_m = k_1 alpha_1 + k_2 alpha_2 + dots.c + k_(m-1) alpha_(m-1)$，可通过初等行变换将最后一行消成 $0$．
 
-$arrow.double.l$：由于 $G(seqn(alpha,m)) = 0$，可知矩阵不满秩，即存在不为 $0$ 的一组 $seqn(k,m)$ 使得 $forall j in [1,m],sp sum_(i=1)^m k_i (alpha_j, alpha_i) = 0$，即 $forall j in [1,m],sp (alpha_j, sum_(i=1)^m k_i alpha_i) = 0$。可以进一步得到：$(sum_(j=1)^m k_j alpha_j, sum_(i=1)^m k_i alpha_i) = 0$，根据欧氏空间的正定性，有 $sum_(i=1)^m k_i alpha_i = 0$，即 $seqn(alpha,m)$ 线性相关。
+$arrow.double.l$：由于 $G(seqn(alpha,m)) = 0$，可知矩阵不满秩，即存在不为 $0$ 的一组 $seqn(k,m)$ 使得 $forall j in [1,m],sp sum_(i=1)^m k_i (alpha_j, alpha_i) = 0$，即 $forall j in [1,m],sp (alpha_j, sum_(i=1)^m k_i alpha_i) = 0$．可以进一步得到：$(sum_(j=1)^m k_j alpha_j, sum_(i=1)^m k_i alpha_i) = 0$，根据欧氏空间的正定性，有 $sum_(i=1)^m k_i alpha_i = 0$，即 $seqn(alpha,m)$ 线性相关．
 
-#note[看了点提示做出来的。]
+#note[看了点提示做出来的．]
 
 = P185 补充题八 3 #wa
 #prob[
@@ -307,14 +307,14 @@ $arrow.double.l$：由于 $G(seqn(alpha,m)) = 0$，可知矩阵不满秩，即�
 	则必有 $(alpha,beta) = x_1 y_1 + x_2 y_2 + dots.c + x_n y_n$．
 ]
 
-$=>$：显然。
+$=>$：显然．
 
-$arrow.double.l$：不会。
+$arrow.double.l$：不会．
 
 #answer[
-	$=>$：由题意，其度量矩阵为 $EE$，故 $(alpha,beta) = alpha^TT EE beta = alpha^TT beta$。
+	$=>$：由题意，其度量矩阵为 $EE$，故 $(alpha,beta) = alpha^TT EE beta = alpha^TT beta$．
 
-	$arrow.double.l$：由于对于任意 $alpha,beta in V$ 都成立，代入可得 $display((alpha_i,alpha_j) = cases(1\,quad i!=j,0\,quad i=j))$。故 $seqn(alpha,n)$ 是一组标准正交基。
+	$arrow.double.l$：由于对于任意 $alpha,beta in V$ 都成立，代入可得 $display((alpha_i,alpha_j) = cases(1\,quad i!=j,0\,quad i=j))$．故 $seqn(alpha,n)$ 是一组标准正交基．
 ]
 
 = P185 补充题八 4
@@ -340,6 +340,6 @@ $arrow.double.l$：不会。
 	设 $alpha,beta$ 是具有内积 $(dot,dot)$ 的 $n$ 维欧式空间 $V$ 中的两个不同的向量且 $|alpha| = |beta| = 1$，证明：$(alpha,beta) != 1$．
 ]
 
-反设 $(alpha,beta) = 1$，那么两向量夹角 $display(theta = arccos ((alpha,beta))/(||alpha|| dot ||beta||) = arccos 1 = 0)$，此时两向量重合。
+反设 $(alpha,beta) = 1$，那么两向量夹角 $display(theta = arccos ((alpha,beta))/(||alpha|| dot ||beta||) = arccos 1 = 0)$，此时两向量重合．
 
-故两向量不重合时，$(alpha,beta) != 1$。
+故两向量不重合时，$(alpha,beta) != 1$．
