@@ -110,7 +110,7 @@ $
 $
 bold(P)^(-1) AA^m bold(P) = (bold(P)^(-1) AA bold(P))^m = Lambda^m = diag(lb_1^m,lb_2^m,dots.c,lb_n^m)
 $
-对于 $f(x)$ 的每一个单项式，分别代入 $m$ 并相加，可以得到：
+对于 $f(x)$ 的每一个单项式 $x^(k_i)$，分别代入 $m=k_i$ 并相加，可以得到：
 $
 bold(P)^(-1) f(AA) bold(P) = f(Lambda) = diag(f(lb_1),f(lb_2),dots.c,f(lb_n))
 $
@@ -122,8 +122,19 @@ $
   (1) 若 $a_11,a_22,dots.c,a_(n n)$ 互不相等，则 $AA$ 可相似对角化。
 ]
 
+$
+|lambda EE - AA| = (lambda-a_11)(lambda-a_22)dots.c(lambda-a_(n n))
+$
+故 $lambda_1=a_11,lambda_2=a_22,dots.c,lambda_n=a_(n n)$ 是 $AA$ 的 $n$ 个特征根且两两不同。
+
+考虑到 $|lambda_i EE - AA| = 0$，故有 $r(lambda_i EE - AA)<n$，即 $dim V_(lambda_i) >= 1$，再由 $display(sum_(i=1)^n dim V_(lambda_i))$ 可得 
+$
+dim V_lambda_1=dim V_lambda_2=dots.c=dim V_lambda_n=1
+$
+故 $AA$ 可被对角化。
+
 #prob[
-  (2) 若 $a_11 = a_22 = dots.c = a_(n n)$ 且至少一个 $a_(i_0 j_0) != 0$（其中  $i_0>j_0$），则 $AA$ 不可相似对角化。
+  (2) 若 $a_11 = a_22 = dots.c = a_(n n)$ 且至少一个 $a_(i_0 j_0) != 0$（其中 $i_0>j_0$），则 $AA$ 不可相似对角化。
 ]
 
 = P131 习题五 42
@@ -133,19 +144,87 @@ $
   (1) 求 $AA^99$。
 ]
 
+$
+|lambda EE - AA| = lambda(lambda+1)(lambda+2)
+$
+故 $lambda_1=-2,lambda_2=-1,lambda_3=0$ 为 $AA$ 的三个特征根，求得对应的一组特征向量为：
+$
+cases(
+  alpha_1 = display(mat(1,2,0))^TT,
+  alpha_2 = display(mat(1,1,0))^TT,
+  alpha_3 = display(mat(3,2,2))^TT,
+)
+$
+取 $display(bold(P) = mat(alpha_1,alpha_2,alpha_3) = mat(
+  1,1,3;
+  2,1,2;
+  0,0,2;
+))$ 可得 $bold(P)^(-1) bold(A) bold(P) = Lambda = diag(-2,-1,0)$。那么
+$
+AA^99 = bold(P) Lambda^99 bold(P)^(-1) = mat(
+  1,1,3;
+  2,1,2;
+  0,0,2;
+) mat(
+  -2^99,0,0;
+  0,-1,0;
+  0,0,0;
+) mat(
+  -1,-1,1/2;
+  2,1,-2;
+  0,0,1/2;
+) = mat(
+  2^99-2,2^99-1,0;
+  2^100-2,2^100-1,0;
+  0,0,0;
+)
+$
+
 #prob[
   (2) 设三阶矩阵 $BB = display(mat(alpha_1,alpha_2,alpha_3))$ 满足 $BB^2 = BB AA$，记 $BB^100 = display(mat(beta_1,beta_2,beta_3))$，将 $beta_1,beta_2,beta_3$ 分别表示为 $alpha_1,alpha_2,alpha_3$ 的线性组合。
 ]
+
+$
+BB^100 &= BB AA^99 = mat(2^99-2) mat(
+  2^99-2,2^99-1,0;
+  2^100-2,2^100-1,0;
+  0,0,0;
+)\ &= mat(
+  (2^99-2) alpha_1 + (2^100-2) alpha_2,
+  (2^99-1) alpha_1 + (2^100-1) alpha_2,
+  0,
+)
+$
+即：
+$ cases(
+  beta_1 = (2^99-2) alpha_1 + (2^100-2) alpha_2,
+  beta_2 = (2^99-1) alpha_1 + (2^100-1) alpha_2,  
+  beta_3 = 0,
+) $
 
 = P131 习题五 44
 #prob[
   设矩阵 $AA = display(mat(1,0,1;0,2,0;1,0,1))$，矩阵 $BB = (k EE + AA)^2$，其中 $k in RR$，证明：$BB$ 可相似对角化。
 ]
 
+设 $bold(T) = display(mat(0,0,1;0,1,0;1,0,0))$，则 $AA = EE + bold(T)$。那么
+$
+BB = (k EE + EE + bold(T))^2 = (k+1)^2 EE + 2(k+1) bold(T) + bold(T)^2 = (k^2+2k+2) EE + 2(k+1) bold(T)
+$
+设 $t=k+1$，则 $BB = (t^2+1) EE + 2t bold(T)$，考虑
+$
+|lambda EE - BB| &= |(lambda-1-t^2)EE - 2t bold(T)|\
+&= (lambda-1-t^2)(lambda-(t+1)^2)(lambda-1-t^2-(4t^2)/(lambda-1-t^2))\
+&= (lambda-(t+1)^2) (lambda^2 - 2(t^2+1) lambda + (t-1)^2)
+$
+故 $BB$ 有三个不同的特征根，根据类似前面例题的推导，可以得出 $BB$ 可相似对角化。
+
 = P132 习题五 45
 #prob[
    证明：如果 $n$ 阶实矩阵 $AA$ 有 $n$ 个正交的特征向量，那么 $AA$ 是一个对称矩阵。
 ]
+
+
 
 = P132 习题五 46
 #prob[
@@ -172,9 +251,23 @@ $
   (1) 给出求 $AA$ 的属于特征值 $lb_3$ 的全部特征向量的一个方法。
 ]
 
+首先 $AA in PP^(3 times 3)$，由于 $dim V_(lb_1) + dim_V_lb_2 + dim_V_lb_3 <= 3$，故 $dim_V_lb_3 = 1$ 即 $lb_3$ 只有一个特征向量。
+
+
+根据实对称矩阵的性质，$xi_3$ 应与 $xi_1,xi_2$ 都正交，可用待定系数法解方程得到。
+
 #prob[
   (2) 判断 $c_1 xi_1 + c_2 xi_2$（其中 $c_1,c_2 in RR$）是否为 $AA$ 的属于特征值 $lambda_3$ 的特征向量。
 ]
+
+应满足 $xi_1,xi_2,xi_3$ 两两正交。
+
+$
+(xi_1,c_1 xi_1 + c_2 xi_2) = c_1 (xi_1,xi_1) = 0
+(xi_2,c_1 xi_1 + c_2 xi_2) = c_2 (xi_2,xi_2) = 0
+$
+
+由于 $xi_1,xi_2,xi_3$ 都非零向量，根据内积的正定性，$(xi_1,xi_1)>0,sp (xi_2,xi_2)>0$，故只能 $c_1=c_2=0$ 而此时 $xi_3 = c_1 xi_1 + c_2 xi_2 = theta$，不能作为特征向量。故综上，这一定不是属于特征值 $lb_3$ 的特征向量。
 
 = P133 习题五 54
 #prob[
@@ -183,9 +276,24 @@ $
   AA mat(1,1;0,0;-1,1) = mat(-1,1;0,0;1,1)
   $
   (1) 求 $AA$ 的所有特征值与特征向量。
+
+  (2) 求矩阵 $AA$。
 ]
 
-#prob[(2) 求矩阵 $AA$。]
+设 $AA = display(mat(alpha_1^TT;alpha_2^TT;alpha_3^TT))$，代入可得：
+$ cases(
+  alpha_1 - alpha_3 = display(mat(-1,0,1))^TT,
+  alpha_1 + alpha_3 = display(mat(1,0,1))^TT,
+) => cases(
+  alpha_1 = display(mat(0,0,1))^TT,
+  alpha_3 = display(mat(1,0,0))^TT,
+) $
+同时，考虑到 $r(AA) = 2$，故 $alpha_2$ 可被 $alpha_1,alpha_3$ 线性表示。再考虑到 $AA$ 是对称矩阵，故解得
+$
+AA = mat(0,0,1;0,0,0;1,0,0)
+=> |lambda EE - AA| = lambda^2 (lambda-1/lambda) = lambda(lambda-1)(lambda+1)
+$
+故 $-1,0,1$ 是 $AA$ 的特征值，代入可得对应的特征向量分别为 $display(mat(1,0,-1))^TT,display(mat(0,1,0))^TT,display(mat(1,0,1))^TT$。
 
 = P133 习题五 55
 #prob[
@@ -194,7 +302,32 @@ $
   (1) 验证 $alpha_1$ 是矩阵 $BB$ 的特征向量，并求 $BB$ 的全部特征值与特征向量。
 ]
 
+$
+BB alpha_1 = (1^5 - 4 dot 1^3 + 1) alpha_1 = -2 alpha_1
+$
+故 $alpha_1$ 是矩阵 $BB$ 的特征向量，且 $lb'_1=-2$。同理可得 $lb'_2=lb'_3=-1$。$-1$ 是 $BB$ 的一个二重特征根，其对应的特征向量应与 $display(mat(1,-1,1))^TT$ 正交且线性无关，可取：
+$ cases(
+  alpha_2 = display(mat(1,1,0))^TT,
+  alpha_3 = display(mat(0,1,1))^TT
+) $
+
 #prob[(2) 求矩阵 $BB$。]
+
+取 $bold(P) = display(mat(1,1,0;-1,1,1;1,0,1))$，则
+$
+bold(P)^(-1) BB bold(P) = Lambda = mat(-2,0,0;0,-1,0;0,0,-1)\
+=> BB = bold(P) Lambda bold(P)^(-1) = mat(
+  -2,-1,0;2,-1,-1;-2,0,1
+) mat(
+  1/3,-1/3,1/3;
+  2/3,1/3,-1/3;
+  -1/3,1/3,2/3
+) = mat(
+  -4/3,1/3,-1/3;
+  1/3,-4/3,1/3;
+  -1,1,0;
+)
+$
 
 = P133 习题五 58
 #prob[
@@ -203,13 +336,29 @@ $
 
 = P134 补充题五 5
 #prob[
-  设矩阵 $A$ 与 $BB$ 相似，试证明：伴随矩阵 $AA^*$ 与 $BB^*$ 也相似。
+  设矩阵 $AA$ 与 $BB$ 相似，试证明：伴随矩阵 $AA^*$ 与 $BB^*$ 也相似。
 ]
+
+若 $|AA|=|BB|=0$，则伴随矩阵 $AA^* = BB^* = OO$，显然相似。否则 $|AA| = |BB| != 0$。考虑
+$
+AA AA^* = |AA| EE = |BB| EE = BB BB^* = bold(P)^(-1) AA bold(P) BB^*\
+=> bold(P) AA AA^* = AA bold(P) BB^*
+=> 
+$
 
 = P134 补充题五 6
 #prob[
   设 $AA$ 是一个可逆矩阵，试证明：存在多项式 $f(x)$ 使得 $AA^(-1) = f(AA)$。
 ]
+
+$
+AA^(-1) f(AA) = EE <=> AA^(-1) g(AA) = OO
+$
+其中 $g(x) = f(x) - x$。由于 $AA$ 是可逆矩阵，应满秩，故应有 $g(AA) = OO$ 即 $g(x)$ 为特征多项式。设 $seqn(lambda,n)$ 为 $AA$ 的特征根，则取
+$
+f(x) = g(x) + x = (x-lambda_1)(x-lambda_2)dots.c(x-lambda_n) + x
+$
+即合题意。
 
 = P134 补充题五 8
 #prob[
@@ -218,5 +367,5 @@ $
 
 = P134 补充题五 10
 #prob[
-  设 $AA,BB in PP^(n times n)$，试证明：$AA$ 与 $BB$ 相似的充分必要条件是存在 $bold(C),bold(D) in PP^(n times n)$，使得 $AA = bold(C D),sp BB = bold(D C)$，且 $bold(C),bold(D)$ 中至少一个可逆。
+  设 $AA,BB in PP^(n times n)$，试证明：$AA$ 与 $BB$ 相似的充分必要条件是存在 $bold(C),bold(D) in PP^(n times n)$，使得 $AA = bold(C D)$，$BB = bold(D C)$，且 $bold(C),bold(D)$ 中至少一个可逆。
 ]

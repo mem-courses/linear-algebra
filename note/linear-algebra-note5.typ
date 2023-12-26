@@ -160,7 +160,7 @@ $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + 
 
 #deft[性质2]3. $tr(AA) = tr(BB)$；
 
-#deft[性质2]4. $|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
+#deft[性质2]4. 设 $AA,BB$ 都能对角化，$|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
 
 #def[性质3]设 $bold(P)^(-1) AA bold(P) = BB$，$lambda$ 为 $AA,BB$ 的特征值，且 $V_lambda^AA =bold(P) V_lambda^BB$．
 
