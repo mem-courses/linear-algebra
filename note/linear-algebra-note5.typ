@@ -351,4 +351,4 @@ $
 
 #deft[定理]2. 矩阵语言：$n$ 阶实对称矩阵 $AA$ 与对角矩阵 $diag(d_1,d_2,dots.c,d_n)$ 合同时，$d_i$ 中不等于零的个数（即 $r(AA)$）和大（小）于零的个数（$AA$ 的正（负）惯性指数）都是唯一的。即设实对称矩阵 $AA_(n times n)$ 的秩为 $r$，正惯性指数为 $p$，则 $AA$ 与矩阵 $display(mat(EE_p,,;,-EE_(r-p),;,,OO_(n-r)))$ 合同。
 
-特别地，对于实对称矩阵，一定存在正交矩阵 $bold(U)$ 使得 $bold(U)^(-1) AA bold(U) = bold(U)^TT AA bold(U) = diag(seqn(lambda,n))$
+特别地，对于实对称矩阵，一定存在正交矩阵 $bold(U)$ 使得 $bold(U)^(-1) AA bold(U) = bold(U)^TT AA bold(U) = diag(seqn(lambda,n))$，即 $AA$ 与对角矩阵既相似又合同。
