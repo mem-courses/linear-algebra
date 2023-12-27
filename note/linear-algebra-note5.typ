@@ -286,7 +286,7 @@ $
 
 由于 $(bold(C)^TT AA bold(C))^TT = bold(C)^TT AA bold(C)$，由性质 1 可得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$。
 
-#def[定理]$forall AA = AA^TT in PP^(n times n)$，一定存在可逆矩阵 $bold(C) in PP^(n times n)$ 使得 $bold(C)^(-1) AA bold(C) = diag(seqn(d,n))$ 为对角阵。 
+#def[定理]$forall AA = AA^TT in PP^(n times n)$，一定存在可逆矩阵 $bold(C) in PP^(n times n)$ 使得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$ 为对角阵。 
 
 == 合同
 
@@ -301,3 +301,54 @@ $
 #deft[性质2]2. 保持对称性不变：$BB^TT = (bold(P)^TT AA bold(P))^TT = bold(P)^TT AA^TT bold(P)$。
 
 #deft[性质2]3. 保持正定性不变。
+
+== 规范形
+
+=== 二次型的秩
+
+二次型经过非退化线性变换化成标准型后，非平方项的项数相同，将其称为 *二次型的秩*。
+
+#def[定理1]二次型 $f(seqn(x,n)) = display(sum_(i=1)^n sum_(j=i)^n a_(i j) x_i x_j) = XX^TT AA XX$，则二次型的秩等于 $AA$ 的秩。（可将 $AA$ 化为对角矩阵证明）
+
+=== 复数域上的规范形
+
+设复数域上二次型 $f(seqn(x,n))$ 的秩为 $r$，设 $bold(C)^TT AA bold(C) = diag(seqn(d,r),0,dots.c,0)$，进行线性变换 $YY = bold(C) XX$ 得：
+$
+f(seqn(x,n))
+&= d_1 y_1^2 + d_2 y_2^2 + dots.c + d_r y_r^2 + 0 dot y_(r+1)^2 + dots.c + 0 dot y_n^2\
+&= (sqrt(d_1) y_1)^2 + (sqrt(d_2) y_2)^2 + dots.c + (sqrt(d_r) y_r)^2\
+&= z_1^2 + z_2^2 + dots.c + z_r^2
+$
+
+
+这里进行了非退化线性变换为 $bold(Z) = diag(sqrt(d_1),sqrt(d_2),dots.c,sqrt(d_r),1,dots.c,1) bold(Y)$，将得到的结果称为 *二次型在复数域上的规范形*。
+
+#def[定理2]1. 二次型语言：任意一个复二次型一定可以经过非退化线性变化化为规范形，规范形由二次型的秩唯一确定。
+
+#deft[定理2]2. 矩阵语言：设 $AA = AA^TT in CC^(n times n)$，设 $r(AA) = r$，则 $AA$ 必与 $display(mat(EE_r,;,OO_(n-r)))_(n times n)$ 合同。
+
+#def[推论]对称矩阵 $AA,BB$ 在复数域上合同 $<=>$ $r(AA) = r(BB)$。
+
+=== 实数域上的二次型
+
+$
+f(seqn(x,n))
+&= d_1 y_1^2 + d_2 y_2^2 + dots.c + d_p y_p^2 + -d_(p+1) y_(p+1)^2 - dots.c - d_r y_r^2 + 0 dot y_(r+1)^2 + dots.c + 0 dot y_n^2\
+&= (sqrt(d_1) y_1)^2 + (sqrt(d_2) y_2)^2 + dots.c + (sqrt(d_p) y_p)^2 -(sqrt(d_(p+1)) y_(p+1))^2 - dots.c - (sqrt(d_r) y_r)^2\
+&= z_1^2 + z_2^2 + dots.c + z_p^2 - z_(p+1)^2 - dots.c - z_r^2
+$
+这里同样进行了非退化线性变换 $ZZ = diag(sqrt(d_1),sqrt(d_2),dots.c,sqrt(d_r),1,dots.c,1) bold(CC) XX$，得到的结果称为 *二次型在实数域上的规范形*。
+
+- 正平方项的项数 $p$ 称为 *二次型的正惯性指数*；
+- 负平方项的项数 $r-p$ 称为 *二次型的负惯性指数*；
+- $p-(r-p) = 2p-r$ 称为 *二次型的符号差*。
+
+该二次型的正（负）惯性指数、符号差也称为实对称矩阵 $AA$ 的正（负）惯性指数、符号差。
+
+#def[定理]（惯性定律）
+
+#deft[定理]1. 二次型语言：任意一个实二次型一定可以经过非退化线性变换化为规范形，规范形是唯一的，由二次型的秩和正（负）惯性指数决定。
+
+#deft[定理]2. 矩阵语言：$n$ 阶实对称矩阵 $AA$ 与对角矩阵 $diag(d_1,d_2,dots.c,d_n)$ 合同时，$d_i$ 中不等于零的个数（即 $r(AA)$）和大（小）于零的个数（$AA$ 的正（负）惯性指数）都是唯一的。即设实对称矩阵 $AA_(n times n)$ 的秩为 $r$，正惯性指数为 $p$，则 $AA$ 与矩阵 $display(mat(EE_p,,;,-EE_(r-p),;,,OO_(n-r)))$ 合同。
+
+特别地，对于实对称矩阵，一定存在正交矩阵 $bold(U)$ 使得 $bold(U)^(-1) AA bold(U) = bold(U)^TT AA bold(U) = diag(seqn(lambda,n))$
