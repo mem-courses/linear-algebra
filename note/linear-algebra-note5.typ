@@ -26,11 +26,47 @@
 #let diag = math.upright("diag")
 #let ssim = math.attach(sp + math.upright("~") + sp, tl: "", tr:"", t: math.upright("S"))
 
+= 矩阵的相似
+
+设 $AA,BB in PP^(n times n)$，若存在可逆矩阵 $bold(P) in PP^(n times n)$，使得 $bold(P)^(-1) AA bold(P) = bold(B)$，则称 $AA$ 与 $BB$ 相似，记作 $AA ssim BB$．
+
+#def[性质1]矩阵的相似具有自反性、对称性、传递性．
+
+#def[性质2]（矩阵相似的必要条件）设 $A ssim B$，则
+
+#deft[性质2]1. $|AA| = |BB|$；
+
+#deft[性质2]2. $r(AA) = r(BB)$；
+
+#deft[性质2]3. $tr(AA) = tr(BB)$；
+
+#deft[性质2]4. 设 $AA,BB$ 都能对角化，$|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
+
+#deft[性质2]5. 若 $AA$ 不可逆，则 $BB$ 也不可逆；若 $AA$ 可逆，则 $BB$ 也可逆，且 $AA^(-1) ssim BB^(-1)$．
+
+#def[性质3]设 $bold(P)^(-1) AA bold(P) = BB$，$lambda$ 为 $AA,BB$ 的特征值，且 $V_lambda^AA =bold(P) V_lambda^BB$．
+
+#prof[
+	#def[证明]设 $XX in V_lambda^BB$，则 $BB XX = lambda XX => bold(P)^(-1) AA bold(P) = lambda XX => AA(bold(P) XX) = lambda (bold(P) XX)$．
+]
+
+#def[性质4]若 $AA ssim BB$，则 $f(AA) ssim f(BB)$，其中 $f(XX)$ 是任意多项式．
+
+#def[结论1.1]与幂等矩阵相似的矩阵也是幂等矩阵．（幂等矩阵：$AA^2 = AA$）
+
+#def[结论1.2]与幂零矩阵相似的矩阵也是幂零矩阵．（幂零矩阵：$exists p in NN_+$，$st AA^p = OO$）
+
+#def[结论1.3]与周期矩阵相似的矩阵也是周期矩阵且周期相同．（周期矩阵：$exists m in NN_+, sp st AA^m = EE$）
+
+#def[结论2]若与 $AA$ 相似的矩阵有且只有一个，则 $AA$ 必是一个数量矩阵．
+
+#def[结论3]若 $AA$ 可逆，则 $AA BB ssim BB AA$．
+
 = 特征值理论
 
 == 特征值和特征向量
 
-设 $AA in PP^(n times n)$，如有数 $lambda_0 in PP$ 及非零列向量 $xi in PP^n$ 使得 $AA xi = lambda_0 xi$，则称 $lambda_0$ 是 $AA$ 的一个 *特征值*，非零列向量 $xi$ 为 $AA$ 的一个 *特征向量*．
+设 $AA in PP^(n times n)$，如有数 $lambda_0 in PP$ 及列向量 $xi in PP^n sp (xi != theta)$ 使得 $AA xi = lambda_0 xi$，则称 $lambda_0$ 是 $AA$ 的一个 *特征值*，非零列向量 $xi$ 为 $AA$ 的一个 *特征向量*．
 
 #def[性质1]1. 若 $xi$ 是 $AA$ 的一个特征向量，则 $xi$ 只能属于 $AA$ 的唯一一个特征值．
 
@@ -65,15 +101,13 @@ $
 
 记 $tr(AA) = a_11 + a_22 + dots.c + a_(n n)$ 称为矩阵 $AA$ 的 *迹*．
 
-== 特征值和特征向量的求法
+== 特征子空间
 
-1. 根据 $f(lambda) = (lambda-lambda_1)^(n_1) (lambda-lambda_2)^(n_2) dots.c (lambda-lambda_s)^(n_s) = 0$ 求出 $AA$ 的所有特征值 $lambda_1,lambda_2,dots.c,lambda_s$．（$n_i$ 为每个特征值的重数，那么 $n_1+n_2+dots.c+n_s=n$）（特征值在 $CC$ 上，但不一定在 $PP$ 上）
-
-2. 对每个 $lambda_i$，求特征值 $lambda_i$ 的 *特征线性方程组*
+对特征值 $lambda_i$，其对应的线性方程组（称为 *特征线性方程组*）
 $
 (lambda_i EE - AA) XX = OO
 $
-的一个基础解系 $xi_(i_1),xi_(i_2),dots.c,xi_(i_(r_i))$，则 $lambda_i$ 对应的全体特征向量为：
+的一个基础解系为 $xi_(i_1),xi_(i_2),dots.c,xi_(i_(r_i))$，则 $lambda_i$ 对应的所有特征向量可被表示为：
 $
 k_(i_1) xi_(i_1) + k_(i_2) xi_(i_2) + dots.c + k_(i_(r_i)) xi_(i_(r_i)) quad (k_(i j) "不同时为" 0)
 $
@@ -82,6 +116,12 @@ $
 V_(lambda_i) = {AA "的属于" lambda_i "的全体特征向量"} union {theta}
 $
 为特征值 $lambda_i$ 的 *特征子空间*．
+
+== 特征值和特征向量的求法
+
+1. 根据 $f(lambda) = (lambda-lambda_1)^(n_1) (lambda-lambda_2)^(n_2) dots.c (lambda-lambda_s)^(n_s) = 0$，去掉不在 $PP$ 里的根，得到 $AA$ 的所有特征值 $lambda_1,lambda_2,dots.c,lambda_s$．（$n_i$ 为每个特征值的重数，那么 $n_1+n_2+dots.c+n_s=n$）（特征值在 $CC$ 上，但不一定在 $PP$ 上）
+
+2. 对于每个 $lambda_i$，求出其特征线行线性方程组的基础解系．
 
 #note[
 	#def[总结]求 $AA$ 的特征值的几种特殊方法：
@@ -98,6 +138,8 @@ $
 #deft[性质1]2. $display(product_(i=1)^n lambda_i = |AA|)$．
 
 #def[推论1]$AA "可逆" <=> AA "的所有特征值都不为零"$．
+
+#note[常利用这两条性质来简化求解矩阵的特征多项式．]
 
 #def[性质2]设 $seqn(lambda,s)$ 是 $AA$ 的 $s$ 个不同的特征值，$seqn(xi,s)$ 分别是属于特征值 $seqn(lambda,s)$ 的特征向量，那么 $seqn(xi,s)$ 线性无关．
 
@@ -130,53 +172,39 @@ $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + 
 
 #def[性质4]$dim V_(lambda_i) = n - r(lambda_i EE - AA) <= n_i$，其中 $n_i$ 是特征值 $lambda_i$ 作为特征多项式零点的重数．我们称 $dim V_(lambda_i)$ 为特征值 $lambda_i$ 的 *几何重数*，$n_i$ 为特征值 $lambda_i$ 的 *代数重数*．
 
-#def[推论2]$r(AA) >= AA "的非零特征值的个数"$
+#def[推论4.1]$r(AA) >= AA "的非零特征值个数"$．
 
-#note[
-	*TODO*\ 1:31:33\ https://classroom.zju.edu.cn/livingroom?course_id=56584&sub_id=1036866&room_id=316&tenant_code=112&sub_public=1
+#prof[
+	#def[证明]由性质4可得 $n-r(AA) <= n_0$，其中 $n_0$ 是 $0$ 作为特征根的重数，故 $r(AA) >= n - n_0$．
 ]
+
+#def[推论4.2]$r(AA) >= AA "的不同特征值的个数"$．
 
 #def[定理1]（Hamilton-Cayley 定理）设 $AA in PP^(n times n)$，$f(lambda)$ 为其特征多项式，那么 $f(AA) = OO$．
 
-#def[定理2]设 $AA lambda_0 = lambda_0 xi_0$，则
+#def[定理2]设 $AA lambda_0 = lambda_0 xi_0$，$g(x)$ 是多项式（若 $AA$ 可逆，则还可包含逆元），则 $g(AA) xi_0 = g(lambda_0) xi_0$．进一步地，$AA$ 的特征子空间与 $g(AA)$ 相同．
 
-#deft[定理2]1. $(k AA) xi_0 = (k lambda_0) xi_0$；
+== 特征值和特征向量的常见结论
 
-#deft[定理2]2. $AA^m xi_0 = lambda_0^m xi_0$；
+#def[结论1.1]幂等矩阵必有特征值且为 $1$ 或 $0$．
 
-#deft[定理2]3. $g(AA) xi_0 = g(lambda_0) xi_0$．
+#def[结论1.2]幂零矩阵必有特征值且必为 $0$．
 
-#deft[定理2]4. 当 $AA$ 可逆时，$AA^(-1) xi_0 = lambda_0^(-1) xi_0$．
+#def[结论2]设 $AA$ 是正交矩阵，则若 $AA$ 有特征值，则特征值必为 $1$ 或 $-1$．
 
-= 矩阵的相似对角化
+#def[结论3]设 $AA in PP^(s times n),sp BB in PP^(n times s)$，则
 
-== 矩阵的相似
+#deft[结论3]1. $AA BB$ 与 $BB AA$ 有相同的非零特征值且重数相同．
 
-设 $AA,BB in PP^(n times n)$，若存在可逆矩阵 $bold(P) in PP^(n times n)$，使得 $bold(P)^(-1) AA bold(P) = bold(B)$，则称 $AA$ 与 $BB$ 相似，记作 $AA ssim BB$．
+#deft[结论3]2. 若 $alpha$ 是 $AA BB$ 属于 $lambda_0$ 的一个特征向量（$lambda_0 != 0$），则 $BB alpha$ 是 $BB AA$ 属于 $lambda_0$ 的一个特征向量．
 
-#def[性质1]矩阵的相似具有自反性、对称性、传递性．
+#def[结论4]设 $AA in CC^(n times n)$ 且 $a_(i j) i RR$，则当 $lambda_0$ 是 $AA$ 的一个特征值且 $alpha$ 是 $lambda_0$ 的一个特征向量时，$overline(lambda_0)$ 也是 $AA$ 的一个特征值，$overline(alpha)$ 也是 $overline(lambda_0)$ 的一个特征向量．
 
-#def[性质2]（矩阵相似的必要条件）设 $A ssim B$，则
+#def[结论5]若 $AA$ 的每行元素之和为 $k$，则 $k$ 是 $AA$ 的一个特征值，$display(mat(1,1,dots.c,1))$ 是 $AA$ 的一个特征向量．
 
-#deft[性质2]1. $|AA| = |BB|$；
+= 相似对角化
 
-#deft[性质2]2. $r(AA) = r(BB)$；
-
-#deft[性质2]3. $tr(AA) = tr(BB)$；
-
-#deft[性质2]4. 设 $AA,BB$ 都能对角化，$|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
-
-#def[性质3]设 $bold(P)^(-1) AA bold(P) = BB$，$lambda$ 为 $AA,BB$ 的特征值，且 $V_lambda^AA =bold(P) V_lambda^BB$．
-
-#prof[
-	#def[证明]设 $XX in V_lambda^BB$，则 $BB XX = lambda XX => bold(P)^(-1) AA bold(P) = lambda XX => AA(bold(P) XX) = lambda (bold(P) XX)$．
-]
-
-#def[性质4]若 $AA ssim BB$，则 $f(AA) ssim f(BB)$，其中 $f(XX)$ 是任意多项式．
-
-== 矩阵的对角化
-
-设 $AA$ 与 $Lambda = diag(seqn(lambda,n))$ 相似，即存在可逆矩阵 $bold(P)$ 使得
+设 $AA$ 与对角矩阵 $Lambda = diag(seqn(lambda,n))$ 相似，则称 $AA$ 可对角化．即存在可逆矩阵 $bold(P)$ 使得
 $
 bold(P)^(-1) AA bold(P) = Lambda
 &<=> AA bold(P) = bold(P) Lambda
@@ -191,7 +219,17 @@ $
 1. 对角线上的元素为矩阵 $AA$ 的特征值．
 2. 矩阵 $bold(P)$ 第 $i$ 列的 $alpha_i$ 是特征值 $lambda_i$ 对应的特征向量．
 
-#def[性质]若 $AA$ 能对角化，则 $f(AA)$ 能对角化，且 $f(AA) = bold(P)^(-1) diag(f(lambda_1),f(lambda_2),dots.c,f(lambda_n)) bold(P)$．
+#def[定理]（矩阵可对角化的充要条件）$AA$ 可对角化
+
+#deft[定理]$<==>$ $AA$ 存在 $n$ 个线性无关的特征向量 $seqn(alpha,n)$．
+
+#deft[定理]$<==>$ $AA$ 的不同特征值的特征解空间的维数之和为 $n$．
+
+#deft[定理]$<==>$ $AA$ 的每个特征值的代数重数 $=$ 几何重数．
+
+== 相似对角化的基本性质
+
+#def[性质1]若 $AA$ 能对角化，则 $f(AA)$ 能对角化，且 $f(AA) = bold(P)^(-1) diag(f(lambda_1),f(lambda_2),dots.c,f(lambda_n)) bold(P)$．
 
 #note[
 	#def[总结]如何求 $AA^k$？几种常见的情况：
@@ -205,17 +243,35 @@ $
 	4. $AA$ 能对角化：求出 $AA$ 的特征值和特征向量．
 ]
 
+#def[性质2]若 $AA$ 可逆且 $AA$ 可对角化，则 $AA^(-1)$、$AA^*$ 均可对角化．
+
+== 相似对角化的常用结论
+
+#def[结论1.1]幂等矩阵必可对角化．
+
+#def[结论1.2]幂零矩阵若非零，则必不可对角化．
+
+#def[结论2]$seqn(AA,s) in PP^n$，$display(sum_(i=1)^n AA_i = EE)$ 且 $AA_i sp (1<=i<=n)$ 是幂等矩阵，则 $display(sum_(i=1)^n r(AA_i) = n)$．
+
+#def[结论3]设 $AA in PP^(n times n)$，若 $forall beta in PP^n$，$beta$ 均为 $AA$ 的特征向量，则 $AA$ 必是一个数量矩阵．
+
+#def[结论4]设 $AA$ 是 $n$ 阶上三角矩阵，则
+
+#deft[结论4]1. 若 $a_11,a_22,dots.c,a_(n n)$ 两两不等，则 $AA$ 可对角化．
+
+#deft[结论4]2. 若 $a_11=a_22=dots.c=a_(n n)$ 且 $AA$ 不是对角矩阵，则 $AA$ 不可对角化．
+
 == 实对称矩阵的相似对角化
 
 实对称矩阵：$AA = AA^TT in RR^(n times n)$．
 
-#def[性质1]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的特征值、特征向量都是实的．
+#def[性质1]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的所有特征值、特征向量都是实的．
 
 #prof[
 	#def[证明]
 ]
 
-#def[性质2]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的 $n$ 个特征向量必正交．
+#def[性质2]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的属于不同特征根的特征向量必正交．
 
 #prof[
 	#def[证明]设 $xi_1,xi_2$ 是 $AA$ 的两个特征向量，$lambda_1,lambda_2$ 是其对应的特征根．考察内积 $(AA xi_1,xi_2)$：
@@ -227,128 +283,13 @@ $
 	两式相减得 $(lambda_1-lambda_2) (xi_1,xi_2) = 0$，由于 $lambda_1!=lambda_2$，故 $xi_1,xi_2$ 正交．
 ]
 
-#def[性质3]设 $AA = AA^TT in RR(n times n)$，则 $AA$ 一定可以对角化且存在正交矩阵 $bold(U)$ 使得
+#def[性质3]设 $AA = AA^TT in RR(n times n)$，则 $AA$ 一定可通过正交矩阵相似对角化．即存在正交矩阵 $bold(U)$ 使得
 $
 bold(U)^TT AA bold(U) = bold(U) AA bold(U)^TT = diag(lambda_1,lambda_2,dots.c,lambda_n)
 $
 
 如何求 $bold(U)$？分别对每个特征线性方程组的解向量组做 Schmid 正交单位化．
 
+#def[结论1]若实矩阵 $AA$ 正交相似于对角阵 $bold(D)$，则 $AA$ 必对称．
 
-= 二次型
-
-#def[定义1]一个系数取自数域 $PP$，含有 $n$ 个变量 $seqn(x,n)$ 的二次齐次多项式，
-$
-f(seqn(x,n)) = sum_(i=1)^n sum_(j=1)^n a_(i j) x_i x_j = XX^TT AA XX
-$
-称为数域 $PP$ 上的一个 *二次型*。当且仅当 $AA = AA^TT$ 时，将其称为 *二次型矩阵*（若不施加约束则有多种可能）。
-
-#def[性质1]二次型与一个对称矩阵一一对应。
-
-#def[定义2]只含平方项的二次型称为 *标准形*。
-
-#def[定义3]设有两组变量 (I) $seqn(x,n)$ (II) $seqn(y,n)$，则系数 $C = (c_(i j))_(n times n) in PP^(n times n)$中的一组关系 $XX = bold(C) YY$ 称为从变量 (I) 到 (II) 的 *线性替换*。若 $|bold(C)| != 0$，称为 *非退化线性替换*。特别地，若 $bold(C)^TT bold(C) = EE$，则称 $XX = bold(C) YY$ 为 *正交线性替换*。
-
-#def[性质2]正交线性替换向量长度不变。
-
-#prof[
-	#def[证明]$display(
-		||XX||^2 = XX^TT XX = (bold(C) YY)^TT bold(C) YY = YY^TT (bold(C)^TT bold(C)) YY = YY^TT YY = ||YY||^2
-	)$。
-]
-
-== 化二次型为标准形
-
-=== 配方法
-
-#def[例1]$f(x1,x2,x3) = x1^2 + 2 x1 x2 + 2 x1 x3 + x2^2 - 2 x2 x3 - x3^2$。（含有 $x_i^2$）
-
-#prof[
-	$
-	f(x1,x2,x3)
-	&= (x1^2+2x1 x2+2x1 x3) + x2^2 - 2x2 x3 - x3^2\
-	&= (x1 + x2 + x3)^2 - 4 x2 x3 - 2 x3^2\
-	&= (x1+x2+x3)^2 - 2 (x2+x3)^2 + 2x2^2
-	$
-]
-
-#def[例2]$f(x1,x2,x3) = 2x1 x2 + 2x1 x3 - 6 x2 x3$（不含有 $x_i^2$）
-
-#prof[
-	令 $display(cases(x1=y_1+y_2,x2=y_1-y_2,x_3=y_3))$，$XX=bold(C) YY$ 非退化，此时：$f(x1,x2,x3) = 2 y_1^2 - y_2 ^2 - 4 y_1 y_2 + 8 y_2 y_3$，化为第一种情形。
-]
-
-#def[定理]任意一个二次型都可以经过非退化的线性替换化成一个标准形。
-
-=== 对称矩阵的原理
-
-设 $f(seqn(x,n)) = XX^TT AA XX = (bold(C) YY)^TT AA (bold(C) YY) = YY^TT (bold(C)^TT AA bold(C)) YY = d_1 y_1^2 + d_2 y_2^2 + dots.c + d_n y_n^2$。
-
-由于 $(bold(C)^TT AA bold(C))^TT = bold(C)^TT AA bold(C)$，由性质 1 可得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$。
-
-#def[定理]$forall AA = AA^TT in PP^(n times n)$，一定存在可逆矩阵 $bold(C) in PP^(n times n)$ 使得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$ 为对角阵。 
-
-== 合同
-
-设 $AA,BB in PP^(n times n)$，若有可逆矩阵 $bold(C) in PP^(n times n)$，使得 $bold(C)^TT AA bold(C) = BB$，则称 $AA,BB$ 在数域 $PP$ 上合同。
-
-#def[性质1]合同具有自反性、对称性、传递性。
-
-#def[性质2]两个合同的矩阵有三个不变：
-
-#deft[性质2]1. 保持秩不变：$r(BB) = r(bold(P)^TT AA bold(P)) = r(AA)$。
-
-#deft[性质2]2. 保持对称性不变：$BB^TT = (bold(P)^TT AA bold(P))^TT = bold(P)^TT AA^TT bold(P)$。
-
-#deft[性质2]3. 保持正定性不变。
-
-== 规范形
-
-=== 二次型的秩
-
-二次型经过非退化线性变换化成标准型后，非平方项的项数相同，将其称为 *二次型的秩*。
-
-#def[定理1]二次型 $f(seqn(x,n)) = display(sum_(i=1)^n sum_(j=i)^n a_(i j) x_i x_j) = XX^TT AA XX$，则二次型的秩等于 $AA$ 的秩。（可将 $AA$ 化为对角矩阵证明）
-
-=== 复数域上的规范形
-
-设复数域上二次型 $f(seqn(x,n))$ 的秩为 $r$，设 $bold(C)^TT AA bold(C) = diag(seqn(d,r),0,dots.c,0)$，进行线性变换 $YY = bold(C) XX$ 得：
-$
-f(seqn(x,n))
-&= d_1 y_1^2 + d_2 y_2^2 + dots.c + d_r y_r^2 + 0 dot y_(r+1)^2 + dots.c + 0 dot y_n^2\
-&= (sqrt(d_1) y_1)^2 + (sqrt(d_2) y_2)^2 + dots.c + (sqrt(d_r) y_r)^2\
-&= z_1^2 + z_2^2 + dots.c + z_r^2
-$
-
-
-这里进行了非退化线性变换为 $bold(Z) = diag(sqrt(d_1),sqrt(d_2),dots.c,sqrt(d_r),1,dots.c,1) bold(Y)$，将得到的结果称为 *二次型在复数域上的规范形*。
-
-#def[定理2]1. 二次型语言：任意一个复二次型一定可以经过非退化线性变化化为规范形，规范形由二次型的秩唯一确定。
-
-#deft[定理2]2. 矩阵语言：设 $AA = AA^TT in CC^(n times n)$，设 $r(AA) = r$，则 $AA$ 必与 $display(mat(EE_r,;,OO_(n-r)))_(n times n)$ 合同。
-
-#def[推论]对称矩阵 $AA,BB$ 在复数域上合同 $<=>$ $r(AA) = r(BB)$。
-
-=== 实数域上的二次型
-
-$
-f(seqn(x,n))
-&= d_1 y_1^2 + d_2 y_2^2 + dots.c + d_p y_p^2 + -d_(p+1) y_(p+1)^2 - dots.c - d_r y_r^2 + 0 dot y_(r+1)^2 + dots.c + 0 dot y_n^2\
-&= (sqrt(d_1) y_1)^2 + (sqrt(d_2) y_2)^2 + dots.c + (sqrt(d_p) y_p)^2 -(sqrt(d_(p+1)) y_(p+1))^2 - dots.c - (sqrt(d_r) y_r)^2\
-&= z_1^2 + z_2^2 + dots.c + z_p^2 - z_(p+1)^2 - dots.c - z_r^2
-$
-这里同样进行了非退化线性变换 $ZZ = diag(sqrt(d_1),sqrt(d_2),dots.c,sqrt(d_r),1,dots.c,1) bold(CC) XX$，得到的结果称为 *二次型在实数域上的规范形*。
-
-- 正平方项的项数 $p$ 称为 *二次型的正惯性指数*；
-- 负平方项的项数 $r-p$ 称为 *二次型的负惯性指数*；
-- $p-(r-p) = 2p-r$ 称为 *二次型的符号差*。
-
-该二次型的正（负）惯性指数、符号差也称为实对称矩阵 $AA$ 的正（负）惯性指数、符号差。
-
-#def[定理]（惯性定律）
-
-#deft[定理]1. 二次型语言：任意一个实二次型一定可以经过非退化线性变换化为规范形，规范形是唯一的，由二次型的秩和正（负）惯性指数决定。
-
-#deft[定理]2. 矩阵语言：$n$ 阶实对称矩阵 $AA$ 与对角矩阵 $diag(d_1,d_2,dots.c,d_n)$ 合同时，$d_i$ 中不等于零的个数（即 $r(AA)$）和大（小）于零的个数（$AA$ 的正（负）惯性指数）都是唯一的。即设实对称矩阵 $AA_(n times n)$ 的秩为 $r$，正惯性指数为 $p$，则 $AA$ 与矩阵 $display(mat(EE_p,,;,-EE_(r-p),;,,OO_(n-r)))$ 合同。
-
-特别地，对于实对称矩阵，一定存在正交矩阵 $bold(U)$ 使得 $bold(U)^(-1) AA bold(U) = bold(U)^TT AA bold(U) = diag(seqn(lambda,n))$，即 $AA$ 与对角矩阵既相似又合同。
+#def[结论2]两个实对称矩阵正交相似的充要条件是它们相似．
