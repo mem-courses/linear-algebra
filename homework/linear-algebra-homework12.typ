@@ -22,7 +22,7 @@
 #let diag = math.upright("diag")
 #let ssim = math.attach(sp + math.upright("~") + sp, tl: "", tr:"", t: math.upright("S"))
 
-= P126 习题五 3
+= P126 习题五 3 #ac
 #prob[
   若三元列向量 $alpha,beta$ 满足 $alpha^TT beta = 2$，求矩阵 $beta alpha^TT$ 的所有特征值．
 ]
@@ -33,7 +33,7 @@
 
 综上，$beta alpha^TT$ 的所有特征值为 $0,2$。
 
-= P126 习题五 4
+= P126 习题五 4 #ac
 #prob[
   设 $AA$ 为二阶矩阵，$alpha_1,alpha_2$ 为线性无关的二元列向量，$AA alpha_1 = theta$，$AA alpha_2 = 2 alpha_1 + alpha_2$，求 $AA$ 的所有特征值．
 ]
@@ -43,7 +43,7 @@ AA mat(alpha_1,alpha_2) = mat(theta,2alpha_1+alpha_2) = mat(alpha_1,alpha_2) mat
 $
 故 $AA$ 的特征值为 $0,1$。
 
-= P126 习题五 6(2)
+= P126 习题五 6(2) #pc
 #prob[
   求出给定矩阵在实数域和复数域上所有的特征值和特征向量．
   $ mat(
@@ -77,7 +77,11 @@ $
 
 故 $-1$ 是三重特征值，对应的特征向量为：$display(mat(1,0,-1))^TT,display(mat(0,1,-1))^TT$。
 
-= P127 习题五 6(5)
+#warn[
+  解线性方程组错误，正确的解空间应为 $XX = k_1 display(mat(1,1,-1))^TT sp (k_1 in RR)$。
+]
+
+= P127 习题五 6(5) #ac
 #prob[
   求出给定矩阵在实数域和复数域上所有的特征值和特征向量．
   $ mat(
@@ -113,7 +117,7 @@ $
 
 #set math.mat(delim: "(")
 
-= P127 习题五 12
+= P127 习题五 12 #ac
 #prob[
   设二阶矩阵 $AA$ 有两个不同的特征值，$alpha_1,alpha_2$ 是 $AA$ 的线性无关的特征向量，且满足
   $
@@ -130,12 +134,18 @@ $
 
 由于 $alpha_1,alpha_2$ 线性无关，故等式成立只可能 $lambda_1^2 - 1 = lambda_2^2 - 1 = 0$，由于 $lambda_1 != lambda_2$，不妨令 $lambda_1 = 1$，$lambda_2 = -1$。故 $|AA| = lambda_1 dot lambda_2 = -1$。
 
-= P128 习题五 18
+= P128 习题五 18 #wa
 #prob[
   设矩阵 $AA = display(mat(a,-1,c;5,b,3;1-c,0,-a))$，$|AA| = -1$。如果 $xi=display(mat(-1,-1,1)^TT)$ 是伴随矩阵 $AA^*$ 的属于特征值 $lambda_0$ 的一个特征向量，求 $a,b,c$ 和 $lambda_0$ 的值。
 ]
 
-= P128 习题五 19
+设矩阵 $AA = display(mat(a,-1,c;5,b,3;1-c,0,-a))$，$|AA| = -1$。如果 $xi=display(mat(-1,-1,1)^TT)$ 是伴随矩阵 $AA^*$ 的属于特征值 $lambda_0$ 的一个特征向量，求 $a,b,c$ 和 $lambda_0$ 的值。
+
+TBD
+
+#warn[加入纠错本。]
+
+= P128 习题五 19 #ac
 #prob[
   已知三阶矩阵 $AA$ 的特征值为 $1,2,-3$，求 $|AA^* + 3 AA + 2 EE|$。
 ]
@@ -151,7 +161,7 @@ $
 &= (-1) dot 5 dot (-5) = 25
 $
 
-= P128 习题五 22
+= P128 习题五 22 #ac
 #prob[
   设 $AA,BB$ 是可逆矩阵，且 $AA$ 与 $BB$ 相似，则下列结论中错误的是（$quad$）
 
@@ -166,7 +176,7 @@ $
 
 选 (C)。
 
-= P128 习题五 23
+= P128 习题五 23 #ac
 #prob[
   设 $AA$ 为 $n$ 阶复矩阵，$bold(P)$ 为 $n$ 阶可逆复矩阵，证明：
   $
@@ -179,7 +189,7 @@ $
 
 #def[方法二]设 $BB = bold(P)^(-1) AA bold(P)$，即 $AA ssim BB$。根据矩阵相似的必要条件，有 $tr(AA) = tr(BB)$，即原命题得证。
 
-= P128 习题五 25
+= P128 习题五 25 #ac
 #prob[
   判断下列命题是否成立：
 
@@ -194,13 +204,23 @@ $
 
 #prob[(3) 如果两个矩阵的特征值相同，那么他们相似。]
 
-正确。不妨设两个矩阵的特征值都为 $seqn(lambda,n)$，那么他们都与 $Lambda = diag(seqn(lambda,n))$ 相似，根据相似的传递性，这两个矩阵相似。
+错误，应要求两个矩阵的都能对角化。
+
+#warn[
+  这里结果正确理由错误 #wa，这也只是矩阵相似的必要条件而不是充分条件。
+
+  反例：$display(AA = mat(0,0;1,0)\,sp BB = mat(0,0;0,0))$。
+]
 
 #prob[(4) 相似的两个矩阵的特征向量必相同。]
 
 错误。
 
-= P129 习题五 27
+#warn[
+  反例：$display(AA = mat(1,0;0,0)\,sp BB = mat(0,0;0,1))$。
+]
+
+= P129 习题五 27 #ac
 #prob[
   设三阶矩阵 $AA = display(mat(alpha_1,alpha_2,alpha_3))$ 有 $3$ 个不同的特征值，且 $alpha_3 = alpha_1 + 2 alpha_2$。
 
@@ -223,7 +243,7 @@ $
 
 解得 $XX=display(mat(1,1,1))^TT + k display(mat(-1,-2,1)) sp (k in RR)$。
 
-= P129 习题五 29
+= P129 习题五 29 #ac
 #prob[
   设矩阵 $AA = display(mat(0,2,-3;-1,3,-3;1,-2,a))$ 与矩阵 $BB = display(mat(1,-2,0;0,b,0;0,3,1))$ 相似。
   
@@ -251,6 +271,8 @@ $
 设 $(5 EE - AA) XX = OO => display(mat(5,-2,3;1,2,3;-1,2,1)) XX = OO$，解得 $XX = k_3 display(mat(1,1,-1))^TT (k_3 in RR)$。
 
 故取 $bold(P) = display(mat(2,3,1;1,0,1;0,1,-1))$，有 $bold(P)^(-1) AA bold(P) = Lambda = display(mat(1,0,0;0,1,0;0,0,5))$。
+
+#warn[后面的补充题纠错整理在纠错本上。]
 
 = P133 补充题五 2
 #prob[
