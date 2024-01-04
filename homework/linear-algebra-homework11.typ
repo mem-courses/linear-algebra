@@ -24,9 +24,9 @@
 = P110 补充题四 1(2) #ac
 #prob[试证明：若 $PP^(n)$ 中的由 $n$ 个不同向量所形成的向量组和 $PP^n$ 的一个基等价，则该向量组的任何一个排列也是 $PP^n$ 的一个基．]
 
-即证明该向量组线性无关。
+即证明该向量组线性无关．
 
-反设该向量组（不放设为 $seqn(alpha,n)$）线性相关，则 $dim L(seqn(alpha,n)) < n$，则必不可能与 $PP^n$ 的基等价，矛盾。
+反设该向量组（不放设为 $seqn(alpha,n)$）线性相关，则 $dim L(seqn(alpha,n)) < n$，则必不可能与 $PP^n$ 的基等价，矛盾．
 
 = P110 补充题四 3 #ac
 #prob[
@@ -327,9 +327,9 @@ $arrow.double.l$：不会．
 $
 alpha = AA alpha
 $
-对于任意 $alpha in V$ 都成立，故只可能 $AA$ 是单位矩阵，即设 $bold(U) = vecn(alpha,n)$ 有 $bold(U)^TT bold(U) = EE$，即 $seqn(alpha,n)$ 是 $V$ 的一组标准正交基。
+对于任意 $alpha in V$ 都成立，故只可能 $AA$ 是单位矩阵，即设 $bold(U) = vecn(alpha,n)$ 有 $bold(U)^TT bold(U) = EE$，即 $seqn(alpha,n)$ 是 $V$ 的一组标准正交基．
 
-#warn[这个不严谨，应用上面类似的方法，两个方向分别证明，反过来的时候取一些特殊值代入来得到想要的结果。]
+#warn[这个不严谨，应用上面类似的方法，两个方向分别证明，反过来的时候取一些特殊值代入来得到想要的结果．]
 
 = P185 补充题八 5 #ac
 #prob[
@@ -340,13 +340,13 @@ $
 	为 $RR^n$ 的一个基．
 ]
 
-设 $bold(X) = k_1 beta_1 + k_2 beta_2 + dots.c + k_(n-s) beta_(n-s)$，其中 $seqn(k,n-s)$ 是任意一组非全零的实数。由已知得：
+设 $bold(X) = k_1 beta_1 + k_2 beta_2 + dots.c + k_(n-s) beta_(n-s)$，其中 $seqn(k,n-s)$ 是任意一组非全零的实数．由已知得：
 
 $
 alpha_i^TT bold(X) = (alpha_i, bold(X)) = k_1 (alpha_i,beta_1) + k_2 (alpha_i,beta_2) + dots.c + k_(n-s) (alpha_i,beta_(n-s)) = 0 sp (i=1,2,dots.c,s)
 $
 
-取 $k_1=1,k_2=k_3=dots.c=k_(n-s)=0$ 得 $(alpha_1,beta_j)=1 sp (j=1,2,dots.c,n-s)$。同理得：
+取 $k_1=1,k_2=k_3=dots.c=k_(n-s)=0$ 得 $(alpha_1,beta_j)=1 sp (j=1,2,dots.c,n-s)$．同理得：
 $
 forall 1<=i<=s and 1<=j<=n-s,sp (alpha_i,beta_j) = 0
 $
@@ -366,7 +366,7 @@ $
 $
 alpha = l_2 alpha_2 + l_3 alpha_3 + dots.c + l_s alpha_s
 $
-与 $seqn(alpha,s)$ 是一组线性无关的向量矛盾，故 $seqn(alpha,s),seqn(beta,n-s)$ 线性无关。
+与 $seqn(alpha,s)$ 是一组线性无关的向量矛盾，故 $seqn(alpha,s),seqn(beta,n-s)$ 线性无关．
 
 = P185 补充题八 6 #ac
 #prob[
@@ -377,4 +377,4 @@ $
 
 故两向量不重合时，$(alpha,beta) != 1$．
 
-#warn[没答案。]
+#warn[没答案．]
