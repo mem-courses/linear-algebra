@@ -27,7 +27,7 @@
 #let diag = math.upright("diag")
 #let ssim = math.attach(sp + math.upright("~") + sp, tl: "", tr:"", t: math.upright("S"))
 
-= P148 习题六 1 & 2 & 11 & 15
+= P148 习题六 1 & 2 & 11 & 15 #ac
 #prob[
   用配方法化二次型为标准形，并写出所用的非退化线性替换；然后用矩阵形式将其化为标准形、二次型在复数域及实数域上的规范形、用正交替换将二次型化为标准形。
   
@@ -35,6 +35,8 @@
 ]
 
 #prob[(4) $f(x1,x2,x3) = 2 x1 x3 + 4 x2 x3$。]
+
+比较复杂，写在纸上了。
 
 = P149 习题六 6
 #prob[
@@ -110,6 +112,16 @@ $
 = P149 习题六 14
 #prob[证明：一个实二次型可以分解成两个实系数的一次齐次多项式的乘积，当且仅当它的秩为 $2$ 且符号差为 $0$，或者秩等于 $1$。]
 
+设两个一次齐次多项式的系数向量分别为 $alpha$ 和 $beta$，则有
+
+$
+AA = 1/2 (alpha beta^TT + beta alpha^TT)
+$
+
+其中由于 $alpha,beta$ 非零向量，故 $r(AA)>0$。同时有 $r(alpha beta^TT) = r(beta alpha^TT) = 1$，故有 $1<=r(AA)<=2$。
+
+TBD
+
 = P150 习题六 18
 #prob[
   已知二次曲面方程 $x^2 + a y^2 + z^2 + 2b x y + 2 x z + 2 y z= 4$ 可经过正交替换：
@@ -118,6 +130,39 @@ $
   $
   化为椭圆柱面方程 $eta^2 + 4 zeta^2 = 4$，求 $a,b$ 的值和正交矩阵 $bold(U)$。
 ]
+
+设二次型 $f(x,y,z) = x^2 + a y^2 + z^2 + 2b x y + 2 x z + 2 y z= 4$，则对应的矩阵表达式为：
+
+$
+AA = mat(
+  1,b,1;
+  b,a,1;
+  1,1,1;
+)
+=> exists sp bold(U) st bold(U)^TT AA bold(U) = mat(
+  0,0,0;
+  0,1,0;
+  0,0,4;
+)
+$
+
+且可知特征多项式 $|lambda EE - AA| = lambda(lambda-1)(lambda-4)$。
+$
+tr(AA) = 0 + 1 + 4 = 1 + a + 1 => a = 3\
+r(AA) <= 2 => k_1 mat(1,b,1) + k_2 mat(b,3,1) = mat(1,1,1) => b=1
+$
+解得 $AA$ 每个特征值对应的特征向量分别为：
+$
+cases(
+  xi_1=display(mat(1,0,-1)),
+  xi_2=display(mat(1,-1,1)),
+  xi_3=display(mat(1,2,1)),
+) sp ==> sp bold(U) = mat(
+  1/sqrt(2),1/sqrt(3),1/sqrt(6);
+  0,-1/sqrt(3),sqrt(2)/sqrt(3);
+  -1/sqrt(2),1/sqrt(3),1/sqrt(6);
+)
+$
 
 = P150 习题六 20
 #prob[
