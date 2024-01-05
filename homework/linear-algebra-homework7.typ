@@ -14,6 +14,8 @@
 #let EE = math.bold("E")
 #let OO = math.bold("O")
 #let TT = math.upright("T")
+#let alpha = math.bold(math.alpha)
+#let beta = math.bold(math.beta)
 
 = P73 习题三 52
 #prob[
@@ -30,7 +32,7 @@
 
 由 (1) 得 $AA = display(mat(1,2,2;0,1,-2;0,0,0)),sp BB=display(mat(1,2,2;0,1,1;-1,1,1))$．TBD
 
-= P73 习题三 53
+= P73 习题三 53 #ac
 #prob[设矩阵 $AA = display(mat(0,1,0,0;0,0,1,0;0,0,0,1;0,0,0,0))$，求 $AA^3$ 的秩．]
 
 $
@@ -60,9 +62,9 @@ $
   (D) 秩 $r(AA)=n$，秩 $r(BB)=n$．
 ]
 
+选 (A) 项。
 
-
-= P73 习题三 55
+= P73 习题三 55 #ac
 #prob[
   设 $AA,BB$ 为 $n$ 阶矩阵，则（$quad$）
 
@@ -72,20 +74,36 @@ $
   (D) $r(bold(A sp B)) = r(AA^TT sp BB^TT)$
 ]
 
-(A) 正确
+选 (A) 项。
 
-(B) 正确
-
-(C) 错误
-
-
-
-= P73 习题三 56
+= P73 习题三 56 #ac
 #prob[(1) 设 $AA$ 是一个 $n$ 阶方阵，证明：$r(AA)=1$ 当且仅当存在非零列向量 $bold(alpha),bold(beta)$ 使得 $AA = bold(alpha beta)^TT$．]
+
+$=>$：$AA$ 的所有列向量两两线性相关，设 $AA = vecn(alpha,n)$，设 $alpha_i = k_i alpha_1 sp (i=2,3,dots.c,n)$，则取 $beta^TT = display(mat(1,k_2,k_3,dots.c,k_n))^TT$ 有 $AA = alpha beta^TT$。
+
+$arrow.double.l$：$r(AA) = r(alpha beta^TT) <= min{r(alpha), r(beta)} = 1$。若 $r(AA) = 0$ 即 $AA = OO$，则 $alpha,beta$ 中必有一个零向量，与题设矛盾。故 $r(AA) = 1$。
 
 #prob[(2) 设 $AA$ 是一个 $n$ 阶方阵且 $r(AA)=1$，证明存在常数 $k$，使得 $AA^2=k AA$ 成立．]
 
+设 $AA = alpha beta^TT$，其中 $alpha,beta$ 非零向量。则：
+$
+AA^2 = (alpha beta^TT)^2 = alpha (beta^TT alpha) beta^TT = (beta^TT alpha) AA
+$
+则 $k=beta^TT alpha$ 即所求常数。
+
 #prob[(3) 设 $AA$ 为一个二阶方阵，证明：如果存在正整数 $l>=2$ 使得 $AA^l = bold(O)$，那么 $AA^2 = bold(O)$．]
+
+讨论 $r(AA)$：
+
+若 $r(AA) = 0$，即 $AA = OO$，则必满足 $AA^l = AA^2 = OO$。
+
+若 $r(AA) = 1$，即不妨令 $AA = display(mat(a,b;0,0))$，其中 $a,b$ 为不全为零的实数，则
+$
+AA^l = mat(a^l,a^(l-1) b;0,0) = OO => a = 0 and b != 0
+$
+故 $AA^2 = display(mat(a^2,a b;0,0)=mat(0,0;0,0))=OO$。
+
+若 $r(AA) =2$，即 $AA$ 是可逆矩阵，则 $forall l in NN_+$，$AA^l$ 均可逆，故不可能 $AA^l = OO$。
 
 = P73 习题三 57
 #prob[
@@ -96,10 +114,20 @@ $
 
 #prob[(2) 如果 $n<=s$ 且 $r(AA)=n$（此时称矩阵 $AA$ 是列满秩的），那么必有 $n times s$ 矩阵 $bold(C)$ 使得 $bold(C A) = bold(E)_n$．]
 
-= P74 习题三 58
+TBD
+
+#warn[已纠错到错题本上。]
+
+= P74 习题三 58 #ac
 #prob[设 $m times n$ 矩阵 $bold(A)$ 的秩为 $r$，证明：存在秩为 $r$ 的 $m times r$ 矩阵 $bold(B)$ 和秩为 $r$ 的 $r times n$ 矩阵 $bold(C)$，使得 $bold(A) = bold(B C)$．]
 
-= P74 习题三 60
+存在可逆矩阵 $bold(P) in PP^(m times m)$ 和可逆矩阵 $bold(Q) in PP^(n times n)$ 使得
+$
+bold(P) AA bold(Q) = mat(EE_r,;,OO_(m-r,n-r)) = mat(EE_r;O_(m-r,r)) mat(EE_r,OO_(r,n-r))
+$
+取 $BB = bold(P)^(-1) display(mat(EE_r,;,OO_(m-r,n-r))),sp CC = display(mat(EE_r;O_(m-r,r)) mat(EE_r,OO_(r,n-r))) bold(Q)^(-1)$ 则 $AA = BB CC$。
+
+= P74 习题三 60 #wa
 #prob[
   设 $AA$ 为 $n$ 阶矩阵（$n>=2$），$AA^*$ 为 $AA$ 的伴随矩阵，证明：
   $ r(AA^*) = cases(
@@ -109,29 +137,69 @@ $
   ) $
 ]
 
+TBD
+#warn[已纠错到错题本上。]
 
-
-= P74 习题三 62
+= P74 习题三 62 #ac
 #prob[
   设矩阵 $AA$ 是 $n$ 阶幂等矩阵，即 $AA^2=AA$，证明：
 
   (1) $r(AA) + r(EE_n-AA) = n$．
 ]
 
+$
+r(AA) + r(EE-AA) &<= n+r(AA(EE - AA)) = n+r(AA - AA^2) = n\
+r(AA) + r(EE - AA) &>= r(AA + (EE - AA))= r(EE) = n\
+$
+
+夹得 $r(AA) + r(EE - AA) = n$。
+
 #prob[(2) 如果 $AA$ 可逆，那么 $AA=EE_n$．]
 
-= P74 习题三 63
+若 $AA$ 可逆，则两边都左乘 $AA^(-1)$ 得 $EE = AA$，得证。
+
+= P74 习题三 63 #ac
 #prob[设矩阵 $AA,BB,CC$ 均为 $n$ 阶方阵，证明：如果 $AA BB CC = bold(O)$，那么 $ r(AA) + r(BB) + r(CC) <= 2n $]
 
-= P74 习题三 64
+$
+&cases(
+  r(AA) + r(BB) <= r(AA BB) + n,
+  r(BB) + r(CC) <= r(BB CC) + n,
+)\
+=> &r(AA) + 2 r(BB) + r(CC) <= r(AA BB) + r(BB CC) + 2n <= r(AA BB CC) + r(BB) + 2n = 2n + r(BB)\
+=> &r(AA) + r(BB) + r(CC) <=  2n
+$
+
+= P74 习题三 64 #ac
 #prob[设矩阵 $AA$ 是一个 $n$ 阶方阵，证明 $r(AA^3) + r(AA) >= 2r(AA^2)$．]
+
+$
+r(AA^3) >= r(AA^2) + r(AA^2) - r(AA) => r(AA^3) + r(AA) >= 2r(AA^2)
+$
 
 = P74 补充题三 5
 #prob[
-  设分块矩阵 $display(mat(AA,BB;CC,bold(D)))$ 是对称矩阵，且 $bold(AA)$ 可逆，证明：存在可逆矩阵 $PP$，使得
+  设分块矩阵 $display(mat(AA,BB;CC,bold(D)))$ 是对称矩阵，且 $bold(AA)$ 可逆，证明：存在可逆矩阵 $bold(P)$，使得
 
   $ bold(P)^TT mat(AA,BB;CC,bold(D)) bold(P) = mat(AA,bold(O);bold(O),bold(D)-CC AA^(-1) BB) $
 ]
+
+由已知：
+$
+(bold(P)^TT mat(AA,BB;CC,bold(D)) bold(P))^TT = bold(P)^TT mat(AA,BB;CC,bold(D))^TT bold(P) = bold(P)^TT mat(AA,BB;CC,bold(D)) bold(P)\
+=> mat(AA,bold(O);bold(O),bold(D)-CC AA^(-1) BB) = mat(AA,bold(O);bold(O),bold(D)-CC AA^(-1) BB)^TT = mat(AA^TT,bold(O);bold(O),(bold(D)-CC AA^(-1) BB)^TT)
+$
+注意到 $AA$ 可逆，故 $AA$ 必定是方阵。否则 $AA$ 必有一行或一列全零，与可逆矛盾。
+
+同时，可得：
+$
+cases(
+  AA = AA^TT,
+  bold(D)-CC AA^(-1) BB = (bold(D)-CC AA^(-1) BB)^TT
+)
+$
+
+设 $AA in PP^(n times n),sp bold(D) in PP^(m times m)$，则 $BB in PP^(n times m), sp CC in PP^(m times n)$。
 
 = P74 补充题三 6
 #prob[
