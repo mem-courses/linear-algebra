@@ -77,7 +77,7 @@ $
 选 (A) 项。
 
 = P73 习题三 56 #ac
-#prob[(1) 设 $AA$ 是一个 $n$ 阶方阵，证明：$r(AA)=1$ 当且仅当存在非零列向量 $bold(alpha),bold(beta)$ 使得 $AA = bold(alpha beta)^TT$．]
+#prob[(1) 设 $AA$ 是一个 $n$ 阶方阵，证明：$r(AA)=1$ 当且仅当存在非零列向量 $alpha,beta$ 使得 $AA = bold(alpha beta)^TT$．]
 
 $=>$：$AA$ 的所有列向量两两线性相关，设 $AA = vecn(alpha,n)$，设 $alpha_i = k_i alpha_1 sp (i=2,3,dots.c,n)$，则取 $beta^TT = display(mat(1,k_2,k_3,dots.c,k_n))^TT$ 有 $AA = alpha beta^TT$。
 
@@ -105,7 +105,7 @@ $
 
 若 $r(AA) =2$，即 $AA$ 是可逆矩阵，则 $forall l in NN_+$，$AA^l$ 均可逆，故不可能 $AA^l = OO$。
 
-= P73 习题三 57
+= P73 习题三 57 #wa
 #prob[
   设 $AA$ 是一个 $s times n$ 矩阵，证明：
   
@@ -125,7 +125,7 @@ TBD
 $
 bold(P) AA bold(Q) = mat(EE_r,;,OO_(m-r,n-r)) = mat(EE_r;O_(m-r,r)) mat(EE_r,OO_(r,n-r))
 $
-取 $BB = bold(P)^(-1) display(mat(EE_r,;,OO_(m-r,n-r))),sp CC = display(mat(EE_r;O_(m-r,r)) mat(EE_r,OO_(r,n-r))) bold(Q)^(-1)$ 则 $AA = BB CC$。
+取 $BB = bold(P)^(-1) display(mat(EE_r,;,OO_(m-r,n-r))),sp CC = display(mat(EE_r;OO_(m-r,r)) mat(EE_r,OO_(r,n-r))) bold(Q)^(-1)$ 则 $AA = BB CC$。
 
 = P74 习题三 60 #wa
 #prob[
@@ -212,14 +212,26 @@ $
 
 #prob[(2) 当 $lambda != 0$ 时，$|lambda bold(E)_n - bold(A B)| = lambda^(n-m) |lambda bold(E)_m - bold(B A)|$．]
 
-= P75 补充题三 8
+= P75 补充题三 8 #ac
 #prob[
   设 $AA$ 是 $n$ 阶方阵，且 $r(AA) = r$，证明：
 
   (1) $AA$ 可表示成 $r$ 个秩为 $1$ 的方阵的和．
 ]
 
+$AA$ 可被可逆矩阵 $bold(P),bold(Q)$ 化为相抵标准形：
+
+$
+AA = bold(P) mat(EE_r,;,OO_(n-r)) bold(Q) = bold(P) (bold(e)_11 + bold(e)_22 + dots.c + bold(e)_(r r)) +bold(Q)
+$
+
+故 $AA$ 可被表示为 $bold(P)bold(e)_(i i)bold(Q) sp (i=1,2,dots.c,r)$ 的和，其中它们的秩都等于 $r(bold(e)_(i i)) = 1$。
+
 #prob[(2) 存在一个 $n$ 阶可逆方阵 $bold(P)$，使得 $bold(P A P)^(-1)$ 的后 $n-r$ 个行全为零．]
+
+通过初等行变换对 $AA$ 进行高斯消元，可将 $bold(A)$ 化为一个后 $n-r$ 行全为 $0$ 的方阵 $AA bold(Q)$（其中 $bold(Q)$ 是一个可逆矩阵）。
+
+再对 $AA bold(Q)$ 作任意初等列变换，则其后 $n-r$ 行仍全是零。故取 $bold(P)=bold(Q)^(-1)$，可得 $bold(P)AA bold(P)^(-1)$ 的后 $n-r$ 个行全为零。
 
 = P75 补充题三 9
 #prob[试证明 $PP^(n times n)$ 中任意一个矩阵均可表示为 $PP^(n times n)$ 中的一个可逆矩阵和一个幂等矩阵的乘积．]
@@ -233,5 +245,5 @@ $
 
 = P75 补充题三 12
 #prob[
-  设 $AA$ 是一个 $n$ 阶可逆矩阵，向量 $bold(alpha),bold(beta) in PP^n$，证明：$ r(AA + bold(alpha beta)^TT) >= n-1 $
+  设 $AA$ 是一个 $n$ 阶可逆矩阵，向量 $alpha,beta in PP^n$，证明：$ r(AA + alpha beta^TT) >= n-1 $
 ]
