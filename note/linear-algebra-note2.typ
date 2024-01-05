@@ -276,9 +276,8 @@ TBD
   所以 $r(bold(G)) = r(AA) + r(BB)$．
 ]
 
-#def[性质5]设 $AA,BB in PP^(m times n)$，则 $r(AA+BB) <= r(AA) + r(BB)$．
+#def[性质5]设 $AA,BB in PP^(m times n)$，则 $r(AA) - r(BB) <= r(AA+BB) <= r(AA) + r(BB)$．
 
-#def[性质6]（Sylvester不等式）设 $AA,BB in PP^(n times n)$，则 $r(AA BB) >= r(AA) + r(BB) - n$．
 
 #prof[
   #def[证明（一）]利用相抵标准型．
@@ -290,7 +289,7 @@ TBD
   bold(P A B)
   &= (bold(P A Q))(bold(Q)^(-1) BB)
   = display(mat(EE_r,OO;OO,OO))_(s times n) (bold(Q)^(-1) BB)_(n times m)\
-  &= display(mat(EE_r,OO;OO,OO)) display(mat(CC_(r times m);bold(F)_((n-r) times m))) quad "（矩阵分块）"
+  &= display(mat(EE_r,OO;OO,OO)) display(mat(CC_(r times m);bold(F)_((n-r) times m)))
   = display(mat(CC_(r times m);OO))
   $
 
@@ -304,16 +303,22 @@ TBD
 ]
 
 #prof[
-  #def[证明（二）]利用分块矩阵的初等变换．
+  #def[证明（二）]利用分块矩阵作初等变换．
   $
-  r(AA BB) + n = r(AA BB) + r(EE_n) = r mat(OO_(m times n), AA_(m times n) BB_(n times s); EE_n, OO_(n times s)) = r mat(AA,OO;EE_n,BB)
+  mat(EE_n,;,AA BB)
+  -> mat(EE_n,;AA,AA BB)
+  -> mat(EE_n,-BB;AA,)
+  -> mat(EE_n,BB;AA,)
   $
-  另一方面：
+  考虑：
   $
-  r(AA) + r(BB) = r mat(AA,OO;OO,BB) <= r mat(AA,OO;EE_n,BB) = r(AA BB) + n
+  r(AA BB) + n
+  = r mat(EE_n,;,AA BB)
+  = r mat(EE_n,BB;AA,)
+  >= r mat(,BB;AA,)
+  = r(AA) + r(BB)
   $
 ]
 
-#def[推论1]设 $AA_(m times n) BB_(n times t) = OO_(m times t)$，那么 $r(AA) + r(BB) <= n$．
-
-#def[性质7]（Frobenius不等式）设 $AA,BB,CC in PP^(n times n)$，那么 $r(AA BB CC) >= r(AA BB) + r(BB CC) - r(BB)$．
+#def[性质7]（Frobenius不等式）设 $AA in PP^(m times n),sp BB in PP^(n times t),sp CC in PP^(t times s)$，则
+$ r(AA BB CC) >= r(AA BB) + r(BB CC) - r(BB) $
