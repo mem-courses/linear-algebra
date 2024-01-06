@@ -80,13 +80,17 @@ $
 
 #def[定理]任意一个二次型都可以经过非退化的线性替换化成一个标准形．
 
-=== 对称矩阵的原理
+=== 利用实对称矩阵的性质
 
-设 $f(seqn(x,n)) = XX^TT AA XX = (bold(C) YY)^TT AA (bold(C) YY) = YY^TT (bold(C)^TT AA bold(C)) YY = d_1 y_1^2 + d_2 y_2^2 + dots.c + d_n y_n^2$．
+根据实对称矩阵的性质，一定存在可逆矩阵 $bold(C) in PP^(n times n)$ 使 $bold(C)^(-1) AA bold(C) = bold(C)^TT AA bold(C) = diag(seqn(lambda,n))$．
 
-由于 $(bold(C)^TT AA bold(C))^TT = bold(C)^TT AA bold(C)$，由性质 1 可得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$．
+设 $f(seqn(x,n)) = XX^TT AA XX$，对其应用非退化线性变换 $XX = bold(C) YY$ 得
+$
+f(seqn(x,n)) = (bold(C) YY)^TT AA (bold(C) YY) = YY^TT (bold(C)^TT AA bold(C)) YY = lambda_1 y_1^2 + lambda_2 y_2^2 + dots.c + lambda_n y_n^2
+$
 
-#def[定理]$forall AA = AA^TT in PP^(n times n)$，一定存在可逆矩阵 $bold(C) in PP^(n times n)$ 使得 $bold(C)^TT AA bold(C) = diag(seqn(d,n))$ 为对角阵． 
+由于 $(bold(C)^TT AA bold(C))^TT = bold(C)^TT AA bold(C)$，由性质1得 $bold(C)^TT AA bold(C)$ 即所求的标准形．
+
 
 == 合同
 

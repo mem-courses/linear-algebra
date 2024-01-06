@@ -124,14 +124,24 @@ $
 2. 对于每个 $lambda_i$，求出其特征线行线性方程组的基础解系．
 
 #note[
-	#def[总结]求 $AA$ 的特征值的几种特殊方法：
+	#def[总结]特殊矩阵的特征值和特征向量求法：
 
 	1. $r(AA) = 1$：说明 $AA = alpha beta^TT$，则 $AA alpha = (alpha beta^TT) alpha = (beta^TT alpha) alpha$，这里 $beta^TT alpha$ 是一个特征根．
 
 	2. $AA$ 的每行元素和为 $c$：说明 $AA display(mat(1,1,dots.c,1)) = c display(mat(1,1,dots.c,1))$，这里 $c$ 是一个特征根．
 ]
 
-== 特征值和特征向量的基本性质
+
+== 常用性质及结论
+
+#table(
+  columns: 7,
+  inset: 10pt,
+  align: center,
+	[$AA$], [$a AA + b EE$], [$f(AA)$], [$AA^(-1)$], [$AA^*$], [$AA^TT$], [$bold(P)^(-1) AA bold(P)$],
+	[*特征值*], [$a lambda + b$], [$f(lambda)$], [$1/lambda$], [$1/lambda abs(AA)$], [$lambda$], [$lambda$],
+	[*特征向量*], [$x$], [$x$], [$x$], [$x$], [无关系], [$bold(P)^(-1) x$], 
+)
 
 #def[性质1]1. $display(sum_(i=1)^n a_(i i) = sum_(i=1)^n lambda_i = tr(AA))$．
 
@@ -184,8 +194,6 @@ $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + 
 
 #def[定理2]设 $AA lambda_0 = lambda_0 xi_0$，$g(x)$ 是多项式（若 $AA$ 可逆，则还可包含逆元），则 $g(AA) xi_0 = g(lambda_0) xi_0$．进一步地，$AA$ 的特征子空间与 $g(AA)$ 相同．
 
-== 特征值和特征向量的常见结论
-
 #def[结论1.1]幂等矩阵必有特征值且为 $1$ 或 $0$．
 
 #def[结论1.2]幂零矩阵必有特征值且必为 $0$．
@@ -198,7 +206,7 @@ $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + 
 
 #deft[结论3]2. 若 $alpha$ 是 $AA BB$ 属于 $lambda_0$ 的一个特征向量（$lambda_0 != 0$），则 $BB alpha$ 是 $BB AA$ 属于 $lambda_0$ 的一个特征向量．
 
-#def[结论4]设 $AA in CC^(n times n)$ 且 $a_(i j) i RR$，则当 $lambda_0$ 是 $AA$ 的一个特征值且 $alpha$ 是 $lambda_0$ 的一个特征向量时，$overline(lambda_0)$ 也是 $AA$ 的一个特征值，$overline(alpha)$ 也是 $overline(lambda_0)$ 的一个特征向量．
+#def[结论4]设 $AA in CC^(n times n)$ 且 $a_(i j) in RR$，则当 $lambda_0$ 是 $AA$ 的一个特征值且 $alpha$ 是 $lambda_0$ 的一个特征向量时，$overline(lambda_0)$ 也是 $AA$ 的一个特征值，$overline(alpha)$ 也是 $overline(lambda_0)$ 的一个特征向量．
 
 #def[结论5]若 $AA$ 的每行元素之和为 $k$，则 $k$ 是 $AA$ 的一个特征值，$display(mat(1,1,dots.c,1))$ 是 $AA$ 的一个特征向量．
 
@@ -261,7 +269,7 @@ $
 
 #deft[结论4]2. 若 $a_11=a_22=dots.c=a_(n n)$ 且 $AA$ 不是对角矩阵，则 $AA$ 不可对角化．
 
-== 实对称矩阵的相似对角化
+== 实对称矩阵的特性
 
 实对称矩阵：$AA = AA^TT in RR^(n times n)$．
 
@@ -283,7 +291,9 @@ $
 	两式相减得 $(lambda_1-lambda_2) (xi_1,xi_2) = 0$，由于 $lambda_1!=lambda_2$，故 $xi_1,xi_2$ 正交．
 ]
 
-#def[性质3]设 $AA = AA^TT in RR(n times n)$，则 $AA$ 一定可通过正交矩阵相似对角化．即存在正交矩阵 $bold(U)$ 使得
+#def[性质3]设 $AA in AA^TT in RR^(n times n)$，则 $AA$ 任一特征值的代数重数 $t$ 一定等于几何重数 $k$．
+
+#def[定理]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 一定可相似对角化．且这个矩阵是正交矩阵，即存在正交矩阵 $bold(U)$ 使得
 $
 bold(U)^TT AA bold(U) = bold(U) AA bold(U)^TT = diag(lambda_1,lambda_2,dots.c,lambda_n)
 $

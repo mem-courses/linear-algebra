@@ -17,6 +17,9 @@
 #let II = math.bold("I")
 #let OO = math.bold("O")
 #let TT = math.upright("T")
+#let alpha = math.bold(math.alpha)
+#let beta = math.bold(math.beta)
+#let theta = math.bold(math.theta)
 
 = 矩阵的运算
 
@@ -24,7 +27,7 @@
 
 矩阵数乘的四条定理：
 
-#box(height: 27pt)[
+#box(height: 29pt)[
   #columns(2)[
     1. $k(AA + BB) = k AA + k BB$；
     2. $(k+t) AA = k AA + t AA$；
@@ -37,7 +40,7 @@
 
 矩阵加法的四条定理：
 
-#box(height: 27pt)[
+#box(height: 29pt)[
   #columns(2)[
     1. 加法交换律：$AA + BB = BB + AA$；
     2. 加法结合律：$(AA + BB) + CC = AA + (BB + CC)$；
@@ -56,11 +59,12 @@
 4. 满足分配律：$AA (BB + CC) = AA BB + AA CC$，$(BB + CC) AA = BB AA + CC AA$，$k(AA BB) = (k AA)BB = AA (k BB)$．
 
 #warn[
+  #def[注意]
   - $(AA + BB)(AA - BB) = AA^2 - AA BB + BB AA - BB^2 != AA^2 - BB^2$
   - $(AA BB)^2 = AA (BB AA) BB != AA^2 BB^2$
 ]
 
-#def[性质1]设 $AA,BB in PP^(n times n)$，则 $|AA BB| = |AA| dot |BB| = |BB AA|$．（注意：$AA$ 和 $BB$ 都是方阵）
+#def[性质1]设 $AA,BB$ 都是 $n$ 阶方阵，则 $|AA BB| = |AA| dot |BB| = |BB AA|$．
 
 #prof[
   #set math.mat(delim: "|")
@@ -71,13 +75,9 @@
   因此证得 $|AA BB| = |AA| |BB|$．
 ]
 
-#def[性质2]设 $AA in PP^(n times n), k in PP$，则 $|k AA| = k^n |AA|$．
-
-=== 可交换矩阵
-
-1. 与任何矩阵可交换的矩阵一定是数量矩阵
-
-2. 与对角线上元素互不相同的对角矩阵可交换的矩阵一定是对角矩阵
+#def[性质2]关于可交换矩阵的几条结论：\
+#deft[性质2]1. 与任何矩阵可交换的矩阵一定是数量矩阵\
+#deft[性质2]2. 与对角线上元素互不相同的对角矩阵可交换的矩阵一定是对角矩阵\
 
 == 转置
 
@@ -85,13 +85,6 @@
 
 #def[性质2]$(AA BB)^TT = BB^TT AA^TT$．
 
-=== 对称矩阵与反对称矩阵
-
-设 $AA = (a_(i j))_(n times n)$（注意：$AA$ 必须是方阵），那么：
-
-- 如果 $a_(i j) = a_(j i) <=> AA=AA^TT$，则称 $AA$ 为 *对称矩阵*；
-
-- 如果 $a_(i j) = -a_(j i) <=> AA=-AA^TT$，则称 $AA$ 为 *反对称矩阵*．
 
 
 = 矩阵的逆
@@ -100,27 +93,29 @@
 
 == 伴随矩阵
 
-$n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如下矩阵：$ AA^* = mat(A_(11),A_(21),dots.c,A_(n 1);A_(12),A_(22),dots.c,A_(n 2);dots.v,dots.v,,dots.v;A_(1 n),A_(2 n),dots.c,A_(n n)) $称为 $AA$ 的伴随矩阵．（注意：原先第 $i$ 行各元素的代数余子式在伴随矩阵的第 $j$ 列）
+$n$ 阶*方阵* $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如下矩阵：$ AA^* = mat(A_(11),A_(21),dots.c,A_(n 1);A_(12),A_(22),dots.c,A_(n 2);dots.v,dots.v,,dots.v;A_(1 n),A_(2 n),dots.c,A_(n n)) $称为 $AA$ 的 *伴随矩阵*．（注意：原先第 $i$ 行各元素的代数余子式在伴随矩阵的第 $j$ 列）
 
 #def[引理]$AA dot AA^* = AA^* dot AA = |AA| dot EE$
 
 #prof[
-  可以通过 $sum_(i=1)^n a_(j i) A_(k i) = |AA| [j=k]$ 来证明．
+  可以通过 $sum_(i=1)^n a_(j i) A_(k i) = |AA| [j=k]$ 证明．
 ]
 
-#def[性质]
+#def[性质]1. $AA$ 可逆 $<=>$ $AA^*$ 可逆；
 
-1. $AA$ 可逆 $<=>$ $AA^*$ 可逆；
+#deft[性质]2. $|AA^*| = |AA|^(n-1) sp (n>=2)$（由 1. 得无论 $AA$ 是否可逆都成立）；
 
-2. $|AA^*| = |AA|^(n-1)$（由 1. 得无论 $AA$ 是否可逆都成立）；
+#deft[性质]3. $(AA^*)^* = |AA|^(n-2) AA sp (n>=3)$
 
-3. $(AA^*)^* = |AA|^(n-2) AA$
+#deft[性质]4. $(k AA)^* = k^(n-1) AA^* sp (n>=2)$
 
-4. $(k AA)^* = k^(n-1) AA^*$
+#deft[性质]5. $(AA BB)^* = BB^* AA^*$；
 
-5. $(AA BB)^* = BB^* AA^*$；
+#deft[性质]6. $(AA^*)^(-1) = (AA^(-1))^* = display(1/(abs(AA)) AA)$
 
-6. $r(AA^*) = display(cases(
+#deft[性质]7. $(AA^*)^TT = (AA^TT)^*$
+
+#deft[性质]8. $r(AA^*) = display(cases(
       n\,quad& r(AA) = n,
       1\,quad& r(AA) = n-1,
       0\,quad& r(AA) < n-1,
@@ -128,11 +123,27 @@ $n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如�
 
 == 性质
 
-#def[性质1]$AA$ 可逆 $<=>$ $|AA| != 0$ $<=>$ $AA$ 满秩 $<=>$ 以 $AA$ 为系数矩阵的线性方程组有唯一解．
+#def[性质1.1]$AA$ 可逆\
+#deft[性质1.1]$<=>$ $|AA| != 0$\
+#deft[性质1.1]$<=>$ $r(AA) = n$\
+#deft[性质1.1]$<=>$ $AA XX=theta$ 只有零解\
+#deft[性质1.1]$<=>$ $forall beta,sp AA XX=beta$\
+#deft[性质1.1]$<=>$ $AA$ 可以表示为初等矩阵的乘积\
+#deft[性质1.1]$<=>$ $AA^*$ 可逆\
+#deft[性质1.1]$<=>$ $AA$ 与 $EE$ 相抵（等价）\
+#deft[性质1.1]$<=>$ $AA$ 的行（列）向量组线性无关\
+#deft[性质1.1]$<=>$ $AA$ 的所有特征值都不为零\
+
+#def[性质1.2]$AA$ 不可逆\
+#deft[性质1.2]$<=>$ $|AA| = 0$\
+#deft[性质1.2]$<=>$ $r(AA) < n$\
+#deft[性质1.2]$<=>$ $AA XX = theta$ 有非零解\
+#deft[性质1.2]$<=>$ $AA$ 的行（列）向量组线性相关\
+#deft[性质1.2]$<=>$ $0$ 是 $A$ 的特征值\
 
 #def[性质2]如果 $AA$ 可逆，则 $AA^(-1)$ 必唯一．
 
-#def[性质3]当 $AA$ 可逆时，$AA^(-1) = display(AA^* / |AA|)$．
+#def[性质3]当 $AA$ 可逆时，$AA^(-1) = display(AA^* / (|AA|))$．
 
 #prof[
   *必要性*：设 $AA$ 可逆，两边取行列式得到$ |AA||BB| = |BB||AA| = |EE| = 1 => |AA|!=0 $
@@ -143,7 +154,7 @@ $n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如�
 
 #def[性质4]设 $AA$ 可逆，那么：
 
-#box(height: 30pt)[
+#box(height: 31pt)[
   #columns(2)[
     1. $AA^(-1)$ 可逆，且 $(AA^(-1))^(-1) = AA$；
     2. $k!=0$ 时，$k AA$ 可逆，且 $(k AA)^(-1) = display(1/k) AA^(-1)$；
@@ -172,6 +183,17 @@ $n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如�
   = frac(1,D) mat(D_1;D_2;dots.v;D_n)
   $
 
+== 求矩阵的逆的方法
+
+=== 定义法
+找到 $BB$ 使得 $AA BB = EE$，则 $AA^(-1) = BB$
+
+=== 伴随矩阵法
+$display(AA^(-1) = 1/(abs(AA)) AA)$．
+
+=== 初等变换法
+对分块矩阵 $display(mat(AA,dots.v,EE))$ 应用初等行变换化为 $display(mat(EE,dots.v,AA^(-1)))$
+
 = 矩阵的分块
 
 == 加法
@@ -184,7 +206,7 @@ $n$ 阶矩阵 $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如�
 
 == 乘法
 
-设 $AA=(a_(i j))_(m times s),BB=(b_(i j))_(s times n)$，只要求 $AA$ 的行的分法和 $BB$ 的列的分法完全一样，那么可用类似于矩阵乘法的规则相乘．
+设 $AA=(a_(i j))_(m times s),BB=(b_(i j))_(s times n)$，只要求 $AA$ 的行的分法和 $BB$ 的列的分法 *完全一样*，那么可用类似于矩阵乘法的规则相乘．
 
 == 转置
 
@@ -230,27 +252,53 @@ $AA = op("diag")(AA_1,AA_2,dots.c,AA_n)$．其中 $AA$ 是方阵，$AA_(i) (i=1,
 
 = 初等矩阵
 
-矩阵的初等行（列）变换中的 $R_(s t),sp c R_s,sp R_s + c R_t$ 三种运算分别对应第一、二、三型初等矩阵．
+设 $AA in PP^(m times n)$，则
 
-TBD
+- 对矩阵应用初等行变换，相当于将矩阵左乘对应的 $m$ 阶初等矩阵；
+- 对矩阵应用初等列变换，相当于将矩阵右乘对应的 $n$ 阶初等矩阵．
+
+这里以三阶初等矩阵为例：
+
+1. *倍乘*：$E_2 (k) = display(mat(1,0,0;0,k,0;0,0,1))$，可将矩阵的第 $2$ 行（或第 $2$ 列）乘以 $k$ 倍．
+
+2. *交换*：$E_12 = display(mat(0,1,0;1,0,0;0,0,1))$，可将矩阵的第 $1,2$ 行（或第 $1,2$ 列）交换．
+
+3. *倍加*：$E_13 (k)=display(mat(1,0,0;0,1,0;k,0,1))$，可将矩阵的第 $1$ 行的 $k$ 被加到第 $3$ 行（或第 $3$ 列的 $k$ 倍加到第 $1$ 列）．
 
 #def[性质]初等矩阵是可逆的，且初等矩阵的逆是初等矩阵．
 
-#def[定理]对 $AA_(m times n)$ 施行一次初等行（列）变换得到的新矩阵，等于用该初等行变换对应的 $m$（$n$）阶初等矩阵左乘（右乘）$AA_(m times n)$；
+#def[结论1]$r(AA_(m times n))=r <=>$ 存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$，使得 $display(bold(P A Q) = mat(EE_r,OO;OO,OO))$．
 
-#def[推论1]$r(AA_(m times n))=r <=>$ 存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$，使得 $display(bold(P A Q) = mat(EE_r,OO;OO,OO))$．
+#def[结论2]设 $AA in PP^(n times n)$ 可逆，那么 $AA$ 一定可以被表示为一系列初等矩阵的乘积．
 
-#def[推论2]设 $AA,BB in PP^(m times n)$，那么 $AA$ 和 $BB$ 相抵 $<=>$ 一定存在 $m$ 阶可逆阵 $bold(P)$ 和 $n$ 阶可逆阵 $bold(Q)$ 使得 $bold(P A Q) = bold(B)$．
+= 矩阵的秩
 
-#def[推论3]设 $AA in PP^(n times n)$ 可逆，那么 $AA$ 一定可以被表示为一系列初等矩阵的乘积．
+矩阵 $bold(A)$ 的不等于 $0$ 的子式的最大阶数称为矩阵的秩，记为 $r(bold(A))$．
 
-#def[推论4]设 $AA$ 可逆，仅对 $AA$ 做初等行（列）变换，就可以把 $AA$ 化成 $EE$．故仅应用初等行变换可使 $display(mat(AA,EE)) -> display(mat(EE,AA^(-1)))$；同理，仅应用初等列变换可使 $display(mat(AA;EE)) -> display(mat(EE;AA^(-1)))$．
+== 矩阵的相抵（等价）
 
-#def[推论5]设 $AA$ 为可逆阵，则矩阵方程TBD（P56）
+设 $bold(A),bold(B) in PP^(m times n)$，如果 $bold(A)$ 经过一系列初等变换化为 $bold(B)$，即存在可逆矩阵 $bold(P),bold(Q)$ 使得 $bold(P) AA bold(Q) = BB$，则称 $bold(A)$ 与 $bold(B)$ *相抵*（*等价*）．
 
-= 矩阵的运算对矩阵的秩的影响
+== 矩阵的相抵（等价）标准形
 
-#def[性质1]$r(AA_(m times n))<=min{m,n}$．
+设 $r(bold(A_(m times n)))=r$，则 $bold(A)$ 与 $display(mat(bold(E_r),bold(O);bold(O),bold(O)))$ 相抵（等价），将其称为 $bold(A)$ 的 *相抵（等价）标准形*．
+
+== 基本性质
+
+#def[性质1] $r(bold(A)_(m times n)) <= min{m,n}$
+
+#def[性质2] (1) $bold(A)_(m times n)$ 中存在一个 $k$ 阶子式不等于 $0$ $=>$ $r(bold(A)_(m times n))>=k$；\
+#deft[性质2] (2) $bold(A)_(m times n)$ 中所有 $k+1$ 阶子式都等于 $0$ $=>$ $r(bold(A)_(m times n))<=k$．
+
+#def[性质3] 当 $bold(A)$ 为 $n$ 阶方阵时：\
+#deft[性质3] $|bold(A)|!=0 <=> r(bold(A)_(n times n))=n$（称 $bold(A)$ 为满秩矩阵 / 非奇异矩阵）\
+#deft[性质3] $|bold(A)|=0 <=> r(bold(A)_(n times n))<n$（称 $bold(A)$ 为降秩矩阵 / 奇异矩阵）
+
+#def[性质4] $r(bold(A)_(m times n))=k <=>$ $bold(A)$ 中至少存在一个 $k$ 阶子式不为 $0$ 且 $bold(A)$ 中所有 $k+1$ 阶子式均为 $0$．
+
+#def[性质5] 矩阵的初等变换不改变矩阵的秩．
+
+#def[性质6] 矩阵增加一行或一列，矩阵的秩不变或增加 $1$．
 
 #def[性质2]当 $bold(P),bold(Q)$ 可逆时，$r(AA) = r(bold(P A)) = r(bold(A Q)) = r(bold(P A Q))$．
 

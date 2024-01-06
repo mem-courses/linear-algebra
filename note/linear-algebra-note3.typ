@@ -75,15 +75,20 @@
 
 $beta$ 能被向量组 $alpha_1,alpha_2,dots.c,alpha_s$ 线性表示
 
-$<==>$ 能找到一组数 $k_1,k_2,dots.c,k_s in PP$ 使得 $beta=k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s$．
+$quad quad<==>$ 能找到一组数 $k_1,k_2,dots.c,k_s in PP$ 使得 $beta=k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s$．
 
-$<==>$ $display(k_1 mat(a_11;a_21;dots.v;a_(n 1)) + k_2 mat(a_12;a_22;dots.v;a_(n 2)) + dots.c + k_s mat(a_(1 s);a_(2 s);dots.v;a_(n s)) = mat(b_1;b_2;dots.v;b_n))$．
+$quad quad <==>$ $display(k_1 mat(a_11;a_21;dots.v;a_(n 1)) + k_2 mat(a_12;a_22;dots.v;a_(n 2)) + dots.c + k_s mat(a_(1 s);a_(2 s);dots.v;a_(n s)) = mat(b_1;b_2;dots.v;b_n))$．
 
-$<==>$ 线性方程组 $bold(A) X = beta$ 有解，其中 $X$ = $display(mat(k_1;k_2;dots.v;k_s))$．
+$quad quad <==>$ 线性方程组 $bold(A) X = beta$ 有解，其中 $X$ = $display(mat(k_1;k_2;dots.v;k_s))$．
 
-$<==>$ $r(bold(A)) = r(overline(bold(A)))$，其中 $overline(bold(A)) = display(mat(bold(A), dots.v ,beta))$．
+$quad quad <==>$ $r(bold(A)) = r(overline(bold(A)))$，其中 $overline(bold(A)) = display(mat(bold(A), dots.v ,beta))$．
 
 特别地，当 $r(bold(A)) = r(overline(bold(A))) = s$ 时，表示方法唯一；当 $r(bold(A)) = r(overline(bold(A))) < s$ 时，表示方法有无穷多种．
+
+#note[
+  1. $r(bold(A)) < r(overline(bold(A))) <=>$ $beta$ 不能被 $seqn(alpha,s)$ 线性表示；
+  2. $r(bold(A)) = r(overline(bold(A))) < s <=>$ $seqn(alpha,s)$ 是线性相关的向量组．
+]
 
 == 线性相关与线性无关
 
@@ -91,56 +96,55 @@ $<==>$ $r(bold(A)) = r(overline(bold(A)))$，其中 $overline(bold(A)) = display
 
 === 性质
 
-1. 一个向量组中的部分向量线性相关 $=>$ 这个向量组必线性相关．
+#def[性质1]1. 部分相关 $==>$ 整体相关\
+#deft[性质1]2. 整体无关 $==>$ 部分无关\
+#deft[性质1]3. 原来相关 $==>$ 缩短相关\
+#deft[性质1]4. 原来无关 $==>$ 增长无关\
 
-2. 一个向量组线性无关 $=>$ 这个向量组的任一部分向量必线性无关．
+#def[性质2]含零向量的向量组必线性相关．
 
-3. 含零向量的向量组必线性相关．
+#def[性质3]1. 对于单个向量 $alpha$ 构成的向量组，它线性无关当且仅当 $alpha != theta$．\
+#deft[性质3]2. 两个非零向量 $alpha,beta$ 线性相关，则必存在 $0 != k in PP st alpha + k beta = theta$．
 
-4. 对于单个向量 $alpha$ 构成的向量组，它线性无关当且仅当 $alpha != beta$．
-
-5. 两个非零向量 $alpha,beta$ 线性相关，则必存在 $0 != k in PP st alpha + k beta = theta$．
-
-6. 在 $R^2$ 上，非零向量 $alpha,beta$ 线性相关 $=>$ $alpha,beta$ 共线或平行；线性无关 $=>$ $alpha,beta$ 相交．
-
-7. 在 $R^3$ 上，非零向量 $alpha,beta,gamma$ 线性相关 $=>$ $alpha,beta,gamma$ 共面；$alpha,beta,gamma$ 线性无关 $=>$ $alpha,beta,gamma$ 异面．
+#def[性质4]1. 非零向量 $alpha,beta in RR^2$ 线性相关 $=>$ $alpha,beta$ 共线或平行；线性无关 $=>$ $alpha,beta$ 相交．\
+#deft[性质4]2. 非零向量 $alpha,beta,gamma in RR^3$ 线性相关 $=>$ $alpha,beta,gamma$ 共面；$alpha,beta,gamma$ 线性无关 $=>$ $alpha,beta,gamma$ 异面．
 
 === 与线性方程组的联系
 
 设 $alpha_1,alpha_2,dots.c,alpha_s in PP^n$ 线性相关
 
-$<==>$ 存在一组不全为零的数 $k_1,k_2,dots.c,k_s in PP$ 使得 $k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s = theta$．
+$quad quad <==>$ 存在一组不全为零的数 $k_1,k_2,dots.c,k_s in PP$ 使得 $k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s = theta$．
 
-$<==>$ $display(k_1 mat(a_11;a_21;dots.v;a_(n 1)) + k_2 mat(a_12;a_22;dots.v;a_(n 2)) + dots.c + k_s mat(a_(1 s);a_(2 s);dots.v;a_(n s)) = mat(0;0;dots.v;0))$
+$quad quad <==>$ $display(k_1 mat(a_11;a_21;dots.v;a_(n 1)) + k_2 mat(a_12;a_22;dots.v;a_(n 2)) + dots.c + k_s mat(a_(1 s);a_(2 s);dots.v;a_(n s)) = mat(0;0;dots.v;0))$
 
-$<==>$ $bold(A) X = theta$ 有非零解，其中 $X$ = $display(mat(k_1;k_2;dots.v;k_s))$．
+$quad quad <==>$ $bold(A) bold(X) = theta$ 有非零解，其中 $X$ = $display(mat(k_1;k_2;dots.v;k_s))$．
 
-$<==>$ $r(bold(A)_(n times s)) < s$（秩小于向量组中向量的个数）．
+$quad quad <==>$ $r(bold(A)_(n times s)) < s$（秩小于向量组中向量的个数）．
 
 也就是说：
 
-- $alpha_1,alpha_2,dots.c,alpha_s$ 线性相关 $<==>$ $bold(A)_(n times s) X = 0$ 有非零解 $<==>$ $R(bold(A)_(n times s)) < s$
-- $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关 $<==>$ $bold(A)_(n times s) X = 0$ 只有零解 $<==>$ $R(bold(A)_(n times s)) = s$
+- $alpha_1,alpha_2,dots.c,alpha_s$ 线性相关 $<==>$ $bold(A)_(n times s) bold(X) = 0$ 有非零解 $<==>$ $R(bold(A)_(n times s)) < s$
+- $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关 $<==>$ $bold(A)_(n times s) bold(X) = 0$ 只有零解 $<==>$ $R(bold(A)_(n times s)) = s$
 
-特别的，对于 $PP^n$ 中任意 $n$ 个向量组成的向量组 $alpha_1,alpha_2,dots.c,alpha_n$，他们线性无关当且仅当 $|bold(A)| != 0$ $<=>$ $r(bold(A)) = n$．
+特别的，对于 $PP^m$ 中任意 $n$ 个向量组成的向量组 $alpha_1,alpha_2,dots.c,alpha_n$，他们线性无关当且仅当 $|bold(A)| != 0$ $<=>$ $r(bold(A)) = n$．
 
 === 与线性表示的关系
 
-#def[定理1]向量组 $alpha_1,alpha_2,dot.c,alpha_s$ 线性相关 $<=>$ 其中至少有一个向量可以被其余向量线性表示．
+#def[性质1]向量组 $seqn(alpha,s)$ 线性相关 $<=>$ 其中至少有一个向量可以被其余向量线性表示．
 
 #warn[不是每一个向量都可以被其余向量线性表示哦！]
 
-#def[定理2]若向量组 $alpha_1,alpha_2,dot.c,alpha_s$ 线性无关而向量组 $alpha_1,alpha_2,dot.c,alpha_s,beta$ 线性相关 $=>$ 向量 $beta$ 一定可以被向量组 $alpha_1,alpha_2,dot.c,alpha_s$ 线性表示，且表示方法唯一．
+#def[性质2]若向量组 $seqn(alpha,s)$ 线性无关而向量组 $seqn(alpha,s),beta$ 线性相关 $=>$ 向量 $beta$ 一定可以被向量组 $seqn(alpha,s)$ 线性表示，且表示方法唯一．
 
 #prof[
-  #def[证明]因为向量组 $alpha_1,alpha_2,dot.c,alpha_s,beta$ 线性相关，故存在一组 $k_1,k_2,dots.c,k_s,k_0$ 使得 $ k_1 alpha_1 + k_2  alpha_2 + dots.c + k_s alpha_s + k_0 beta = theta $反设 $k_0 = 0$，则 $k_0 beta = theta$，与 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关矛盾；所以 $k_0!=0$，则存在一组 $ beta = -1/k_0 (k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s) $
+  #def[证明]因为向量组 $seqn(alpha,s),beta$ 线性相关，故存在一组 $k_1,k_2,dots.c,k_s,k_0$ 使得 $ k_1 alpha_1 + k_2  alpha_2 + dots.c + k_s alpha_s + k_0 beta = theta $反设 $k_0 = 0$，则 $k_0 beta = theta$，与 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关矛盾；所以 $k_0!=0$，则存在一组 $ beta = -1/k_0 (k_1 alpha_1 + k_2 alpha_2 + dots.c + k_s alpha_s) $
 
   再证唯一性：若存在
   $
   &beta = t_1 alpha_1 + t_2 alpha_2 + dots.c + t_s alpha_s = l_1 alpha_1 + l_2 alpha_2 + dots.c + l_s alpha_s\
-  => &(t_1-l_1) alpha_1 + (t_2 l_2) alpha_2 + dots.c (t_s - l_s) alpha_s = theta
+  => &(t_1-l_1) alpha_1 + (t_2 - l_2) alpha_2 + dots.c (t_s - l_s) alpha_s = theta
   $
-  其中 $t_1,t_2,dots.c,t_s$ 与 $l_1,l_2,dots.c,l_s$ 不完全形同，与 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关矛盾，故唯一性成立．
+  其中 $t_1,t_2,dots.c,t_s$ 与 $l_1,l_2,dots.c,l_s$ 不完全先沟通，与 $alpha_1,alpha_2,dots.c,alpha_s$ 线性无关矛盾，故唯一性成立．
 ]
 
 == 向量组的线性表示
@@ -150,9 +154,9 @@ $<==>$ $r(bold(A)_(n times s)) < s$（秩小于向量组中向量的个数）．
 由定义设
 $
 alpha_j
-&= m_(1 j) beta_1 + m_(2 j) beta_2 + dots.c + m_(s j) beta_s\
-&= mat(beta_1, beta_2, dots.c, beta_s) mat(m_(1 j); m_(2 j); dots.v; m_(s j))sp (j = 1,dots.c,r)\
-$，
+= m_(1 j) beta_1 + m_(2 j) beta_2 + dots.c + m_(s j) beta_s
+= mat(beta_1, beta_2, dots.c, beta_s) mat(m_(1 j); m_(2 j); dots.v; m_(s j))sp (j = 1,dots.c,r)\
+$
 
 称 $display(mat(beta_1, beta_2, dots.c, beta_s))$ 是形式矩阵．形式矩阵的运算具有：
 
@@ -161,6 +165,8 @@ $，
 
 #warn[
   形式矩阵不一定是 $PP^(r times s)$ 的矩阵，除非 $V$ 是定义在 $PP^n$ 上的线性空间．也就是说，不能直接套用矩阵的运算法则来计算．
+
+  但在使用时，我们可以取线性空间下的一组标准基，并将向量表示为在该标准基下的坐标形式，此时就可以对形式矩阵做矩阵操作了．
 ]
 
 #def[定理1]设数域 $PP$ 上的线性空间 $V$ 中有两个向量组 (I) $alpha_1,alpha_2,dots.c,alpha_r$ 和 (II) $beta_1,beta_2,dots.c,beta_s$．如果向量组 (I) 可被向量组 (II) 线性表示且 $r>s$，那么向量组 (I) 必线性相关．
@@ -168,9 +174,9 @@ $，
 #prof[
   #def[证明]由已知存在 $M_(s times r)$ 使得 $display(mat(alpha_1, alpha_2, dots.c, alpha_r) = mat(beta_1, beta_2, beta_s) bold(M)_(s times r))$．考虑：
   $
-  theta &= k_1 alpha_1 + k_2 alpha_2 + dots.c + k_r alpha_r\
-  &= mat(alpha_1,alpha_2,dots.c,alpha_r) mat(k_1;k_2;dots.v;k_r)\
-  &= mat(beta_1,beta_2,dots.c,beta_s) bold(M)_(s times r) mat(k_1;k_2;dots.v;k_r)
+  theta = k_1 alpha_1 + k_2 alpha_2 + dots.c + k_r alpha_r
+  = mat(alpha_1,alpha_2,dots.c,alpha_r) mat(k_1;k_2;dots.v;k_r)
+  = mat(beta_1,beta_2,dots.c,beta_s) bold(M)_(s times r) mat(k_1;k_2;dots.v;k_r)
   $
   其中 $r(bold(M)_(s times r)) <= min(s,r) = s<r$，所以
 ]
@@ -183,7 +189,9 @@ $，
 
 在数域 $PP$ 中，如果两个向量组能互相线性表示，则称这两个向量组等价．
 
-#def[定理1]两个等价的，线性无关的且含有有限向量个数的两个向量组，所含向量个数相等．
+#def[定理]两个等价的，线性无关的且含有有限向量个数的两个向量组，所含向量个数相等．
+
+#def[性质]向量组的等价具有自反性、对称性、传递性．
 
 === 向量组的极大线性无关组
 
@@ -288,19 +296,23 @@ alpha = vecn(xi,n) bold(X) = vecn(eta,n) bold(Y) = vecn(xi,n) bold(M Y)
 $
 则 $bold(X) = bold(M Y)$ 或称 $bold(Y) = bold(M)^(-1) bold(X)$．
 
-== 子空间
+= 子空间
 
 数域 $PP$ 上一个线性空间 $V$ 的一个非空集合 $W$，如果关于 $V$ 的加法和数乘也构成 $PP$ 上的线性空间，那么称 $W$ 是 $V$ 的一个 *子空间*．显然 ${theta}$ 和 $V$ 是 $V$ 的两个字空间，称为 $V$ 的平凡子空间．
 
-#def[定理]线性空间 $V$ 的任意一个非空子集 $W$，如果满足加法封闭、乘法封闭，则称 $W$ 是 $V$ 的一个子空间．
+#def[定理]线性空间 $V$ 的任意一个非空子集 $W$，如果满足 *加法封闭*、*乘法封闭*，则称 $W$ 是 $V$ 的一个子空间．
 
-设 $V$ 是数域 $PP$ 上的线性空间，$seqn(alpha,t) in V$，记 $L(seqn(alpha,t)) = {k_1 alpha_1 + k_2 alpha_2 + dots.c + k_t alpha_t | t_i in PP}$，可以证明 $L(seqn(alpha,t))$ 是 $V$ 的一个子空间，记 $L(seqn(alpha,t))$ 为由向量组 $seqn(alpha,t)$ *张成* 的子空间．
+== 张成子空间
 
-特别地，设 $seqn(xi,n)$ 是 $V$ 的一组基，则 $V = L(seqn(xi,n))$．
+设 $V$ 是数域 $PP$ 上的线性空间，$seqn(alpha,t) in V$，记
+$
+L(seqn(alpha,t)) = {k_1 alpha_1 + k_2 alpha_2 + dots.c + k_t alpha_t | t_i in PP}
+$
+可以证明 $L(seqn(alpha,t))$ 是 $V$ 的一个子空间，记 $L(seqn(alpha,t))$ 为由向量组 $seqn(alpha,t)$ *张成* 的子空间．
 
 == 线性方程组解的结构
 
-对线性方程组 $bold(A)_(m times n) bold(X) = beta (!= theta)$ 和 $bold(A)_(m times n) bold(X) = theta$，当 $r(bold(A)) = r display(mat(bold(A),:,beta)) = r <n$ 时，这两个线性方程组有无穷多解．
+对线性方程组 $bold(A)_(m times n) bold(X) = beta (!= theta)$ 和 $bold(A)_(m times n) bold(X) = theta$，当 $r(bold(A)) = r display(mat(bold(A),:,beta)) = r$ 时，第一个线性方程组有解．特别地当 $r<n$ 时这两个线性方程组有无穷多解．
 
 记 $W={bold(A) bold(X) = beta | bold(X) in PP^n}$，$W_0={bold(A) bold(X) =theta | bold(X) in PP^n}$，则 $W,W_0$ 都是 $PP^n$ 的子集．但 $W_0$ 是 $PP^n$ 的子空间，$W$ 不是 $PP^n$ 的子空间．
 

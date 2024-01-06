@@ -144,26 +144,26 @@ a_(1 j_1) a_(2 j_2) dots.c a_(n j_n) $
 
 #def[性质1]$|bold(A)| = |bold(A)^T|$；（在行列式中，行与列的地位一样）
 
-#def[性质2]交换矩阵的两行（列）改变行列式的符号（#bb[互换]）；
+#def[性质2.1]交换矩阵的两行（列）改变行列式的符号（#bb[互换]）；
 
-#def[性质3]把某行（列）乘以非零的 $c$ 倍，行列式的值也乘以 $c$（#bb[倍乘]）；
+#def[性质2.2]把某行（列）乘以非零的 $c$ 倍，行列式的值也乘以 $c$（#bb[倍乘]）；
 
-#def[性质4]把某行（列）的 $c$ 倍加到另一行（列）上，不改变行列式的值（#bb[倍加]）；
+#def[性质2.3]把某行（列）的 $c$ 倍加到另一行（列）上，不改变行列式的值（#bb[倍加]）；
 
 
 #warn[
   #def[易错点]
   1. 把矩阵的第一行放到最后一行，实际上发生了 $n-1$ 次交换．故应乘以 $(-1)^(n-1)$ 的系数．
-  2. （待补充）
+  2. $|k bold(A)| = k^n bold(A)$ 而不是 $k bold(A)$．同理 $|-bold(A)| = (-1)^n |bold(A)|$ 而不是 $-|bold(A)|$！
 ]
 
 == 行列式的展开
 
-=== $k$ 阶子式
+=== 主子式
 
-设 $bold(A) = (a_(i j))_(m times n)$，在 $bold(A)$ 中选取 $k$ 行 $(i_1,i_2,dots,i_k)$，选取 $k$ 列 $(j_1,j_2,dots,j_k)$，取位于交叉位置的 $k^2$ 个元素，按照原来的位置构成的 $k$ 阶行列式称为矩阵 $bold(A)$ 的 $k$ 阶子式，记为 $N=D display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k))$．
+设 $bold(A) = (a_(i j))_(m times n)$，在 $bold(A)$ 中选取 $k$ 行 $(i_1,i_2,dots,i_k)$，选取 $k$ 列 $(j_1,j_2,dots,j_k)$，取位于交叉位置的 $k^2$ 个元素，按照原来的位置构成的 $k$ 阶行列式称为矩阵 $bold(A)$ 的 $k$ 阶 *主子式*，记为 $N=D display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k))$．
 
-=== 余子式
+=== 余子式与代数余子式
 
 在 $bold(A) = (a_(i j))_(n times n)$ 中，划掉元素 $a_(i j)$ 所在的第 $i$ 行和第 $j$ 列，余下的位置按原来的位置构成 $n-1$ 阶行列式称为元素 $a_(i j)$ 的#bb[余子式]，记为 $M_(i j)$．
 
@@ -171,24 +171,20 @@ a_(1 j_1) a_(2 j_2) dots.c a_(n j_n) $
 
 类似的，对于矩阵的 $k$ 阶子式 $N$，定义去掉其所在的 $k$ 行 $k$ 列后，余下元素按照原来位置组成的 $n-k$ 阶行列式，称为 $N$ 的#bb[余子式]，记为 $M=M display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k))$．类似的有，$N$ 的#bb[代数余子式]，记为 $A=A display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k)) = (-1)^(i_1+i_2+dots.c+i_k+j_1+j_2+dots.c+j_k) M display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k))$．
 
-=== 关于行列式展开的两条定理
+=== 行列式按某一行或某一列展开
 
 按照行展开有：
-
 $ a_(i 1)A_(j 1) + a_(i 2)A_(j 2) + dots.c + a_(i n)A_(j n) = cases(D\,quad& i=j,0\,quad& i!=j) $
-
 按照列展开有
-
 $ a_(1 i)A_(1 j) + a_(2 i)A_(2 j) + dots.c + a_(n i)A_(n j) = cases(D\,quad& i=j,0\,quad& i!=j) $
+#note[在后文证明伴随矩阵（$bold(A)^*$）相关性质的时候会用到．]
 
 === Laplace 定理
 
 对于任取 $n$ 阶方阵 $bold(A)$，任取其中 $k$ 行（列），则由这 $k$ 行（列）构成的一切 $k$ 阶子式 $N_1,N_2,dots,N_t$（其中 $t=C_n^k$）与他们所对应的代数余子式 $A_1,A_2,dots,A_t$ 相乘的和等于 $|bold(A)|$．即：
-
 $
 |bold(A)| = sum_(1<=j_1<j_2<dots.c<j_k<=n) D display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k)) A display(vec(i_1 i_2 dots.c i_k, j_1 j_2 dots.c j_k))
 $
-
 
 == Cramer 法则
 
@@ -244,7 +240,7 @@ $ mat(
   a_(n 1),,,;
 ) = (-1)^(n(n-1)/2) a_11 a_(22) dots.c a_(n n) $
 
-#warn[注意与主对角线的求法略有不同，不要忘记乘以 $(-1)^(n(n-1)/2)$ 的系数．]
+#warn[注意不要忘记乘以 $(-1)^(n(n-1)/2)$ 的系数．]
 
 === Vandermonde 行列式
 
@@ -260,6 +256,7 @@ $
 
 #note[
   有时可以通过对整行（列）作乘法将矩阵调整到 Vandermonde 矩阵的形式．
+  
   #def[易错]注意到是 $1$ 的行（列）在最上面（最左边），否则需要乘以左右翻转矩阵带来的系数 $(-1)^(n(n-1)/2)$．
 ]
 
@@ -289,9 +286,52 @@ $
 
 === “两三角形”行列式
 
-对角线上方元素均为 $a$，下方元素均为 $b$．
+对角线上方元素均为 $a$，下方元素均为 $b$，对角线上元素全为 $x_1,x_2,dots.c,x_n$ 的矩阵的行列式．
+==== $a=b$ 的情况
+将第 $i=2,3,dots.c,n$ 行都减去第一行得
+$
+D_n = mat(
+  x_1,a,a,dots.c,a;
+  a-x_1,x_2-a,0,dots.c,0;
+  a-x_1,0,x_3-a,dots.c,0;
+  dots.v,dots.v,dots.v,,dots.v;
+  a-x_1,0,0,dots.c,x_n-a;
+)
+$
+即化成了箭形行列式，所以：
+$
+D_n = (product_(i=2)^n (x_i-a)) (x_1 - a(a-x_1)sum_(i=2)^n 1/(x_i-a))
+$
 
-（待补充）
+==== $a!=b$ 或对角线上元素全相等的情况．
+
+$
+D_n &= mat(
+  x_1,a,a,dots.c,a;
+  b,x_2,a,dots.c,a;
+  b,b,x_3,dots.c,a;
+  dots.v,dots.v,dots.v,,dots.v;
+  b,b,b,dots.c,x_n;
+) = mat(
+  x_1,a,a,dots.c,a;
+  b,x_2,a,dots.c,a;
+  b,b,x_3,dots.c,a;
+  dots.v,dots.v,dots.v,,dots.v;
+  b,b,b,dots.c,b;
+) + mat(
+  x_1,a,a,dots.c,0;
+  b,x_2,a,dots.c,0;
+  b,b,x_3,dots.c,0;
+  dots.v,dots.v,dots.v,,dots.v;
+  b,b,b,dots.c,x_n-b;
+)\ &= b product_(i=1)^(n-1) (x_i-a) + (x_n-b) D_(n-1)
+$
+如果 $a=b$ 且 $x_1=x_2=dots.c=x_n$，这里也可用数列递推的方法计算．
+
+否则可同理得到 $D_n = display(a product_(i=1)^(n-1) (x_i-b) + (x_n-a) D_(n-1))$．两式联立可得
+$
+D_n = 1/(a-b) (a product_(i=1)^n (x_i-b) - b product_(i=1)^n (x_j - a))
+$
 
 === 特殊的分块矩阵
 
@@ -333,32 +373,5 @@ $ "eg. " D_n = mat(
 
 对于整行（列）元素和相同的矩阵也可以类比此方法． 
 
-= 秩
-
-矩阵 $bold(A)$ 的不等于 $0$ 的子式的最大阶数称为矩阵的秩，记为 $r(bold(A))$．
-
-== 基本性质
-
-#def[性质1] $r(bold(A_(m times n))) <= min{m,n}$
-
-#def[性质2] (1) $bold(A_(m times n))$ 中存在一个 $k$ 阶子式不等于 $0$ $=>$ $r(bold(A_(m times n)))>=k$；\
-#deft[性质2] (2) $bold(A_(m times n))$ 中所有 $k+1$ 阶子式都等于 $0$ $=>$ $r(bold(A_(m times n)))<=k$．
-
-#def[性质3] 当 $bold(A)$ 为 $n$ 阶方阵时：\
-#deft[性质3] $|bold(A)|!=0 <=> r(A_(n times n))=n$（称 $bold(A)$ 为满秩矩阵 / 非奇异矩阵）\
-#deft[性质3] $|bold(A)|=0 <=> r(A_(n times n))<n$（称 $bold(A)$ 为降秩矩阵 / 奇异矩阵）
-
-#def[性质4] $r(bold(A_(m times n)))=k <=>$ $bold(A)$ 中至少存在一个 $k$ 阶子式不为 $0$ 且 $bold(A)$ 中所有 $k+1$ 阶子式均为 $0$．
-
-#def[性质5] 矩阵的初等变换不改变矩阵的秩．
-
-#def[性质6] 矩阵增加一行或一列，矩阵的秩不变或增加 $1$．
-
-= 矩阵的相抵（等价）
-
-#def[定义1]设 $bold(A),bold(B) in PP^(m times n)$，如果 $bold(A)$ 经过一系列初等变换化为 $bold(B)$，则称 $bold(A)$ 与 $bold(B)$ 相抵（等价）．
 
 #set math.mat(delim: "(")
-#def[定义2]记 $bold(E_r) = display(mat(1,,,;" ",1,,;" ",,dots.down,;" ",,,1))$．设 $r(bold(A_(m times n)))=r$，则 $bold(A)$ 与 $display(mat(bold(E_r),bold(O);bold(O),bold(O)))$ 相抵（等价）．称 $display(mat(bold(E_r),bold(O);bold(O),bold(O)))$ 是 $bold(A)$ 的#bb[相抵（等价）标准形]．显然，任一矩阵的相抵（等价）标准形是唯一的．
-
-#def[定义3] 如果将 $PP^(m times n)$ 中的所有秩相同的矩阵归为一类，称这样所得的类为矩阵的#bb[相抵等价类]．$PP^(m times n)$ 中的矩阵共可分为 $min{m,n}+1$ 个相抵等价类．
