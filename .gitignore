@@ -1,2 +1,3 @@
+*@memset0.typ
 *.pdf
 !slides/*.pdf

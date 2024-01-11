@@ -26,42 +26,6 @@
 #let diag = math.upright("diag")
 #let ssim = math.attach(sp + math.upright("~") + sp, tl: "", tr:"", t: math.upright("S"))
 
-= 矩阵的相似
-
-设 $AA,BB in PP^(n times n)$，若存在可逆矩阵 $bold(P) in PP^(n times n)$，使得 $bold(P)^(-1) AA bold(P) = bold(B)$，则称 $AA$ 与 $BB$ 相似，记作 $AA ssim BB$．
-
-#def[性质1]矩阵的相似具有自反性、对称性、传递性．
-
-#def[性质2]（矩阵相似的必要条件）设 $A ssim B$，则
-
-#deft[性质2]1. $|AA| = |BB|$；
-
-#deft[性质2]2. $r(AA) = r(BB)$；
-
-#deft[性质2]3. $tr(AA) = tr(BB)$；
-
-#deft[性质2]4. 设 $AA,BB$ 都能对角化，$|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
-
-#deft[性质2]5. 若 $AA$ 不可逆，则 $BB$ 也不可逆；若 $AA$ 可逆，则 $BB$ 也可逆，且 $AA^(-1) ssim BB^(-1)$．
-
-#def[性质3]设 $bold(P)^(-1) AA bold(P) = BB$，$lambda$ 为 $AA,BB$ 的特征值，且 $V_lambda^AA =bold(P) V_lambda^BB$．
-
-#prof[
-	#def[证明]设 $XX in V_lambda^BB$，则 $BB XX = lambda XX => bold(P)^(-1) AA bold(P) = lambda XX => AA(bold(P) XX) = lambda (bold(P) XX)$．
-]
-
-#def[性质4]若 $AA ssim BB$，则 $f(AA) ssim f(BB)$，其中 $f(XX)$ 是任意多项式．
-
-#def[结论1.1]与幂等矩阵相似的矩阵也是幂等矩阵．（幂等矩阵：$AA^2 = AA$）
-
-#def[结论1.2]与幂零矩阵相似的矩阵也是幂零矩阵．（幂零矩阵：$exists p in NN_+$，$st AA^p = OO$）
-
-#def[结论1.3]与周期矩阵相似的矩阵也是周期矩阵且周期相同．（周期矩阵：$exists m in NN_+, sp st AA^m = EE$）
-
-#def[结论2]若与 $AA$ 相似的矩阵有且只有一个，则 $AA$ 必是一个数量矩阵．
-
-#def[结论3]若 $AA$ 可逆，则 $AA BB ssim BB AA$．
-
 = 特征值理论
 
 == 特征值和特征向量
@@ -210,7 +174,45 @@ $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + 
 
 #def[结论5]若 $AA$ 的每行元素之和为 $k$，则 $k$ 是 $AA$ 的一个特征值，$display(mat(1,1,dots.c,1))$ 是 $AA$ 的一个特征向量．
 
-= 相似对角化
+= 矩阵的相似对角化
+
+== 矩阵的相似
+
+设 $AA,BB in PP^(n times n)$，若存在可逆矩阵 $bold(P) in PP^(n times n)$，使得 $bold(P)^(-1) AA bold(P) = bold(B)$，则称 $AA$ 与 $BB$ 相似，记作 $AA ssim BB$．
+
+#def[性质1]矩阵的相似具有自反性、对称性、传递性．
+
+#def[性质2]（矩阵相似的必要条件）设 $A ssim B$，则
+
+#deft[性质2]1. $|AA| = |BB|$；
+
+#deft[性质2]2. $r(AA) = r(BB)$；
+
+#deft[性质2]3. $tr(AA) = tr(BB)$；
+
+#deft[性质2]4. 设 $AA,BB$ 都能对角化，$|lambda EE - AA| = |lambda EE - BB|$（反过来也成立）．
+
+#deft[性质2]5. 若 $AA$ 不可逆，则 $BB$ 也不可逆；若 $AA$ 可逆，则 $BB$ 也可逆，且 $AA^(-1) ssim BB^(-1)$．
+
+#def[性质3]设 $bold(P)^(-1) AA bold(P) = BB$，$lambda$ 为 $AA,BB$ 的特征值，且 $V_lambda^AA =bold(P) V_lambda^BB$．
+
+#prof[
+	#def[证明]设 $XX in V_lambda^BB$，则 $BB XX = lambda XX => bold(P)^(-1) AA bold(P) = lambda XX => AA(bold(P) XX) = lambda (bold(P) XX)$．
+]
+
+#def[性质4]若 $AA ssim BB$，则 $f(AA) ssim f(BB)$，其中 $f(XX)$ 是任意多项式．
+
+#def[结论1.1]与幂等矩阵相似的矩阵也是幂等矩阵．（幂等矩阵：$AA^2 = AA$）
+
+#def[结论1.2]与幂零矩阵相似的矩阵也是幂零矩阵．（幂零矩阵：$exists p in NN_+$，$st AA^p = OO$）
+
+#def[结论1.3]与周期矩阵相似的矩阵也是周期矩阵且周期相同．（周期矩阵：$exists m in NN_+, sp st AA^m = EE$）
+
+#def[结论2]若与 $AA$ 相似的矩阵有且只有一个，则 $AA$ 必是一个数量矩阵．
+
+#def[结论3]若 $AA$ 可逆，则 $AA BB ssim BB AA$．
+
+== 相似对角化
 
 设 $AA$ 与对角矩阵 $Lambda = diag(seqn(lambda,n))$ 相似，则称 $AA$ 可对角化．即存在可逆矩阵 $bold(P)$ 使得
 $

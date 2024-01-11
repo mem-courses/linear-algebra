@@ -15,7 +15,7 @@
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.
-  show par: set block(above: 1.25em, below: 1.25em)
+  show par: set block(above: 1em, below: 1em)
 
   set heading(numbering: "1.1)")
   set par(leading: 0.8em)

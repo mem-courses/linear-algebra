@@ -93,7 +93,7 @@
 
 == 伴随矩阵
 
-$n$ 阶*方阵* $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如下矩阵：$ AA^* = mat(A_(11),A_(21),dots.c,A_(n 1);A_(12),A_(22),dots.c,A_(n 2);dots.v,dots.v,,dots.v;A_(1 n),A_(2 n),dots.c,A_(n n)) $称为 $AA$ 的 *伴随矩阵*．（注意：原先第 $i$ 行各元素的代数余子式在伴随矩阵的第 $j$ 列）
+$n$ 阶 *方阵* $AA$ 的各个元素的代数余子式 $A_(i j)$ 所构成的如下矩阵：$ AA^* = mat(A_(11),A_(21),dots.c,A_(n 1);A_(12),A_(22),dots.c,A_(n 2);dots.v,dots.v,,dots.v;A_(1 n),A_(2 n),dots.c,A_(n n)) $称为 $AA$ 的 *伴随矩阵*．（注意：原先第 $i$ 行各元素的代数余子式在伴随矩阵的第 $j$ 列）
 
 #def[引理]$AA dot AA^* = AA^* dot AA = |AA| dot EE$
 
