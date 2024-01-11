@@ -1,7 +1,7 @@
 #import "../template.typ": *
 
 #show: project.with(
-  title: "Linear Algebra Note #6",
+  title: "Linear Algebra #9",
   authors: (
   (name: "Yulun Wu", email: "memset0@outlook.com", phone: "3230104585"),
   ),

@@ -5,7 +5,7 @@ header_snippet = '''
 #import "./template.typ": *
 
 #show: project.with(
-  title: "线性代数笔记",
+  title: "线性代数学习笔记",
   authors: (
     (name: "memset0", email: "memset0@outlook.com", phone: ""),
   ),
