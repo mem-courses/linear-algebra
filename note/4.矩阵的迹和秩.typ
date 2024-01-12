@@ -21,30 +21,34 @@
 #let beta = math.bold(math.beta)
 #let theta = math.bold(math.theta)
 
+= 矩阵的迹
+
+矩阵 $AA$ 的主对角线的所有元素之和称为矩阵的迹，记为 $tr(bold(AA))$。
+
 = 矩阵的秩
 
-矩阵 $bold(A)$ 的不等于 $0$ 的子式的最大阶数称为矩阵的秩，记为 $r(bold(A))$．
+矩阵 $AA$ 的不等于 $0$ 的子式的最大阶数称为矩阵的秩，记为 $r(AA)$．
 
 == 矩阵的相抵（等价）
 
-设 $bold(A),bold(B) in PP^(m times n)$，如果 $bold(A)$ 经过一系列初等变换化为 $bold(B)$，即存在可逆矩阵 $bold(P),bold(Q)$ 使得 $bold(P) AA bold(Q) = BB$，则称 $bold(A)$ 与 $bold(B)$ *相抵*（*等价*）．
+设 $AA,BB in PP^(m times n)$，如果 $AA$ 经过一系列初等变换化为 $BB$，即存在可逆矩阵 $bold(P),bold(Q)$ 使得 $bold(P) AA bold(Q) = BB$，则称 $AA$ 与 $BB$ *相抵*（*等价*）．
 
 == 矩阵的相抵（等价）标准形
 
-设 $r(bold(A_(m times n)))=r$，则 $bold(A)$ 与 $display(mat(bold(E_r),bold(O);bold(O),bold(O)))$ 相抵（等价），将其称为 $bold(A)$ 的 *相抵（等价）标准形*．
+设 $r(bold(A_(m times n)))=r$，则 $AA$ 与 $display(mat(bold(E_r),bold(O);bold(O),bold(O)))$ 相抵（等价），将其称为 $AA$ 的 *相抵（等价）标准形*．
 
 == 基本性质
 
-#def[性质1] $r(bold(A)_(m times n)) <= min{m,n}$
+#def[性质1] $r(AA_(m times n)) <= min{m,n}$
 
-#def[性质2] (1) $bold(A)_(m times n)$ 中存在一个 $k$ 阶子式不等于 $0$ $=>$ $r(bold(A)_(m times n))>=k$；\
-#deft[性质2] (2) $bold(A)_(m times n)$ 中所有 $k+1$ 阶子式都等于 $0$ $=>$ $r(bold(A)_(m times n))<=k$．
+#def[性质2] (1) $AA_(m times n)$ 中存在一个 $k$ 阶子式不等于 $0$ $=>$ $r(AA_(m times n))>=k$；\
+#deft[性质2] (2) $AA_(m times n)$ 中所有 $k+1$ 阶子式都等于 $0$ $=>$ $r(AA_(m times n))<=k$．
 
-#def[性质3] 当 $bold(A)$ 为 $n$ 阶方阵时：\
-#deft[性质3] $|bold(A)|!=0 <=> r(bold(A)_(n times n))=n$（称 $bold(A)$ 为满秩矩阵 / 非奇异矩阵）\
-#deft[性质3] $|bold(A)|=0 <=> r(bold(A)_(n times n))<n$（称 $bold(A)$ 为降秩矩阵 / 奇异矩阵）
+#def[性质3] 当 $AA$ 为 $n$ 阶方阵时：\
+#deft[性质3] $|AA|!=0 <=> r(AA_(n times n))=n$（称 $AA$ 为满秩矩阵 / 非奇异矩阵）\
+#deft[性质3] $|AA|=0 <=> r(AA_(n times n))<n$（称 $AA$ 为降秩矩阵 / 奇异矩阵）
 
-#def[性质4] $r(bold(A)_(m times n))=k <=>$ $bold(A)$ 中至少存在一个 $k$ 阶子式不为 $0$ 且 $bold(A)$ 中所有 $k+1$ 阶子式均为 $0$．
+#def[性质4] $r(AA_(m times n))=k <=>$ $AA$ 中至少存在一个 $k$ 阶子式不为 $0$ 且 $AA$ 中所有 $k+1$ 阶子式均为 $0$．
 
 #def[性质5] 矩阵的初等变换不改变矩阵的秩．
 

@@ -98,15 +98,6 @@ $
 
 == 常用性质及结论
 
-#table(
-  columns: 7,
-  inset: 10pt,
-  align: center,
-	[$AA$], [$a AA + b EE$], [$f(AA)$], [$AA^(-1)$], [$AA^*$], [$AA^TT$], [$bold(P)^(-1) AA bold(P)$],
-	[*特征值*], [$a lambda + b$], [$f(lambda)$], [$1/lambda$], [$1/lambda abs(AA)$], [$lambda$], [$lambda$],
-	[*特征向量*], [$x$], [$x$], [$x$], [$x$], [无关系], [$bold(P)^(-1) x$], 
-)
-
 #def[性质1]1. $display(sum_(i=1)^n a_(i i) = sum_(i=1)^n lambda_i = tr(AA))$．
 
 #deft[性质1]2. $display(product_(i=1)^n lambda_i = |AA|)$．
@@ -145,6 +136,16 @@ $
 $ dim V_(lambda_1) + dim V_(lambda_2) + dots.c + dim V_(lambda_s) = r_1 + r_2 + dots.c + r_s <= n $
 
 #def[性质4]$dim V_(lambda_i) = n - r(lambda_i EE - AA) <= n_i$，其中 $n_i$ 是特征值 $lambda_i$ 作为特征多项式零点的重数．我们称 $dim V_(lambda_i)$ 为特征值 $lambda_i$ 的 *几何重数*，$n_i$ 为特征值 $lambda_i$ 的 *代数重数*．
+
+#def[性质5]设 $AA$ 的某特征向量 $x$ 对应的特征值为 $lambda$，则满足（反过来不成立）：
+#table(
+  columns: 7,
+  inset: 10pt,
+  align: center,
+	[$AA$], [$a AA + b EE$], [$f(AA)$], [$AA^(-1)$], [$AA^*$], [$AA^TT$], [$bold(P)^(-1) AA bold(P)$],
+	[*特征值*], [$a lambda + b$], [$f(lambda)$], [$1/lambda$], [$1/lambda abs(AA)$], [$lambda$], [$lambda$],
+	[*特征向量*], [$x$], [$x$], [$x$], [$x$], [无关系], [$bold(P)^(-1) x$], 
+)
 
 #def[推论4.1]$r(AA) >= AA "的非零特征值个数"$．
 
@@ -231,7 +232,9 @@ $
 
 #def[定理]（矩阵可对角化的充要条件）$AA$ 可对角化
 
-#deft[定理]$<==>$ $AA$ 存在 $n$ 个线性无关的特征向量 $seqn(alpha,n)$．
+#deft[定理]$<==>$ $AA$ 与 $PP$ 上的某个对角矩阵相似。
+
+#deft[定理]$<==>$ $AA$ 在 $PP^n$ 中有 $n$ 个线性无关的特征向量 $seqn(alpha,n)$．
 
 #deft[定理]$<==>$ $AA$ 的不同特征值的特征解空间的维数之和为 $n$．
 
@@ -265,7 +268,11 @@ $
 	#def[证明]由于 $AA!=OO$，故 $r(AA)>=1$，故 $AA$ 的唯一特征解空间 $dim W_0<=n-1$，不可相似对角化。
 ]
 
-#def[结论2]$seqn(AA,s) in PP^n$，$display(sum_(i=1)^n AA_i = EE)$ 且 $AA_i sp (1<=i<=n)$ 是幂等矩阵，则 $display(sum_(i=1)^n r(AA_i) = n)$．
+#def[结论2]幂等矩阵的迹等于它的秩 $==>$ $seqn(AA,s) in PP^n$，$display(sum_(i=1)^n AA_i = EE)$ 且 $AA_i sp (1<=i<=n)$ 是幂等矩阵，则 $display(sum_(i=1)^n r(AA_i) = n)$．
+
+#prof[
+	#def[证明]由幂等矩阵的特征值只有 $0$ 或 $1$，且相似对角化不改变矩阵的秩，故幂等矩阵的秩与迹相同。再考虑将等式两边同时取 $tr$ 并相加，可以得到结论。
+]
 
 #def[结论3]设 $AA in PP^(n times n)$，若 $forall beta in PP^n$，$beta$ 均为 $AA$ 的特征向量，则 $AA$ 必是一个数量矩阵．
 
@@ -282,7 +289,19 @@ $
 #def[性质1]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的所有特征值、特征向量都是实的．
 
 #prof[
-	#def[证明]
+	#def[证明]设 $AA = AA^TT in RR^(n times n)$，若 $lambda$ 为 $AA$ 在 $CC$ 中的一个特征值，$xi = vecn(a,n)^TT in CC^n$ 为 $AA$ 的属于 $lambda$ 的特征向量（$xi!=theta$），令 $abs(xi) = display(sum_(i=1)^n abs(a_i)^2)$（这里的 $abs(sp dot sp)$ 表示复数的模长），则：
+	$
+	overline(xi) AA xi
+	= lambda overline(xi)^TT xi
+	= lambda |xi|^2\
+	overline(xi) AA xi
+	= (AA^TT overline(xi))^TT xi
+	= (AA overline(xi))^TT xi
+	= (overline(AA xi))^TT xi
+	= (overline(lambda xi))^TT xi
+	= overline(lambda) abs(xi)^2\
+	$
+  由 $xi$ 是非零向量知 $abs(xi)^2 != 0$，故 $lambda=overline(lambda)$，即 $lambda$ 必须是实数。
 ]
 
 #def[性质2]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 的属于不同特征根的特征向量必正交．
@@ -299,12 +318,16 @@ $
 
 #def[性质3]设 $AA in AA^TT in RR^(n times n)$，则 $AA$ 任一特征值的代数重数 $t$ 一定等于几何重数 $k$．
 
-#def[定理]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 一定可相似对角化．且这个矩阵是正交矩阵，即存在正交矩阵 $bold(U)$ 使得
+#def[定理]设 $AA = AA^TT in RR^(n times n)$，则 $AA$ 一定可相似对角化．且存在正交矩阵 $bold(U)$ 使得
 $
 bold(U)^TT AA bold(U) = bold(U) AA bold(U)^TT = diag(lambda_1,lambda_2,dots.c,lambda_n)
 $
 
-如何求 $bold(U)$？分别对每个特征线性方程组的解向量组做 Schmid 正交单位化．
+#note[
+	#def[思考]如何求 $bold(U)$？
+
+	可以分别对每个特征线性方程组的解向量组做 Schmid 正交单位化．
+]
 
 #def[结论1]若实矩阵 $AA$ 正交相似于对角阵 $bold(D)$，则 $AA$ 必对称．
 
