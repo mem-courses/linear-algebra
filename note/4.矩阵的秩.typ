@@ -69,7 +69,7 @@
 #prof[
   #def[证明]由已知，存在可逆矩阵 $bold(P)_i,bold(Q)_i sp (i,j=1,2)$ 使 $AA=bold(P)_1 display(mat(EE_r,OO;OO,OO)) bold(Q)_1,sp BB=bold(P)_2 display(mat(EE_s,OO;OO,OO)) bold(Q)_2$．
 
-  则有：$bold(P G Q) = display(mat(bold(P)_1,OO;OO,bold(P)_2)) display(mat(AA,OO;OO,BB)) display(mat(bold(Q)_1,OO;OO,bold(Q)_2)) = display(mat(bold(P)_1 AA bold(Q)_1,OO; OO,bold(P)_2 BB bold(Q)_2)) = display(mat(EE_r,OO,OO,OO;OO,OO,OO,OO;OO,OO,EE_s,OO;OO,OO,OO,OO))$．
+  则有：$bold(P G Q) = display(mat(bold(P)_1^(-1),OO;OO,bold(P)_2^(-1))) display(mat(AA,OO;OO,BB)) display(mat(bold(Q)_1^(-1),OO;OO,bold(Q)_2^(-1))) = display(mat(bold(P)_1^(-1) AA bold(Q)_1^(-1),OO; OO,bold(P)_2^(-1) BB bold(Q)_2^(-1))) = display(mat(EE_r,OO,OO,OO;OO,OO,OO,OO;OO,OO,EE_s,OO;OO,OO,OO,OO))$．
 
   所以 $r(bold(G)) = r(AA) + r(BB)$．
 ]

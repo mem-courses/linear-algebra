@@ -16,7 +16,12 @@ header_snippet = '''
 reset_snippet = '''
 #let alpha = math.alpha
 #let beta = math.beta
+#let gamma = math.gamma
+#let theta = math.theta
+#let eta = math.eta
+#let nu = math.nu
 #let xi = math.xi
+#let Lambda = math.Lambda
 '''
 
 def process(content):

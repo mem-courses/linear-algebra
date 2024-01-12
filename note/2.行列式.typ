@@ -145,30 +145,31 @@ $
 === “箭形”行列式
 
 $
-D_n = mat(
+D_n &= mat(
   x_1,1,1,dots.c,1;
   1,x_2,0,dots.c,0;
   1,0,x_3,dots.c,0;
   dots.v,dots.v,dots.v,,dots.v;
   1,0,0,dots.c,x_n;
-) = mat(
+) = product_(i=2)^n x_i mat(
   x_1,1/x_2,1/x_3,dots.c,1/x_n;
   1,1,0,dots.c,0;
   1,0,1,dots.c,0;
   dots.v,dots.v,dots.v,,dots.v;
   1,0,0,dots.c,1;
-) = mat(
-  x_1-sum_(i=2)^n x_i,1/x_2,1/x_3,dots.c,1/x_n;
+)\ &= product_(i=2)^n x_i mat(
+  x_1-sum_(i=2)^n 1/(x_i),1/x_2,1/x_3,dots.c,1/x_n;
   0,1,0,dots.c,0;
   0,0,1,dots.c,0;
   dots.v,dots.v,dots.v,,dots.v;
   0,0,0,dots.c,1;
-) = x_1-sum_(i=2)^n x_i
+) = (product_(i=2)^n x_i)(x_1-sum_(i=2)^n 1/(x_i))
 $
 
 === “两三角形”行列式
 
 对角线上方元素均为 $a$，下方元素均为 $b$，对角线上元素全为 $x_1,x_2,dots.c,x_n$ 的矩阵的行列式．
+
 ==== $a=b$ 的情况
 将第 $i=2,3,dots.c,n$ 行都减去第一行得
 $
