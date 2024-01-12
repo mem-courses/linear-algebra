@@ -11,7 +11,7 @@
     number-align: center,
   )
 
-  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 12pt)
+  set text(font: ("New Computer Modern", "Source Han Serif SC", "Simsun"), lang: "zh", size: 11pt)
   show math.equation: set text(weight: 400)
 
   // Set paragraph spacing.

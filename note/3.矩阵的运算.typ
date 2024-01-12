@@ -71,7 +71,7 @@
   #set math.mat(delim: "|")
   #def[证明]记 $|DD| = display(mat(AA, OO; -EE, BB)) = |AA| |BB|$．
 
-  另一方面，对 $DD$ 做初等行变换 $display(C_(n+j)+sum_(i=1)^n b_(i j)C_i\,sp j=1\,2\,dots.c\,n)$，可得 $|DD|=display(mat(AA,CC;-EE,OO))$，其中 $CC=AA BB$．那么有 $|DD| = (-1)^(n^2) |CC| |-EE| = (-1)^(n(n+1)) |CC| = |AA BB|$．
+  另一方面，对 $DD$ 做初等列变换 $display(R_(n+j)+sum_(i=1)^n b_(i j)R_i\,sp j=1\,2\,dots.c\,n)$，可得 $|DD|=display(mat(AA,CC;-EE,OO))$，其中 $CC=AA BB$．那么有 $|DD| = (-1)^(n^2) |CC| |-EE| = (-1)^(n(n+1)) |CC| = |AA BB|$．
 
   因此证得 $|AA BB| = |AA| |BB|$．
 ]
