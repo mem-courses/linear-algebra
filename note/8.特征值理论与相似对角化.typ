@@ -261,6 +261,10 @@ $
 
 #def[结论1.2]幂零矩阵若非零，则必不可对角化．
 
+#prof[
+	#def[证明]由于 $AA!=OO$，故 $r(AA)>=1$，故 $AA$ 的唯一特征解空间 $dim W_0<=n-1$，不可相似对角化。
+]
+
 #def[结论2]$seqn(AA,s) in PP^n$，$display(sum_(i=1)^n AA_i = EE)$ 且 $AA_i sp (1<=i<=n)$ 是幂等矩阵，则 $display(sum_(i=1)^n r(AA_i) = n)$．
 
 #def[结论3]设 $AA in PP^(n times n)$，若 $forall beta in PP^n$，$beta$ 均为 $AA$ 的特征向量，则 $AA$ 必是一个数量矩阵．
