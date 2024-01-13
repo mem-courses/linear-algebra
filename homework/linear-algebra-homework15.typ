@@ -47,8 +47,15 @@
 	) $
 	是一个正定矩阵。
 ]
+容易求出其顺序主子式的通项公式从而证明。
+
 = P152 习题六 34
 #prob[已知 $AA = (a_(i j))_(n times n)$ 是正定矩阵，证明：$a_(i i)>0,sp i=1,2,dots.c,n$。]
+因为 $AA$ 是正定矩阵，故 $AA$ 的所有主子式都是正的。即
+$
+(-1)^(i+i) a_(i i) > 0 sp ==> sp a_(i i) > 0
+$
+
 = P152 习题六 35
 #prob[
 	设 $AA = (a_(i j))_(n times n)$ 是一个实对称矩阵，证明：
@@ -61,11 +68,20 @@
 = P152 习题六 38
 #prob[
 	设 $AA,BB$ 是实对称矩阵，证明：
+
 	(1) 当实数 $t$ 充分大时，$t EE + AA$ 正定。
 ]
 #prob[(2) 若 $AA$ 正定，则 $AA^(-1)$ 正定。]
+由于 $AA$ 是正定矩阵，故存在可逆矩阵 $BB$ 使得 $AA = BB^TT BB$。那么：
+$
+AA^(-1) = (BB^TT BB)^(-1)= BB^(-1) (BB^TT)^(-1) = BB^(-1) (BB^(-1))^TT
+$
+故存在可逆矩阵 $bold(C) = (BB^(-1))^TT$ 使得 $AA^(-1)=bold(C)^TT bold(C)$。故 $AA^(-1)$ 是正定矩阵。
+
 #prob[(3) 若 $AA,BB$ 正定，则 $AA+BB$ 正定。]
 #prob[(4) 若 $AA$ 正定，则 $AA$ 的伴随矩阵 $AA^*$ 正定。]
+由于 $AA$ 正定，故 $AA$ 可逆且 $abs(AA) > 0$。故有 $AA^* = abs(AA) AA^(-1)$。取 $bold(D) = sqrt(abs(AA)) bold(C)$，则 $AA^* = bold(D)^TT bold(D)$，故 $AA^*$ 是正定矩阵。
+
 = P152 习题六 39
 #prob[
 	设 $AA = (a_(i j))_(n times n)$ 是一个实矩阵，且对任意的 $1<=i<=n$，有 $2 a_(i i) > display(sum_(j=1)^n |a_(i j)|)$，证明：
