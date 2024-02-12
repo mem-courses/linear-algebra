@@ -151,6 +151,6 @@ TBD
 
 $bold(A X) = beta$ 的任意解，$bold(X) = xi_0 + (t_1 xi_1 + t_2 xi_2 + dots.c + t_(n-r) xi_(n-r))$．其中 $xi_0$ 是 $bold(A X) = beta$ 的某个特解，$seqn(xi,n-r)$ 是 $bold(A X) = theta$ 的基础解系．
 
-=== 例题
+// === 例题
 
-01:29:42
+// 01:29:42

@@ -152,7 +152,7 @@ $
 
 #deft[定理] (2) 若 $V$ 中的一组标准正交基 (I) 到另一组基 (II) 的过渡矩阵为正交矩阵，那么 (II) 也是标准正交基．
 
-#prof[12月11日习题课 25:48]
+// #prof[12月11日习题课 25:48]
 
 === 标准正交基的作用
 
@@ -196,8 +196,8 @@ $
 
 令 $eta_j = display((beta_j)/(||beta_j||)) sp (j=1,2,dots.c,s)$，则 $seqn(eta,s)$ 是 $V$ 的一组标准正交基．
 
-#warn[
-  例题 TBD
-  01:55:00
-  https://classroom.zju.edu.cn/livingroom?course_id=56584&sub_id=1036865&room_id=316&tenant_code=112&sub_public=1
-]
+// #warn[
+//   例题 TBD
+//   01:55:00
+//   https://classroom.zju.edu.cn/livingroom?course_id=56584&sub_id=1036865&room_id=316&tenant_code=112&sub_public=1
+// ]
